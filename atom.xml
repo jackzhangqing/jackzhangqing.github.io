@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Qzhang</title>
+  
+  <subtitle>奔赴山海, 保持热爱</subtitle>
+  <link href="https://jackzhangqing.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://jackzhangqing.github.io/"/>
+  <updated>2023-09-02T08:36:40.621Z</updated>
+  <id>https://jackzhangqing.github.io/</id>
+  
+  <author>
+    <name>Qzhang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>发文章</title>
+    <link href="https://jackzhangqing.github.io/2023/09/02/%E5%8F%91%E6%96%87%E7%AB%A0/"/>
+    <id>https://jackzhangqing.github.io/2023/09/02/%E5%8F%91%E6%96%87%E7%AB%A0/</id>
+    <published>2023-09-02T08:11:49.000Z</published>
+    <updated>2023-09-02T08:36:40.621Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Nature-Science&quot;&gt;&lt;a href=&quot;#Nature-Science&quot; class=&quot;headerlink&quot; title=&quot;Nature Science&quot;&gt;&lt;/a&gt;Nature Science&lt;/h2&gt;</summary>
+      
+    
+    
+    
+    <category term="学术界" scheme="https://jackzhangqing.github.io/categories/%E5%AD%A6%E6%9C%AF%E7%95%8C/"/>
+    
+    <category term="论文-" scheme="https://jackzhangqing.github.io/categories/%E5%AD%A6%E6%9C%AF%E7%95%8C/%E8%AE%BA%E6%96%87/"/>
+    
+    
+    <category term="Academe" scheme="https://jackzhangqing.github.io/tags/Academe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Scala官方文档</title>
+    <link href="https://jackzhangqing.github.io/2023/09/02/Scala%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"/>
+    <id>https://jackzhangqing.github.io/2023/09/02/Scala%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</id>
+    <published>2023-09-02T07:59:17.000Z</published>
+    <updated>2023-09-02T08:35:57.754Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.介绍&quot;&gt;&lt;/a&gt;1.介绍&lt;/h2&gt;&lt;h3 id=&quot;1-什么是Scala&quot;&gt;&lt;a href=&quot;#1-什么是Scala&quot; class=&quot;headerlink&quot; titl</summary>
+      
+    
+    
+    
+    <category term="工业界" scheme="https://jackzhangqing.github.io/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/"/>
+    
+    <category term="大数据高级开发Spark" scheme="https://jackzhangqing.github.io/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91Spark/"/>
+    
+    
+    <category term="Scala文档" scheme="https://jackzhangqing.github.io/tags/Scala%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>32个经典算法</title>
+    <link href="https://jackzhangqing.github.io/2023/09/02/32%E4%B8%AA%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/"/>
+    <id>https://jackzhangqing.github.io/2023/09/02/32%E4%B8%AA%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/</id>
+    <published>2023-09-02T07:49:41.000Z</published>
+    <updated>2023-09-02T08:07:40.844Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+      
+    
+    
+    
+    <category term="工业界" scheme="https://jackzhangqing.github.io/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/"/>
+    
+    <category term="数据结构与算法" scheme="https://jackzhangqing.github.io/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="经典算法" scheme="https://jackzhangqing.github.io/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>冒泡排序算法思想</title>
+    <link href="https://jackzhangqing.github.io/2023/09/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/"/>
+    <id>https://jackzhangqing.github.io/2023/09/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/</id>
+    <published>2023-09-02T06:48:13.000Z</published>
+    <updated>2023-09-02T08:10:32.801Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;冒泡排序算法是把较小的元素往前调或者把较大的元素往后调。这种方法主要是通过对相邻两个元素进行大小的比较，根据比较结果和算法规则对该二元素的位置进行交换，这样逐个依次进行比较和交换，就能达到排序目的。冒泡排序的基本思想是，首先将第1个和第2个记录的关键字比较大小，如果是逆序的</summary>
+      
+    
+    
+    
+    <category term="工业界" scheme="https://jackzhangqing.github.io/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/"/>
+    
+    <category term="数据结构与算法" scheme="https://jackzhangqing.github.io/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="冒泡排序" scheme="https://jackzhangqing.github.io/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeteCode Solution Overview</title>
+    <link href="https://jackzhangqing.github.io/2023/09/02/LeteCode-Solution-Overview/"/>
+    <id>https://jackzhangqing.github.io/2023/09/02/LeteCode-Solution-Overview/</id>
+    <published>2023-09-02T05:20:49.000Z</published>
+    <updated>2023-09-02T08:10:30.609Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/weixin_44232942/article/details/106457056&quot;&gt;LeteCode 解题总览&lt;/a&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="找工作" scheme="https://jackzhangqing.github.io/categories/%E6%89%BE%E5%B7%A5%E4%BD%9C/"/>
+    
+    <category term="面试" scheme="https://jackzhangqing.github.io/categories/%E6%89%BE%E5%B7%A5%E4%BD%9C/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="LeteCode" scheme="https://jackzhangqing.github.io/tags/LeteCode/"/>
+    
+  </entry>
+  
+</feed>
