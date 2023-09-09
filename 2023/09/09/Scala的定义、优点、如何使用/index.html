@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jackzhangqing.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.scala是什么 1.1定义      1.scala是一门编程语言      2.多范式的编程语言          面向对象编程          面向函数式编程       3.支持多平台的编程语言           JVM  .NET 浏览器(JS)      4.可扩展编程语言scalable language           Scala语言写出来的程序具有很灵活的可扩展性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala的定义、优点、如何使用">
+<meta property="og:url" content="https://jackzhangqing.github.io/2023/09/09/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Qzhang">
+<meta property="og:description" content="1.scala是什么 1.1定义      1.scala是一门编程语言      2.多范式的编程语言          面向对象编程          面向函数式编程       3.支持多平台的编程语言           JVM  .NET 浏览器(JS)      4.可扩展编程语言scalable language           Scala语言写出来的程序具有很灵活的可扩展性">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-09T10:20:58.000Z">
+<meta property="article:modified_time" content="2023-09-09T10:23:41.252Z">
+<meta property="article:author" content="Qzhang">
+<meta property="article:tag" content="Scala的定义、优点、如何使用">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://jackzhangqing.github.io/2023/09/09/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Scala的定义、优点、如何使用 | Qzhang</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Qzhang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Qzhang</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">奔赴山海, 保持热爱</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/luumod" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jackzhangqing.github.io/2023/09/09/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qzhang">
+      <meta itemprop="description" content="痛点才是奋斗点~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qzhang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Scala的定义、优点、如何使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-09 18:20:58 / 修改时间：18:23:41" itemprop="dateCreated datePublished" datetime="2023-09-09T18:20:58+08:00">2023-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/" itemprop="url" rel="index"><span itemprop="name">工业界</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91Spark/" itemprop="url" rel="index"><span itemprop="name">大数据高级开发Spark</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>1.scala是什么</p>
+<pre><code>1.1定义
+
+    1.scala是一门编程语言
+
+    2.多范式的编程语言
+
+        面向对象编程
+
+        面向函数式编程 
+
+    3.支持多平台的编程语言 
+
+        JVM  .NET 浏览器(JS)
+
+    4.可扩展编程语言scalable language 
+
+        Scala语言写出来的程序具有很灵活的可扩展性
+
+        举例:
+
+            1.Tuple 元组:元组用来存在不同类型的数据
+
+            2.trait 特质:相当于java里的接口，只是它允许有方法体，并且可以在类实例化的时候混入，而不用修改原代码。
+
+trait Logger&#123;
+
+    def log(msg:String)=&#123;
+
+        val  fos:FileOutputStream=new FileOutputStream(new File(&quot;path&quot;));
+
+        fos.write(msg.getBytes());
+
+        fos.flush();
+
+        fos.close();
+
+    &#125;
+
+&#125;
+
+//1.
+
+//study()
+
+val stu1=new Student();
+
+stu1.study();
+
+//2.study() log()日志记录
+
+val stu2=new Student() with  Logger;
+
+stu2.log(&quot;....&quot;)
+
+1.2函数式编程
+
+    1）函数式编程是种编程方式，它将电脑运算视为函数的计算。函数编程语言最重要的基础是λ演算(lambda calculus),而且λ演算的函数可以接受函数当作输入(参数)和输出(返回值)。
+
+    简单说，&quot;函数式编程&quot;是一种&quot;编程范式&quot;（programming paradigm），也就是如何编写程序的方法论。
+
+    它属于&quot;结构化编程&quot;的一种，主要思想是把运算过程尽量写成一系列嵌套的函数调用。
+
+    举例:
+
+        (1+2)/3
+
+        (1.+(2))./(3)
+
+        //stu.setName().setAge().setPhone()
+
+        val lastData=data.filter(过滤条件/函数).map(转化);
+
+    2）函数式编程一般都包括以下特性 
+</code></pre>
+<p>   1.支持高阶函数 </p>
+<p>   2.支持 闭包</p>
+<pre><code>def add(a:Int,b:Int):Int=&#123;a+b&#125;
+
+def add(a:Int):Int=&gt;Int=&#123;
+
+    (b:Int)=&gt;a+b
+
+&#125;
+
+//柯里化函数
+
+def add(a:Int)(b:Int)=&#123;a+b&#125;
+
+val f1=add(2);//a=2
+
+val value1=f1(3);//b=3 
+</code></pre>
+<p>   3.支持类型推断 </p>
+<p>   4.尽可能编写”纯函数” foreach</p>
+<pre><code>            1.无副作用 无IO操作，不改变状态
+
+            2.引用透明 同一函数，传递相同参数，必然返回同一个结果。
+
+    3.函数式编程优点
+</code></pre>
+<p>      1）代码简洁,开发快速</p>
+<p>      2）接近自然语言,易于理解</p>
+<pre><code>            函数式编程的自由度很高，可以写出很接近自然语言的代码。
+</code></pre>
+<p>          将表达式(1 + 2) * 3 - 4，写成函数式语言：</p>
+<p>                      subtract(multiply(add(1,2), 3), 4)</p>
+<p>          对它进行变形，不难得到另一种写法：</p>
+<p>                    add(1,2).multiply(3).subtract(4)</p>
+<p>       3）更方便的代码管理</p>
+<p>           函数式编程不依赖、也不会改变外界的状态，只要给定输入参数，返回的结果必定相同。因此，每一个函数都可以被看做独立单元，很有利于进行单元测试（unit testing）和除错（debugging），以及模块化组合。</p>
+<p>        4）易于”并发编程”</p>
+<p>          函数式编程不需要考虑”死锁”（deadlock），因为它不修改变量，所以根本不存在”锁”线程的问题。不必担心一个线程的数据，被另一个线程修改，所以可以很放心地把工作分摊到多个线程，部署”并发编程”（concurrency）。</p>
+<pre><code>            多核CPU是将来的潮流，所以函数式编程的这个特性非常重要。
+</code></pre>
+<p>       5）代码的热升级</p>
+<p>          函数式编程没有副作用，只要保证接口不变，内部实现是外部无关的。所以，可以在运行状态下直接升级代码，不需要重启，也不需要停机。Erlang语言早就证明了这一点，它是瑞典爱立信公司为了管理电话系统而开发的，电话系统的升级当然是不能停机的。</p>
+<pre><code>    4.Scala函数式编程的特性feature
+
+        柯里化函数
+
+        部分应用函数
+
+        偏函数
+
+        抽象控制
+</code></pre>
+<p>2.为什么学习Scala（scala的优点）</p>
+<pre><code>Spark 
+
+    Scala/Java/R/Python/SQL	
+
+1.可扩展性
+
+2.兼容Java
+
+    可以与java无缝结合，可以直接调用java类，可以互相转化
+
+    String IO
+
+3.语法简洁
+
+    代码行短
+
+    类型推断
+
+    抽象控制 class  do while 
+
+4.静态类型语言 Java Scala
+
+    编译(时确定变量类型)检查
+
+5.支持并发控制
+
+    采用akka Actor模型，更好的处理并发问题
+
+    Java中并发处理是Thread,但是线程特别容易造成资源竞争问题，我们可以通过加锁的方式解决竞争问题，但是随之可能会造成死锁等问题，处理起来比较繁琐。
+
+    Actor模型与传统模型不一样，它很好的解决了资源竞争和死锁的问题，
+
+    我们可以把一个由actor模型实现的并发程序看成一个星系，每个星球就是一个actor,每个actor之间不共享资源，但是每个星球都有一个类似于信箱的东西，用来和不同的actor之间进行信息交流，它会按照信件的先后顺序依次处理信息，根据信息类型触发不同的行为。同时，每个星球可以异步给其他星球发送信息，也就是它发送消息之后，不需要等待回复消息，而是继续它自己的操作。
+</code></pre>
+<p>3.如何学习</p>
+<pre><code>1.基础语法
+</code></pre>
+<p>         1.REPL交互式解析器</p>
+<p>         2.声明定义</p>
+<p>             变量&#x2F;方法&#x2F;类&#x2F;对象&#x2F;特质&#x2F;类型</p>
+<p>          3.主程序入口</p>
+<p>          4.表达式</p>
+<p>             if 块&#x2F;复合表达式</p>
+<p>          5.循环</p>
+<p>             do&#x2F;while for–&gt;for推导</p>
+<p>          6.包与包对象</p>
+<pre><code>2.高级特性
+</code></pre>
+<p>          1.面向对象编程</p>
+<p>              类&#x2F;对象&#x2F;伴生对象&#x2F;样例类&#x2F;抽象类&#x2F;特质</p>
+<p>              继承&#x2F;重写&#x2F;重载</p>
+<p>          2.容器集合</p>
+<p>                数组&#x2F;数组缓冲&#x2F;元组&#x2F;Map&#x2F;Seq&#x2F;Set</p>
+<pre><code>    3.模式匹配
+
+    4.函数式编程
+
+        函数/高阶函数/柯里化函数/部分应用函数/偏函数/控制抽象
+
+    5.类型系统
+
+        泛型/类型界定/类型约束
+
+    6.隐式操作/转化
+
+        隐式方法/类/对象/参数/值	
+</code></pre>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Qzhang 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Qzhang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jackzhangqing.github.io/2023/09/09/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/" title="Scala的定义、优点、如何使用">https://jackzhangqing.github.io/2023/09/09/Scala的定义、优点、如何使用/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/" rel="tag"># Scala的定义、优点、如何使用</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/09/09/Scala%E8%AF%AD%E8%A8%80%E7%BB%AA%E8%AE%BA/" rel="prev" title="Scala语言绪论">
+      <i class="fa fa-chevron-left"></i> Scala语言绪论
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/09/1-Scala%E4%B9%8B%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="next" title="Scala之基础语法1">
+      Scala之基础语法1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qzhang"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qzhang</p>
+  <div class="site-description" itemprop="description">痛点才是奋斗点~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackzhangqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackzhangqing" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jackcodingqing@gmail.com" title="E-Mail → mailto:jackcodingqing@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://m.weibo.cn/" title="Weibo → https:&#x2F;&#x2F;m.weibo.cn&#x2F;" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.csdn.net/" title="https:&#x2F;&#x2F;www.csdn.net&#x2F;" rel="noopener" target="_blank">CSDN</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+
+     <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-08 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qzhang</span>
+</div>
+  <div class="powered-by">
+    <!--由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动 -->
+  </div>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+});
+</script> 
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2023 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jackzhangqing.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.集合  1.集合分为： 序列 集 映射          	  Traversable(Trait)          |            Iterable(Trait)         ———————————————————————————-      |                 |                  |      Seq           Set">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala之集合容器4">
+<meta property="og:url" content="https://jackzhangqing.github.io/2023/09/09/4-Scala%E4%B9%8B%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:site_name" content="Qzhang">
+<meta property="og:description" content="1.集合  1.集合分为： 序列 集 映射          	  Traversable(Trait)          |            Iterable(Trait)         ———————————————————————————-      |                 |                  |      Seq           Set">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-09T10:29:30.000Z">
+<meta property="article:modified_time" content="2023-09-09T10:32:52.269Z">
+<meta property="article:author" content="Qzhang">
+<meta property="article:tag" content="Scala之集合容器">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://jackzhangqing.github.io/2023/09/09/4-Scala%E4%B9%8B%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Scala之集合容器4 | Qzhang</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Qzhang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Qzhang</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">奔赴山海, 保持热爱</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/luumod" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jackzhangqing.github.io/2023/09/09/4-Scala%E4%B9%8B%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qzhang">
+      <meta itemprop="description" content="痛点才是奋斗点~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qzhang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Scala之集合容器4
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-09 18:29:30 / 修改时间：18:32:52" itemprop="dateCreated datePublished" datetime="2023-09-09T18:29:30+08:00">2023-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/" itemprop="url" rel="index"><span itemprop="name">工业界</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91Spark/" itemprop="url" rel="index"><span itemprop="name">大数据高级开发Spark</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>16 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>1.集合 </p>
+<pre><code>1.集合分为： 序列 集 映射
+         	  Traversable(Trait) 
+</code></pre>
+<p>       |</p>
+<pre><code>           Iterable(Trait)   
+
+    ———————————————————————————-
+
+    |                 |                  |
+
+    Seq           Set          Map(Trait/object)
+
+2.Seq 是一个有先后次序的值得序列,允许存放重复元素。
+
+    2.1整体上分为：索引序列IndexedSeq,线性序列(链表)LinearSeq.
+
+   			         		   Seq
+
+       ———————————————————————————————————————————————-
+
+       |                                |                          |
+
+    IndexedSeq           Buffer          LinearSeq 
+
+       |            |            |
+
+    Array Vector Range     		|          			List LinkedList  
+
+        String StringBulid   ArrayBuffer   		Queue Stack Stream View
+
+             				 ListBuffer
+
+    IndexSeq索引序列：允许我们通过整型的下标快速访问任意元素，如ArrayBuffer是带下标的。
+
+    LinearSeq线性序列：被分为了头尾部分，并且用head，tail和isEmpty方法等。
+
+    注意：Array其实不是真正的序列，是通过将Array包装成WrappedArray(mutable)，才可以像集合一样使用。
+
+    arr.
+
+    buffer.
+
+3.Set是一组没有重复元素的集合。
+
+                Set
+
+    ———————————————————————————
+
+    |              |             |            |
+
+    BitSet HashSet ListSet SortedSet
+</code></pre>
+<p>     |</p>
+<pre><code>                    		TreeSet
+
+    在SortedSet中，元素以某种排过序的顺序被访问。
+
+4.Map是一组（K,V）对偶，其中键必须是唯一的。
+
+                Map
+
+      —————————————————————————————————
+
+      |                         |                   |               |
+
+    HashMap LinkedListMap ListMap SortedMap
+</code></pre>
+<p>      |</p>
+<pre><code>                                   TreeMap
+
+    SortedMap按照键的排序访问。
+
+5.每个Scala集合特质或类，都有一个带有apply方法的伴生对象，这个apply方法可以用来构建该集合中的实例。 
+
+  eg: 
+
+    Iterable(0xFF, 0xFF00, 0xFF0000)  
+
+    Seq(color.RED, color.GREEN, Color.BLUE)  
+
+    Map(color.RED -&gt; -0xFF0000, Color.GREEN -&gt; 0xFF00, Color.BLUE -&gt; 0xFF)  
+
+    SortedSet(&quot;Hello&quot; , &quot;World&quot;) 
+</code></pre>
+<p>2.Seq的一些具体实现类</p>
+<pre><code>2.1序列
+
+    Vector是ArrayBuffer的不可变版本，一个带下标的序列，支持快捷的随机访问，以树形结构的形式实现。  
+
+    Range表示一个整数序列，只存储 起始值，结束值和增值， 用 to 和 until 方法来构造Range对象。
+
+2.2列表
+
+    列表要么是Nil(空表)，要么是一个head元素和一个tail，tail又是一个列表。  
+
+    val digits = List(4,2)  
+
+    digits.head //4  
+
+    digits.tail //List(2)  
+
+    digits.tail.head // 2  
+
+    digits.tail.tail //Nil  
+
+    :: 操作符从给定的头和尾创建一个新的列表。  
+
+    9 :: List(4,2) // List(9,4,2)  
+
+    9 :: 4 :: 2 :: Nil  // :: 是右结合，列表从末端开始构建  
+
+    9 :: ( 4 :: (2 :: Nil ) )  
+
+    求和，除了遍历外，可以用 递归 模式匹配  
+
+    def sum(lst : List[Int]): Int =   
+
+      if( lst == Nil) 0 else lst.head + sum(lst.tail)  
+
+    def sum(lst:List[Int]): Int = lst match&#123;  
+
+      case Nil =&gt; 0  
+
+      case h :: t =&gt; h+sum(t) // h 是 lst.head， 而t是lst.tail, ::将列表&quot;析构&quot;成头部和尾部  
+
+    &#125;  
+
+    直接使用List的方法  
+
+    List(9,4,2).sum  
+
+2.3可变列表ListBuffer
+
+    LinkedList, elem指向当前值，next指向下一个元素  
+
+    DoubleLinkedList多带一个prev 
+
+    例1:将所有负值改为0   
+
+        val lst = scala.collection.mutable.LinkedList(1,-2,7,-9)  
+
+        var cur = lst  
+
+        while(cur != Nil)&#123;  
+
+          if(cur.elem&lt;0) cur.elem = 0  
+
+          cur = cur.next  
+
+        &#125; // (1,0,7,0)
+
+    例2: 去除每两个元素中的一个  
+
+        var cur = lst   
+
+        while(cur != Nil &amp;&amp; cur.next != Nil)&#123;  
+
+          cur.next = cur.next.next  
+
+          cur = cur.next  
+
+        &#125;
+
+    注：当要把某个节点变为列表中的最后一个节点，不能讲next 设为Nil 或 null, 而将它设为LinkedList.empty。  
+</code></pre>
+<p>3.Set的一些具体实现类</p>
+<pre><code>3.1 HashSet 不重复元素的集合，以哈希集实现，元素根据hashCode方法的值进行组织  
+
+    Set(2,0,1) + 1 // (2,0,1)  
+
+  	HashSet(2,3,0)
+
+3.2 LinkedHashSet，链式哈希集 记住元素被插入的顺序  
+
+    val weekdays = scala.collection.mutable.LinkedHashSet(1,2,3,4)  
+
+3.3 排序的集  
+
+    scala.collection.immutable.SortedSet(1,2,3,4) // 用红黑树实现的  
+
+3.4 位集(bit set), 以一个字位序列的方式存放非负整数，如果集中有i，则第i个字位是1  
+
+    高效的实现，只要最大元素不是特别大。 
+
+    位集合是由单字或多字的紧凑位实现的非负整数的集合。其内部使用Long型数组来表示。第一个Long元素表示的范围为0到63，第二个范围为64到127，以此类推（值为0到127的非可变位集合通过直接将值存储到第一个或第两个Long字段的方式，优化掉了数组处理的消耗）。对于每个Long，如果有相应的值包含于集合中则它对应的位设置为1，否则该位为0。这里遵循的规律是，位集合的大小取决于存储在该集合的最大整数的值的大小。假如N是为集合所要表示的最大整数，则集合的大小就是N/64个长整形字，或者N/8个字节，再加上少量额外的状态信息字节。
+
+    因此当位集合包含的元素值都比较小时，它比其他的集合类型更紧凑。位集合的另一个优点是它的contains方法（成员测试）、+=运算（添加元素）、-=运算（删除元素）都非常的高效。
+
+    BitSet代表一个由小整数构成的容器，这些小整数的值表示了一个大整数被置1的各个位。比如说，一个包含3、2和0的bit集合可以用来表示二进制数1101和十进制数13. (可以通过bit.toBitMask来测试) 1110
+
+    BitSet内部的使用了一个64位long型的数组。数组中的第一个long表示整数0到63，第二个表示64到27，以此类推。所以只要集合中最大的整数在千以内BitSet的压缩率都是相当高的。
+
+    BitSet操作的运行时间是非常快的。查找测试仅仅需要固定时间。向集合内增加一个项所需时间同BitSet数组中long型的个数成正比，但这也通常是个非常小的值。这里有几个关于BitSet用法的例子：
+
+    scala&gt; val bits = scala.collection.immutable.BitSet.empty
+
+    bits: scala.collection.immutable.BitSet = BitSet()
+
+    scala&gt; val moreBits = bits + 3 + 4 + 4
+
+    moreBits: scala.collection.immutable.BitSet = BitSet(3, 4)
+
+    scala&gt; moreBits(3)
+
+    res26: Boolean = true
+
+    scala&gt; moreBits(0)
+
+    res27: Boolean = false
+
+    Scala提供 可变和不可变的两个 BitSet类  
+
+    contains 检查是否包含， subsetOf 检查集的所有元素是否被另一个集包含  
+
+    val digits = Set(1,7,2,9)  
+
+    digits contains 0 // false  
+
+    Set(1,2) subsetOf digits // true  
+
+3.5 集的操作
+
+    合集 union | ++
+
+    交集 intersect &amp;
+
+    差集 diff &amp;~ --
+
+    推荐使用: ++ &amp; --
+</code></pre>
+<p>4.往集合中添加移除元素推荐操作：</p>
+<pre><code>4.1 一般而言，+用于将元素添加到无先后次序的集合，而+:和:+则是将元素添加到有先后次序的集合的开头或末尾。  
+
+    Vector(1,2,3) :+ 5 //Vector(1,2,3,5)  
+
+    1 +: Vector(1,2,3) //Vector(1,1,2,3)   
+
+4.2 以冒号结尾的操作符，+:是右结合的，这些操作符都返回新的集合  
+
+4.3 可变集合有 +=操作符 用于修改左侧操作元  
+
+    val numbers = ArrayBuffer(1,2,3)  
+
+    numbers += 5 // 将 5 添加到 numbers  
+
+4.4 不可变集合，可以在var上使用+=或:+= 
+
+    var numbers = Set(1,2,3)  
+
+    numbers += 5 // numbers 设为不可变的集numbers + 5  
+
+    var numberVector = Vector(1,2,3)  
+
+    numbersVector :+= 5 // 向量没有+操作符，只有:+  
+
+思考: mutable.LinkedList中为什么没有带=号的方法？？？？
+</code></pre>
+<p>5.如何选择一个集合</p>
+<pre><code> 1.根据集合的特点选择其中一种集合。
+
+ 2.想要可变的还是不可变的集合。
+
+ 如何选择Seq集合中的具体类型:
+
+  推荐可以优先采用下边的集合。
+
+     通用的序列集合：
+
+        不可变      可变
+
+    索引：   Vector     ArrayBuffer
+
+    线性链表: List       ListBuffer
+
+      不可变序列集合：
+
+            索引       线性     描述
+
+    List               对      单链表
+
+    Queue              对      先进先出的数据结构
+
+    Range    对                整数值范围
+
+    Stack              对      后进先出
+
+    Stream             对      与链表相似，但是延迟并且持久。适用于大型或无限序列
+
+    String   对                不可变的，索引字符序列
+
+    Vector   对                split和join非常有效率的实现
+
+      可变序列集合：
+
+               		索引        线性     描述
+
+    Array           对                 元素是可变的，但集合长度不可变
+
+    ArrayBuffer     对		   元素可变，集合长度可变
+
+    ArrayStack      对   		   后进先出数据结构。
+
+    DoubleLinkedList            对     单链表，但是有一个prev前置指向
+
+    LinkedList                  对		   可变的单链表
+
+    ListBuffer                  对     像ArrayBuffer,但依靠链表
+
+    Queue                       对	   先进先出
+
+    Stack                       对     后进先出
+
+    StringBuilder   对
+
+ 如何选择Map集合中的具体类型:
+
+    HashMap LinkedHashMap ListMap Map SortedMap TreeMap 
+
+ 如何选择Set集合中的具体类型:
+
+    HashSet LinkedHashSet ListSet TreeSet Set SortedSet BitSet
+</code></pre>
+<p>6.别的集合类（表现像集合一样的类型）</p>
+<pre><code>Enumeration
+
+Iterator
+
+Option  包含一个或零个元素的集合。
+
+Tuple   元组类 Tuple1 到 Tuple22
+</code></pre>
+<p>7.集合类中的通用方法：</p>
+<pre><code>1.过滤方法
+
+    collect drop dropWhile filter filterNot find foldLeft foldRight head headOption init  last lastOption reduceLeft reduceRight remove slice tail take takeWhile union diff intersect distinct等
+
+2.转化方法
+
+    + ++ - — diff distinct collect flatMap map reverse sortWith takeWhile zip zipWithIndex zipAll等
+
+    以及一系列的to****方法，将当前集合转化成其他集合类型（Array,Buffer,Vector等）
+
+3.分组方法
+
+    groupBy partition sliding span splitAt unzip  unzip3 等
+
+4.信息和数学方法
+
+    canEqual contains containsSlice count endsWith exists find forAll hasDefiniteSize indexOf indexOfSlice indexWhere max min nonEmpty product segmentLength size startsWith sum 等
+
+5.其他
+
+    par view  flatten  foreach mkstring 
+
+6.化简 折叠 扫描
+
+    6.1
+
+        reduce
+
+        reduceLeft
+
+        reduceRight
+
+    6.2
+
+        fold
+
+        foldLeft  /:
+
+        foldRight :\
+
+    6.3 scanLeft,scanRight， 得到包含所有中间结果的集合
+
+        scan
+
+        scanLeft
+
+        scalRight
+
+    作业：获取一个字符串中每个字符出现的频次。
+
+        1.for现实
+
+        2.折叠实现
+
+        val freq = scala.collection.mutable.Map[Char, Int]() // 可变映射
+
+ 		for( c &lt;- &quot;Mississippi&quot;)&#123;
+
+ 			freq(c) =freq.getOrElse(c,0)+1 // Map(&#39;i&#39; -&gt;4, &#39;M&#39; -&gt; 1, &#39;s&#39; -&gt; 4, &#39;p&#39; -&gt;2)
+
+ 		&#125;
+
+ 		val map=(Map[Char, Int]() /:&quot;Mississippi&quot;)&#123;(m,c) =&gt; m + (c -&gt; (m.getOrElse(c,0) +1)&#125;
+</code></pre>
+<p>8.Iterator</p>
+<pre><code>相对于集合而言是一个&quot;懒&quot;的替代品，只有在需要时才去取元素，如果不需要更多元素，不会付出计算剩余元素的代价
+
+ 对于那些完整构造需要很大开销的集合，适合用迭代器
+
+ 如Source.fromFile产出一个迭代器，因为整个文件加载进内存不高效。  
+
+     迭代器的两种用法
+
+         while(iter.hasNext) iter.next()
+
+         for(elem &lt;- iter) 对elem操作
+
+ 上述两种循环都会讲迭代器移动到集合末端，不能再被使用，
+
+ 调用 map filter take等转换方法，返回值为集合，因此指针不发生变化。
+
+ 调用 count sum length find方法后，返回值为单个值 迭代器会位于集合的末端，不能使用
+</code></pre>
+<p>9.Stream</p>
+<pre><code>9.1 迭代器每次调用next都会改变指向,如果要缓存之前的值，可以使用流  
+
+9.2 流是一个尾部被懒计算的不可变列表，也就是说只有需要时才计算
+
+ 	def numsForm(n:BigInt) : Stream[BigInt] = n #:: numsForm(n+1) // #:: 操作符 构建出来的是一个流
+
+ 	var tenOrMore = numsForm(10) // Stream(10,?), 其尾部是未被求值得
+
+    tenOrMore.tail.tail.tail // Stream(13,?)
+
+ 	val squares = numsForm(1).map&#123; x=&gt; x*x) // Stream(1,?)
+
+ 9.3 使用force去流强制求值
+
+     squares.take(5).force // Stream(1,4,9,16,25)
+
+     squares.force // 会尝试对一个无穷流的所有成员求值，最后 OutOfMemoryError
+
+9.4 迭代器可以用来构造一个流 通过toStream方法
+
+ 	Source.fromFile(&quot;&quot;).getLines返回一个Iterator[String]，用这个迭代器，对于每一行只能访问一次，而流将缓存访问过的行，允许重新访问
+
+    val words = Sourcce.fromFile(&quot;/usr/share/dict/words&quot;).getLines.toStream
+
+    words // Stream(A, ?)
+
+    words(5) // Aachen
+
+    words // Stream(A, A&#39;o, AOL, AOL&#39;s, Aachen, ?)
+</code></pre>
+<p>10.View</p>
+<pre><code>10.1 类似流的懒理念
+
+10.2 与流的不同
+
+    1、连第一个元素都不会求值
+
+    2、不会缓存求过的值
+
+10.3 懒试图的好处:可以避免在多种变换下产生的中间集合
+
+    (0 to 1000).map(pow(10,_)).map(1/_) //先第一个map,再第二个map, 构 建了一个中间集合
+
+    (0 to 1000).view.map(pow(10,_)).map(1/_).force // 记住两个map操作 每个元素被两个操作同时执行，不需要额外构中间集合
+</code></pre>
+<p>11.并行集合 par</p>
+<pre><code>11.1 为了更好利用计算机的多个处理器，支持并发通常是必需的如果coll是个大型集合，那么
+
+    coll.par.sum //并发求和，par方法产出当前集合的一个并行实现，该实 现会尽可能地并行执行集合方法
+
+     coll.par.count(_ % 2 ==0) //计算偶数的数量
+
+ 11.2 对数组、缓冲、哈希表、平衡树而言，并行实现会直接重用底层实际集合的实现，所以很高效
+
+11.3 可以通过对要遍历的集合应用.par并行化for循环
+
+        for( i &lt;- (0 until 100).par) print( i + &quot; &quot; ) //数字是按照作用于 该任务的线程产出的顺序输出
+
+     在for/yield循环中，结果是依次组装的
+
+         for( i &lt;- (0 until 100).par) yield i +&quot; &quot;
+
+ 11.4 par返回的并行集合扩展自ParSeq ParSet Parmap，都是ParIterable的子类 型，不是Iterable的子类型，所以不能将并行集合传递给预期Iterable Seq Set Map的方法。
+
+11.5 可以用to方法将并行集合转换回串行的版本。
+
+eg:
+
+    eg:查看打印的数字顺序
+
+        (0 until 10).par.foreach(println)
+
+        (0 until 10).foreach(println)
+
+     以下代码获取到参与并行计算的线程:
+
+     	(0 to 10000).par.collect&#123;case _ =&gt; Thread.currentThread.getName&#125;.distinct
+
+     	(0 to 10000).collect&#123;case _ =&gt; Thread.currentThread.getName&#125;.distinct
+</code></pre>
+<p>12.与Java集合互调用</p>
+<pre><code>12.1 借助于scala.collection.JavaConverters对象中的静态方法。
+
+    asScala
+
+    asJava
+
+12.2 Java2Scala集合举例:Java中的集合只能转化成Scala中可变集合
+
+    import  scala.collection.JavaConverters._;
+
+    //1.定义一个java的集合对象
+
+    val list=new util.ArrayList[String]();
+
+    list.add(&quot;java&quot;);
+
+    list.add(&quot;scala&quot;);
+
+    println(list);
+
+    //2.遍历集合对象
+
+    list.forEach(new Consumer[String] &#123;
+
+      override def accept(t: String): Unit = &#123;
+
+        println(t);
+
+      &#125;
+
+    &#125;)
+
+    //3.转化成Scala集合
+
+    val list_s:mutable.Buffer[String]=list.asScala;
+
+    //4.遍历Scala集合
+
+    list_s.foreach(println _)
+
+    val list_s2:mutable.Iterable[String]=list.asScala;
+
+    val list_s3:Seq[String]=list.asScala;
+
+    list_s2.foreach(println _)
+
+    list_s3.foreach(println _)
+
+    //5.其他方法
+
+    val a1=asScalaBuffer(list);
+
+    val a2=asScalaIterator(list.iterator());
+
+12.3 Scala2Java集合举例:
+
+    import scala.collection.JavaConverters._
+
+    //1.定义一个Scala数组
+
+    val a1=new Array[Int](3);
+
+    val a2=(1 to 10   ).toArray;
+
+    //a2.asJava;
+
+    //2.定义一个Scala缓冲
+
+    val buffer=a2.toBuffer;ArrayBuffer
+
+    val buffer_j=buffer.asJava;
+
+    buffer_j.forEach(new Consumer[Int] &#123;
+
+      override def accept(t: Int): Unit = &#123;
+
+        println(&quot;java:&quot;+t)
+
+      &#125;
+
+    &#125;)
+
+    val source = new scala.collection.mutable.ListBuffer[Int]
+
+    val target: java.util.List[Int] = source.asJava
+
+    val other: scala.collection.mutable.Buffer[Int] = target.asScala
+
+12.3 Java调用Scala的方法时，如果参数为可变参时，不能直接调用，需要我们在scala中定义方法时，添加注解@varargs
+
+    @varargs
+
+    def varargs( name:String*)=&#123;
+
+        name.foreach(println)
+
+    &#125;
+</code></pre>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Qzhang 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Qzhang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jackzhangqing.github.io/2023/09/09/4-Scala%E4%B9%8B%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/" title="Scala之集合容器4">https://jackzhangqing.github.io/2023/09/09/4-Scala之集合容器/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Scala%E4%B9%8B%E9%9B%86%E5%90%88%E5%AE%B9%E5%99%A8/" rel="tag"># Scala之集合容器</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/09/09/3-Scala%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="prev" title="Scala之容器基础语法3">
+      <i class="fa fa-chevron-left"></i> Scala之容器基础语法3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/09/5-Scala%E4%B9%8B%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" rel="next" title="Scala之模式匹配5">
+      Scala之模式匹配5 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qzhang"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qzhang</p>
+  <div class="site-description" itemprop="description">痛点才是奋斗点~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackzhangqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackzhangqing" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jackcodingqing@gmail.com" title="E-Mail → mailto:jackcodingqing@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://m.weibo.cn/" title="Weibo → https:&#x2F;&#x2F;m.weibo.cn&#x2F;" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.csdn.net/" title="https:&#x2F;&#x2F;www.csdn.net&#x2F;" rel="noopener" target="_blank">CSDN</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+
+     <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-08 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qzhang</span>
+</div>
+  <div class="powered-by">
+    <!--由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动 -->
+  </div>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+});
+</script> 
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2023 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
