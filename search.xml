@@ -915,6 +915,18 @@ import _root_.java.lang.String
       </tags>
   </entry>
   <entry>
+    <title>32个经典算法</title>
+    <url>/2023/09/02/32%E4%B8%AA%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、A 搜索算法</span><br><span class="line"></span><br><span class="line">2、集束搜索</span><br><span class="line"></span><br><span class="line">3、二分查找</span><br><span class="line"></span><br><span class="line">4、分支界定算法</span><br><span class="line"></span><br><span class="line">5、Buchberger算法</span><br><span class="line"></span><br><span class="line">6、数据压缩</span><br><span class="line"></span><br><span class="line">7、密钥交换算法</span><br><span class="line"></span><br><span class="line">8、Dijkstra算法</span><br><span class="line"></span><br><span class="line">9、离散微分算法</span><br><span class="line"></span><br><span class="line">10、动态规划算法</span><br><span class="line"></span><br><span class="line">11、欧几里得算法</span><br><span class="line"></span><br><span class="line">12、期望-最大算法</span><br><span class="line"></span><br><span class="line">13、快速傅里叶变换</span><br><span class="line"></span><br><span class="line">14、梯度下降</span><br><span class="line"></span><br><span class="line">15、哈希算法</span><br><span class="line"></span><br><span class="line">16、堆排序</span><br><span class="line"></span><br><span class="line">17、牛顿法</span><br><span class="line"></span><br><span class="line">18、LLL算法</span><br><span class="line"></span><br><span class="line">19、合并排序 </span><br><span class="line"></span><br><span class="line">20、两次筛选</span><br><span class="line"></span><br><span class="line">21、RANSAC</span><br><span class="line"></span><br><span class="line">22、Karatsuba乘法</span><br><span class="line"></span><br><span class="line">23、最大流量算法</span><br><span class="line"></span><br><span class="line">24、learning学习算法</span><br><span class="line"></span><br><span class="line">25、RSA </span><br><span class="line"></span><br><span class="line">26、Strassen算法</span><br><span class="line"></span><br><span class="line">27、单纯型算法</span><br><span class="line"></span><br><span class="line">28、奇异值分解</span><br><span class="line"></span><br><span class="line">29、求解线性方程组</span><br><span class="line"></span><br><span class="line">30、合并查找算法</span><br><span class="line"></span><br><span class="line">31、维特比算法</span><br><span class="line"></span><br><span class="line">32、Strukturtensor算法</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>工业界</category>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>经典算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Scala之容器基础语法3</title>
     <url>/2023/09/09/3-Scala%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>1.数组:存放一系列元素的容器<br>    1.分类<br>        不可变数组 定长数组 Array</p>
@@ -1454,18 +1466,6 @@ import _root_.java.lang.String
       </categories>
       <tags>
         <tag>Scala之容器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>32个经典算法</title>
-    <url>/2023/09/02/32%E4%B8%AA%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、A 搜索算法</span><br><span class="line"></span><br><span class="line">2、集束搜索</span><br><span class="line"></span><br><span class="line">3、二分查找</span><br><span class="line"></span><br><span class="line">4、分支界定算法</span><br><span class="line"></span><br><span class="line">5、Buchberger算法</span><br><span class="line"></span><br><span class="line">6、数据压缩</span><br><span class="line"></span><br><span class="line">7、密钥交换算法</span><br><span class="line"></span><br><span class="line">8、Dijkstra算法</span><br><span class="line"></span><br><span class="line">9、离散微分算法</span><br><span class="line"></span><br><span class="line">10、动态规划算法</span><br><span class="line"></span><br><span class="line">11、欧几里得算法</span><br><span class="line"></span><br><span class="line">12、期望-最大算法</span><br><span class="line"></span><br><span class="line">13、快速傅里叶变换</span><br><span class="line"></span><br><span class="line">14、梯度下降</span><br><span class="line"></span><br><span class="line">15、哈希算法</span><br><span class="line"></span><br><span class="line">16、堆排序</span><br><span class="line"></span><br><span class="line">17、牛顿法</span><br><span class="line"></span><br><span class="line">18、LLL算法</span><br><span class="line"></span><br><span class="line">19、合并排序 </span><br><span class="line"></span><br><span class="line">20、两次筛选</span><br><span class="line"></span><br><span class="line">21、RANSAC</span><br><span class="line"></span><br><span class="line">22、Karatsuba乘法</span><br><span class="line"></span><br><span class="line">23、最大流量算法</span><br><span class="line"></span><br><span class="line">24、learning学习算法</span><br><span class="line"></span><br><span class="line">25、RSA </span><br><span class="line"></span><br><span class="line">26、Strassen算法</span><br><span class="line"></span><br><span class="line">27、单纯型算法</span><br><span class="line"></span><br><span class="line">28、奇异值分解</span><br><span class="line"></span><br><span class="line">29、求解线性方程组</span><br><span class="line"></span><br><span class="line">30、合并查找算法</span><br><span class="line"></span><br><span class="line">31、维特比算法</span><br><span class="line"></span><br><span class="line">32、Strukturtensor算法</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>工业界</category>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>经典算法</tag>
       </tags>
   </entry>
   <entry>
@@ -2570,990 +2570,6 @@ println(scores.getOrElse(&quot;No score&quot;))
       </categories>
       <tags>
         <tag>Scala之模式匹配</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Scala之面向对象编程6</title>
-    <url>/2023/09/09/6-Scala%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
-    <content><![CDATA[<p>修饰类的修饰符有:final,abstract,case,sealed,implicit(非顶级类,主构造器必须单参数)</p>
-<p>修饰对象的修饰符有:final,case,implicit(非顶级对象)</p>
-<p>修饰方法的修饰符有:override,implicit,final,@varargs</p>
-<p>修饰变量的修饰符有:lazy,implicit</p>
-<p>修饰主构造器参数的修饰符有:implicit,@BeanProperty</p>
-<p>修饰方法参数的修饰符有:implicit</p>
-<p>访问控制修饰符:public(默认即public,不可以显示出现),private,private[this],private[package],protected,protected[this],protected[package]</p>
-<p>访问控制修饰符可以修饰类,对象,方法,变量,主构造器参数(必须与val&#x2F;var连用)</p>
-<p>1.面向对象</p>
-<pre><code>1.1Scala类
-
- 类定义 
-
- setter/getter方法 
-
- 主构造器 
-
- 辅助构造器 
-
- 嵌套类
-
-     1)类定义
-
-        class HELLOWORLD  ()&#123;
-
-            //属性 
-
-            private val  value1 = &quot;HELLO&quot;
-
-            var value2 = &quot;WORLD&quot; 
-
-            //方法
-
-            def add()=&#123;  
-
-                println(value1+value2)  
-
-            &#125; 
-
-            def plus(m:Char)=value2+m 
-
-            //主构造器中的代码
-
-            println(&quot;hello&quot;);
-
-        &#125; 
-
-        类成员主要包括字段(val跟var)、方法与函数(def)，但Scala禁止使用同样的名称命名字段和方法，即既声明一个value字段，又声明一个value方法是不允许的 
-
-        类成员可见性有两种，private(私有)跟public(公有)，private需要声明，public无需额外声明 
-
-        类声明后利用new声明对象  val one= new HELLOWORLD
-
-        实例的操作 
-
-            val a=one.value1 
-
-            val b=one.value2 
-
-            one.value2=one.plus(H) 
-
-            one.add()
-
-        调用无参方法时可以不带() 
-
-            one.add 
-
-        若类中声明无参方法时不带()，实际调用也不可带() 
-
-            ...def add&#123; println(value1+value2) &#125;... 
-
-            one.add()
-
-     2) getter、setter
-
-        Scala对每个类中的字段都提供getter和setter方法 
-
-        对于公有字段来说，其getter和setter方法同样是共有的，对于私有字段来说，则是私有的 
-
-        var声明的字段带有getter和setter方法(读写) 
-
-        val声明的字段自带有getter方法(只读) 
-
-        对于字段value1，其getter形式为value1，并没有setter方法 
-
-        对于字段value2，其getter和setter方法形式为value2和value2_= 
-
-        实际使用时，在类定义外，getter和setter方法使用是一致的，形如one.value2
-
-         getter方法与setter方法的意义在于控制类中私有对象的数据 
-
-         在类中可以通过重定义getter和setter方法获取、有限制的修改私有字段 
-
-         class HELLOWORLD&#123; 
-
-            private var  privatevalue1 = &quot;HELLO&quot;
-
-            var value2 = &quot;WORLD&quot;
-
-            def add() &#123;  
-
-                println(value1+privatevalue2)  
-
-            &#125; 
-
-            def plus(m:Char)=value2+m 
-
-            def value1 = privatevalue1 
-
-            def value1_ = (newvalue1:String) &#123;
-
-                //若新的字段比原私有字段长，则更改，否则保持私有字段不变 
-
-                if(newvalue1.length&gt;privatevalue1.length) 
-
-                privatevalue1=newvalue1 
-
-            &#125;      
-
-        &#125;
-
-     3) 主构造器(primary constructor)
-
-        每个类都有主构造器，且与类定义交织在一起 
-
-        1.主构造器的参数直接放置在类名之后 
-
-        class HELLOWORLD (val value1：String，var value2：String)&#123;...&#125;  
-
-        主构造器的参数被编译成字段，并在构造对象时初始化传入 
-
-        一个类若没有显式定义主构造器自动拥有一个无参主构造器  
-
-        2.若类中有直接执行的语句(非定义的方法、函数)，每次构造对象时皆会执行一次，不论什么样的构造器类型 
-
-        如：class HELLOWORLD (val value1:String,var value2:String) &#123; 
-
-            println(&quot;HELLOWORLD IS CREATED&quot;) 
-
-            val value3=value1+value2 
-
-            &#125; 
-
-        	val two = new HELLOWORLD(&quot;WELCOME&quot;,&quot;HOME&quot;)
-
-        3.主构造器的参数一般有四种: 
-
-            value:String 生成对象私有字段，对象中没有方法使用value，则没有该字段 
-
-            private val/var value:String 私有字段,私有的getter/setter方法  
-
-            val/var value:String 私有字段,公有的getter/setter方法 
-
-            @BeanProperty val/var value:String 私有字段,共有的Scala和JavaBean的getter/setter方法
-
-        4.主构造器私有化
-
-            class HELLOWORD private（主构造器）&#123; 类成员 &#125; 主构造器私有，只能通过辅助构造器构造对象
-
-    4) 辅助构造器(auxiliary constructor)
-
-        Scala类能有任意多的辅助构造器 
-
-        辅助构造器的名称为this，在类中定义 
-
-        辅助构造器必须以一个主构造器或其他已定义的辅助构造器调用开始 
-
-        class HELLOWORLD&#123; 
-
-            private var value1=&quot; &quot; 
-
-            private var value2=&quot; &quot; 
-
-            def this(m:String)&#123; 
-
-                this()    //调用主构造器 
-
-                this.value1=m
-
-            &#125; 
-
-            def this(m:String,n:String)&#123; 
-
-                this(m)  //调用已定义的辅助构造器 
-
-                this.value2=n
-
-            &#125;
-
-        &#125;
-
-     5) 嵌套类
-
-        Scala允许任何语法结构中镶嵌任何语法结构，因此能在类中定义类 
-
-        class HELLOWORLD&#123; 
-
-            class HI&#123;....&#125; 
-
-        &#125; 
-
-        对于同一个外部类，不同实例下的内部类是不同的 
-
-        形如val three = new HELLOWORLD与val four = new HELLOWORLD 
-
-            three.HI与four.HI是两个不同的类 
-
-        内部类中可以调用外部类的成员，利用外部类.this或指针实现 
-
-        class HELLOWORLD&#123; 
-
-            pointto =&gt; 
-
-            var value2= &quot; &quot; 
-
-            class HI&#123;  
-
-                val value3=HELLOWORLD.this.value2 
-
-                var value4=pointto.value2 
-
-            &#125;
-
-        &#125;
-
-        eg:
-
-        import scala.collection.mutable.ArrayBuffer;
-
-        class NetWork&#123;
-
-            class Member(val name:String)&#123;
-
-                val contacts=new ArrayBuffer[Member]
-
-            &#125;
-
-            private val members=new ArrayBuffer[Member];
-
-            def join(name:String)=&#123;
-
-                val m=new Member(name);
-
-                members += m;
-
-                m
-
-            &#125;
-
-        &#125;
-
-        考虑有如下两个网络：
-
-            val chatter=new NetWork;
-
-            val myFace=bew NetWork;
-
-            val fred=chatter.join(&quot;Fred&quot;);
-
-            val wilma=chatter.join(&quot;Wilma&quot;);
-
-            fred.contacts += wilma; // OK
-
-            val barney=myFace.join(&quot;Barney&quot;);
-
-            //不可以这样做——————不能将一个myFace.Member添加到chatter.Member元素缓冲中。
-
-            fred.contacts += barney; 
-
- 1.2Scala对象
-
-    单例对象 
-
-    伴生对象  apply unapply case class 
-
-    扩展类和特质:构造一个扩展了指定类和特质的类的对象，同时拥有对象定义中给出的所有特性
-
-    apply方法 
-
-      1) 单例对象 object Test
-
-        scala没有静态方法或静态字段，要想实现类似于这种功能，可以借助于单例对象。
-
-        object语法定义了某个类的单个实例 
-
-        对象的构造器在该对象第一次被使用时调用 
-
-        object语法结构与class大致相同，除了object不能提供构造器参数 
-
-        通常使用单例对象的环境： 
-
-            作为存放工具函数或常量的地方 
-
-            共享单个不可变实例  
-
-            利用单个实例协调某个服务
-
-      2) 伴生对象
-
-        既有实例方法又有静态方法的类，借助于伴生对象。
-
-        在同一个源文件中，当一个类存在与之相同类名的一个单例对象的时候，此时称这个单例对象为伴生对象 
-
-            class HELLOWORLD&#123;...&#125; 
-
-            object HELLOWORLD&#123;...&#125; 
-
-        类和其伴生对象可以互相访问私有属性，但必须存在同一个源文件中 
-
-        类的伴生对象可以被访问，但并不在作用域中，如; 
-
-            class HELLOWORLD&#123;...&#125; 
-
-            object HELLOWORLD&#123; def NOW&#123;...&#125; &#125; 
-
-        HELLOWORLD 类必须通过HELLOWORLD.NOW调用伴生对象中的NOW方法，而不能直接用NOW来调用
-
-      3) 样例类 case class
-
-      	对需要伴生对象的类使用case关键字进行了简单封装。
-
-      	样例类的格式:case class 类名(args1:T1,args2:T2)&#123;&#125;
-
-      	注意:
-
-      		1.主构造器的()无参时不可以省略
-
-      		2.参数列表中参数默认是被val关键字修饰
-
-      		3.被case定义的类，自动提供了22个方法。经常用到的toString hashcode equals copy apply unapply
-
-      		4.
-
-      			apply 构建对象该方法可以通过统一对象构建原则构建对象
-
-      			unapply 模式匹配时，将对象匹配绑定成属性。
-
-      		5.样例类中所具有的功能，我们都能在类+伴生对象中自己实现。
-
-      4) 扩展类或者特质的对象
-
-        一个object可以扩展类以及一个或多个特质，其结果是一个扩展了指定类以及特质的类的对象，同时拥有在对象定义中给出的所有特性。
-
-        eg:	思考一个有用的场景：给出可被共享的缺省对象。
-
-        举例来说，考虑在程序中引入一个可撤销动作的类；
-
-        abstract class UndoableAction(val description:String)&#123;
-
-            def undo():Unit;
-
-            def redo():Unit;
-
-        &#125;
-
-        默认情况下，可以是&quot;什么都不做&quot;，当然，对于这个行为我们只需要一个实例即可。
-
-        object DoNothingAction extends UndoableAction(&quot;Do nothing&quot;)&#123;
-
-            override def undo()&#123;&#125;
-
-            override def redo()&#123;&#125;
-
-        &#125;
-
-        DoNothingAction对象可以被所有需要这个缺省行为的地方共用。
-
-        val actions=Map(&quot;open&quot;-&gt;DoNothingAction,&quot;save&quot;-&gt;DoNothingAction)//打开和保存功能尚未实现。
-
-      5) apply方法
-
-        我们通常会定义和使用对象的apply方法。当遇到如下表达式时，apply方法就会被调用：
-
-            Object(参数1,参数2,...,参数N)
-
-            通常，这样一个apply方法，返回的是伴生类的对象。
-
-        对于嵌套表达式，省去new关键字会方便好多。
-
-        eg:
-
-            val arrs=Array(Array(1,7),Array(2.9));
-
-            需要构造有参数需求的伴生对象时，可定义并使用apply方法 
-
-            class HELLOWORLD(var m:String,n:Char)&#123;...&#125; 
-
-            object HELLOWORLD&#123; 
-
-                def apply(n:Char)=new HELLOWORLD(&quot; &quot;,n) 
-
-            &#125;
-
-            val hi=HELLOWORLD(&#39;j&#39;)
-
-1.3Scala继承:extends 
-
-    1.1抽象类 
-
-        1.不能被实例的类叫做抽象类.
-
-        2.抽象类的某个或某几个成员没有被完整定义，这些没有被完整定义的成员称为抽象方法或抽象字段.
-
-        3.用abstract保留字标记抽象类. 
-
-        4.只要类中有任意一个抽象成员，必须使用abstract标记. 
-
-        5.重写抽象方法、抽象字段不需要使用override保留字.
-
-        eg:
-
-            abstract class Year&#123; 
-
-                val name：Array[String] //抽象的val，带有一个抽象的getter方法 
-
-                var num：Int //抽象的var，带有抽象的getter/setter方法 
-
-                def sign():Unit //没有方法体/函数体，是一个抽象方法 
-
-            &#125; 
-
-            abstract class  Father() &#123;
-
-                //抽象属性
-
-                val name:String
-
-                //具体属性
-
-                var age=0
-
-                //抽象方法
-
-                [abstract] def methodName():ReturnType
-
-                //具体方法
-
-                def test(args:T1):Int=&#123;&#125;
-
-            &#125;
-
-        实现类:
-
-            class Son extends Father&#123;
-
-                //子类重写 父类中的抽象方法
-
-                [override] def methodName():ReturnType=&#123;
-
-                    //......
-
-                &#125;
-
-                //子类重写 父类中的抽象属性
-
-                [override] val name:String=&quot;tom&quot;
-
-                //子类重写 父类中的具体方法
-
-                override def test(args:T1):Int=&#123;
-
-                &#125;
-
-                override var age=10
-
-            &#125;
-
-    1.2重写
-
-        1.在Scala中重写一个非抽象方法必须使用override修饰符。 
-
-            class week extends month&#123; override def firstday = &#123;...&#125; &#125; 
-
-          override保留字实际使用类似与private，声明这个保留字后的定义、声明是对超类的重写，因此，其也可以写在类定义的参数中 
-
-            class week(override val lastday：String) extends month&#123;...&#125; 
-
-        2.子类的重写或修改Scala会检查其超类，但是，超类的修改并不会检查其子类 
-
-        3.重写包括字段和方法，但参数不同的方法可以不重写 
-
-            class month&#123; 
-
-                def secondday（m:String）=&#123;...&#125;
-
-            &#125; 
-
-            class week extends month&#123; 
-
-                def secondday =&#123;...&#125;
-
-            &#125;
-
-        4.在Scala中调用超类的方法和Java一样，使用super关键字
-
-        5.只有主构造器可以调用超类的构造器;
-
-            eg:
-
-                class Employee(name:String,age:Int,val salary:Double) extends Person(name:String,age:Int)
-
-     	6.重写规则： 
-
-            重写 def 
-
-                用val ：利用val能重写超类用没有参数的方法(getter) 
-
-                用def：子类的方法与超类方法重名 
-
-            重写val 
-
-                用val：子类的一个私有字段与超类的字段重名，getter方法重写超类的getter方法 
-
-            重写var 
-
-                用var：且当超类的var是抽象的才能被重写，否则超类的var都会被继承
-
-            eg:
-
-                abstract class month&#123; 
-
-                    val one = 25  //可在子类中用val重写 
-
-                    var two = 15  //不可在子类中用var重写，因为不是抽象的 
-
-                    var three：Int 
-
-                    def firstday =   //可在子类中用val/def重写          
-
-                    def lastday(m:Char)=&#123;&#125;   //可在子类中用def重写 
-
-                &#125;
-
-    1.3构造顺序
-
-        1.子类构造器的运行在超类构造器运行之后 
-
-        2.在超类的构造器中调用的成员被子类重写后，返回值可能不正确： 
-
-            class month&#123; 
-
-                val num = 31 
-
-                val days = new Array[Int](num)
-
-            &#125; 
-
-            class week extends month&#123; 
-
-                override val num = 7 
-
-            &#125; 
-
-            val a=new week 
-
-            构造week对象前先执行month的构造器，num被初始化为31，month为初始化days 数组，调用num，但num被子类week重写了，但因为week构造器还没被调用，此时 num的值未被初始化，因而返回0，days被设置为长度为0的数组，month构造器运行 完毕，执行week构造器，num被初始化为7
-
-     	3.解决方法： 
-
-            3.1将超类的val声明为final 
-
-            3.2将超类的val声明为lazy  
-
-                    lazy val days = new Array[Int](num)
-
-                或者
-
-                    lazy val num = 31 
-
-                    override lazy val num = 7 
-
-            3.3在子类中使用提前定义语法
-
-                提前定义：
-
-                    在超类的构造器运行之前初始化子类的字段  
-
-                    把需要提前定义的语句块放在extends与超类之间，并后接with保留字 
-
-                    class week extends &#123;override val num =7&#125; with month&#123;...&#125; 
-
-                    提前定义中=右侧若需调用类中B成员时，除非B成员已在调用前提前定义 
-
-                    class week extends&#123; 
-
-                        override val num=7 
-
-                        override val num2=num+1      //允许，num已被提前定义 
-
-                        override val num4=num2+num3   //不允许，num3没有在之前提前定义 
-
-                    &#125;with month&#123;...&#125;
-
-1.4Scala特质trait
-
-    包含:
-
-        抽象方法/属性 
-
-        具体方法/属性 
-
-    1.1多重继承 
-
-        1.案例：
-
-            class Meonth
-
-            class Year
-
-            class Week extends Month,Year是不合法的,为什么？ 
-
-            若一个子类继承自不同的超类，不同的超类中同名成员子类不知如何处理多重继承产生菱形继承问题. 
-
-            解决多重继承可能导致的问题消耗的资源远比多重继承产生的价值高。
-
-        2.Scala不支持类多重继承，但是允许扩展多个特质。Scala使用特质达到类似多重继承的效果。 
-
-            class Father
-
-            trait T1
-
-            trait T2
-
-            class A extends Father with T1 with T2
-
-        3.一个子类只能拥有一个超类，一个超类能拥有多个子类。 
-
-        4.一个类可以扩展自一个或多个特质，一个特质可以被多个类扩展。
-
-        5.特质能限制被什么样的类所扩展。(如何限制)	
-
-    1.2特质构造顺序  
-
-        1.案例:
-
-            class Account
-
-            trait Logger
-
-            trait FileLogger extends Logger
-
-            trait ShortLogger extends Logger
-
-            class SavingsAccount extends Account with FileLogger with ShortLogger&#123;&#125;
-
-            构造器按照如下的顺序执行： 
-
-                1.Account
-
-                2.Logger
-
-                3.FileLogger
-
-                4.ShortLogger
-
-                5.SavingsAccount
-
-        结论:
-
-            1.特质的构造是有顺序的，从左到右被构造
-
-            2.构造器按如下顺序构造： 
-
-                超类 
-
-                父特质 
-
-                第一个特质 
-
-                第二个特质(父特质不重复构造) 
-
-                类
-
-            3.线性化描述
-
-                说明:构造器的顺序是类的线性化的反向。
-
-                描述:线性化描述某个类型的所有超类型的一种技术规格
-
-                规则定义:如果 C extends C1 with C2 with ... with Cn,则lin(C) = C &gt;&gt; lin(cn)&gt;&gt; .. &gt;&gt; lin(c2)&gt;&gt;lin(c1)
-
-                &quot;&gt;&gt;&quot;是指&quot;串接并去掉重复项，右侧胜出&quot;
-
-                    lin(SavingsAccount)
-
-                    =SavingsAccount &gt;&gt; lin(ShortLogger)&gt;&gt; lin(FileLogger)&gt;&gt;lin(Account)
-
-                    =SavingsAccount &gt;&gt; (ShortLogger &gt;&gt; Logger） &gt;&gt; (FileLogger &gt;&gt; Logger) &gt;&gt; lin(Account)
-
-                    =SavingsAccount &gt;&gt; ShortLogger &gt;&gt; FileLogger &gt;&gt; Logger &gt;&gt; Account
-
-                省去了位于任何线性化末端的类型：ScalaObject,AnyRef,Any
-
-                线性化给出了在特质中super被解析的顺序。举例来说，ShortLogger中调用super会执行FileLogger的方法，而FileLogger中调用super执行Logger的方法。
-
-    1.3特质使用 
-
-        1.特质是Scala里代码复用的基础单元，封装了方法和字段的定义。
-
-        2.特质的定义借助trait实现，具体语法与类定义相似，只是不能通过构造器传参。
-
-            trait Reset&#123; 
-
-                def reset(m:Int,n:Int)=if(m&gt;=n) 1 
-
-            &#125;  
-
-            思考:特质不可通过构造器传递参数，那么假设要构建一个文件日志生成特质，但文件名称根据混入的实例不同而不同，该特质如何实现。
-
-                trait FileLogger &#123;
-
-                    val fileName:String;
-
-                    val out=new PrintStream(fileName);
-
-                    def log(info:String)=&#123;
-
-                        out.println(info);
-
-                        out.flush();
-
-                    &#125;
-
-                &#125;
-
-                接下来构建一个包含文件日志记录的实例
-
-                    val sa=new SavingAccount with FileLogger&#123;
-
-                        override val fileName=&quot;SavingAccountLog.txt&quot;
-
-                    &#125;
-
-                但此时运行报错空指针异常(原因是构造器的执行顺序)
-
-                解决办法：
-
-                    1.懒值  lazy val out=new PrintStream(fileName);
-
-                    2.提前定义 
-
-                        val sa=new &#123;override val fileName=&quot;SavingAccountLog.txt&quot;&#125; with SavingAccount with FileLogger
-
-        3.特质被定义之后，可以混入到类/对象/特质/实例(对象)
-
-            class Week extends Reset &#123;...&#125;  
-
-            trait Reseting extends Reset&#123;...&#125; 
-
-            object A extends Reset&#123;...&#125; 
-
-            在实例(对象)中混入特质 
-
-                val five = new Week with Reseting
-
-        4.当要混入多个特质时，利用with保留字  
-
-            class Week extends Reset with B with C &#123;...&#125;
-
-        总结:
-
-            1.在特质中重写特质中的抽象方法时，可以不用加override关键字
-
-            2.多个特质重写同一个特质的同一个抽象方法时，后期再使用过程中必须加上override关键字
-
-            3.在特质中重写父特质中的抽象方法时，如果使用super调用父类的方法时，那么必须添加abstract和override关键字
-
-                trait Logger&#123;
-
-                    def log(msg:String)
-
-                &#125;
-
-                trait TimestampLogger extends Logger&#123;
-
-                    abstract override def log(msg:String)&#123;
-
-                        super.log(new java.util.Date()+&quot; &quot;+msg )
-
-                    &#125;
-
-                &#125;
-
-    1.4特质应用
-
-        1.特质的一个主要应用方面在于:富接口(根据类已有的方法自动为类添加方法,利用特质实现富接口)
-
-            构造一个具有少量抽象方法和大量基于抽象方法的具体方法的特质.那么只要把特质混入类中，通过类重写抽象方法后，类便自动获得大量具体方法 
-
-                trait Logger&#123; 
-
-                    def log(msg:String) 
-
-                    def warn(msg:String) &#123; 
-
-                        log(“server”+msg) 
-
-                    &#125; 
-
-                    def server(msg:String) &#123; 
-
-                        log(&quot;server&quot;+msg) 
-
-                    &#125;
-
-                &#125; 
-
-                class Week extends Logger&#123; 
-
-                    def log(msg:String)&#123;
-
-                        println(msg)
-
-                    &#125; 
-
-                    server(&quot;HI&quot;)
-
-                &#125;
-
-        2.特质的另一个应用方面在于：为类提供可堆叠的改变（super保留字） 
-
-            2.1当为类添加多个互相调用的特质时，从最后一个开始进行处理 
-
-            2.2在类中super.foo()这样的方法调用是静态绑定的，明确是调用它的父类的foo()方法
-
-            2.3在特质中写下了super.foo()时，它的调用是动态绑定的。调用的实现将在每一次特质被混入到具体类的时候才被决定 
-
-            因此，特质混入的次序的不同其执行效果也就不同
-
-            eg:
-
-                abstract class IntQueue &#123;  
-
-                    def get(): Int;
-
-                    def put(x: Int);  
-
-                &#125; 
-
-                class BasicIntQueue extends IntQueue &#123; 
-
-                    private val buf = new ArrayBuffer[Int] 
-
-                    def get() = buf.remove(0) 
-
-                    def put(x: Int) &#123; 
-
-                        buf += x 
-
-                    &#125; 
-
-                &#125; 
-
-                trait Incrementing extends IntQueue &#123; 
-
-                    abstract override def put(x: Int) &#123; 
-
-                        super.put(x + 1) 
-
-                    &#125; 
-
-                &#125;
-
-                trait Doubling extends IntQueue &#123; 
-
-                    abstract override def put(x: Int) &#123; 
-
-                        super.put(2 * x) 
-
-                    &#125; 
-
-                &#125;
-
-                object TestClient extends App &#123;    
-
-                    val queue1 = (new BasicIntQueue with Incrementing with Doubling) 
-
-                    queue1.put(2)            //Doubling.put(2*2)-&gt;Incrementing.put(4+1) 
-
-                    println(queue1.get()) //result is 5
-
-                    val queue2 = (new BasicIntQueue with Doubling with Incrementing) 
-
-                    queue2.put(2)            //Incrementing.put(2+1)-&gt;Doubling.put(2*3) 
-
-                    println(queue2.get()) //result is 6
-
-                &#125;
-
-    1.5扩展类的特质(特质能限制被什么样的类所扩展)	
-
-        1.特质可以扩展自类，那么该类自动变成所有混入该特质的超类。
-
-            trait LoggedException extends Exception
-
-            class HappyException extends LoggedException&#123;&#125; //编译正确，运行正确
-
-            class UnHappyException extends JFrame with LoggedException //编译正确，运行报错
-
-        原因:类中显示父类必须与超类存在子父类之间的关系。
-
-            即特质LoggedException限制了只能被Exception以及Exception的子类所扩展。
-
-        缺点:编译期间没有任何提示，运行期间报错显示。
-
-        改进:如何在编译阶段给出提示。
-
-            1.自身类型 
-
-                作用:
-
-                    使用自身类型代替显示继承某一父类
-
-                格式:
-
-                    this:类型 =&gt;
-
-                eg:
-
-                    trait LoggedException &#123;
-
-                        this:Exception =&gt;
-
-                            def log()
-
-                            def warn():String
-
-                    &#125;
-
-                解释:后期只有Exception以及Exception的子类才可以混入该特质。
-
-            2.结构类型
-
-                作用:
-
-                    使用结构类型代替显示继承某一父类，用具有的方法来代替具体的某一类。
-
-                格式:
-
-                    this:&#123; 方法定义列表 &#125; =&gt;
-
-                eg:
-
-                    trait LoggedException &#123;
-
-                        this:&#123;
-
-                            def getMessage():String
-
-                            def log(info:String)&#123;
-
-                                println(&quot;log:&quot;+info)
-
-                            &#125;
-
-                        &#125; =&gt;
-
-                    &#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>工业界</category>
-        <category>大数据高级开发Spark</category>
-      </categories>
-      <tags>
-        <tag>Scala之面向对象编程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeteCode Solution Overview</title>
-    <url>/2023/09/02/LeteCode-Solution-Overview/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/weixin_44232942/article/details/106457056">LeteCode 解题总览</a></p>
-]]></content>
-      <categories>
-        <category>找工作</category>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>LeteCode</tag>
       </tags>
   </entry>
   <entry>
@@ -5000,6 +4016,977 @@ def firstLast[A,C](it:C)(implicit ev: C &lt;:
       </tags>
   </entry>
   <entry>
+    <title>Scala之面向对象编程6</title>
+    <url>/2023/09/09/6-Scala%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<p>修饰类的修饰符有:final,abstract,case,sealed,implicit(非顶级类,主构造器必须单参数)</p>
+<p>修饰对象的修饰符有:final,case,implicit(非顶级对象)</p>
+<p>修饰方法的修饰符有:override,implicit,final,@varargs</p>
+<p>修饰变量的修饰符有:lazy,implicit</p>
+<p>修饰主构造器参数的修饰符有:implicit,@BeanProperty</p>
+<p>修饰方法参数的修饰符有:implicit</p>
+<p>访问控制修饰符:public(默认即public,不可以显示出现),private,private[this],private[package],protected,protected[this],protected[package]</p>
+<p>访问控制修饰符可以修饰类,对象,方法,变量,主构造器参数(必须与val&#x2F;var连用)</p>
+<p>1.面向对象</p>
+<pre><code>1.1Scala类
+
+ 类定义 
+
+ setter/getter方法 
+
+ 主构造器 
+
+ 辅助构造器 
+
+ 嵌套类
+
+     1)类定义
+
+        class HELLOWORLD  ()&#123;
+
+            //属性 
+
+            private val  value1 = &quot;HELLO&quot;
+
+            var value2 = &quot;WORLD&quot; 
+
+            //方法
+
+            def add()=&#123;  
+
+                println(value1+value2)  
+
+            &#125; 
+
+            def plus(m:Char)=value2+m 
+
+            //主构造器中的代码
+
+            println(&quot;hello&quot;);
+
+        &#125; 
+
+        类成员主要包括字段(val跟var)、方法与函数(def)，但Scala禁止使用同样的名称命名字段和方法，即既声明一个value字段，又声明一个value方法是不允许的 
+
+        类成员可见性有两种，private(私有)跟public(公有)，private需要声明，public无需额外声明 
+
+        类声明后利用new声明对象  val one= new HELLOWORLD
+
+        实例的操作 
+
+            val a=one.value1 
+
+            val b=one.value2 
+
+            one.value2=one.plus(H) 
+
+            one.add()
+
+        调用无参方法时可以不带() 
+
+            one.add 
+
+        若类中声明无参方法时不带()，实际调用也不可带() 
+
+            ...def add&#123; println(value1+value2) &#125;... 
+
+            one.add()
+
+     2) getter、setter
+
+        Scala对每个类中的字段都提供getter和setter方法 
+
+        对于公有字段来说，其getter和setter方法同样是共有的，对于私有字段来说，则是私有的 
+
+        var声明的字段带有getter和setter方法(读写) 
+
+        val声明的字段自带有getter方法(只读) 
+
+        对于字段value1，其getter形式为value1，并没有setter方法 
+
+        对于字段value2，其getter和setter方法形式为value2和value2_= 
+
+        实际使用时，在类定义外，getter和setter方法使用是一致的，形如one.value2
+
+         getter方法与setter方法的意义在于控制类中私有对象的数据 
+
+         在类中可以通过重定义getter和setter方法获取、有限制的修改私有字段 
+
+         class HELLOWORLD&#123; 
+
+            private var  privatevalue1 = &quot;HELLO&quot;
+
+            var value2 = &quot;WORLD&quot;
+
+            def add() &#123;  
+
+                println(value1+privatevalue2)  
+
+            &#125; 
+
+            def plus(m:Char)=value2+m 
+
+            def value1 = privatevalue1 
+
+            def value1_ = (newvalue1:String) &#123;
+
+                //若新的字段比原私有字段长，则更改，否则保持私有字段不变 
+
+                if(newvalue1.length&gt;privatevalue1.length) 
+
+                privatevalue1=newvalue1 
+
+            &#125;      
+
+        &#125;
+
+     3) 主构造器(primary constructor)
+
+        每个类都有主构造器，且与类定义交织在一起 
+
+        1.主构造器的参数直接放置在类名之后 
+
+        class HELLOWORLD (val value1：String，var value2：String)&#123;...&#125;  
+
+        主构造器的参数被编译成字段，并在构造对象时初始化传入 
+
+        一个类若没有显式定义主构造器自动拥有一个无参主构造器  
+
+        2.若类中有直接执行的语句(非定义的方法、函数)，每次构造对象时皆会执行一次，不论什么样的构造器类型 
+
+        如：class HELLOWORLD (val value1:String,var value2:String) &#123; 
+
+            println(&quot;HELLOWORLD IS CREATED&quot;) 
+
+            val value3=value1+value2 
+
+            &#125; 
+
+        	val two = new HELLOWORLD(&quot;WELCOME&quot;,&quot;HOME&quot;)
+
+        3.主构造器的参数一般有四种: 
+
+            value:String 生成对象私有字段，对象中没有方法使用value，则没有该字段 
+
+            private val/var value:String 私有字段,私有的getter/setter方法  
+
+            val/var value:String 私有字段,公有的getter/setter方法 
+
+            @BeanProperty val/var value:String 私有字段,共有的Scala和JavaBean的getter/setter方法
+
+        4.主构造器私有化
+
+            class HELLOWORD private（主构造器）&#123; 类成员 &#125; 主构造器私有，只能通过辅助构造器构造对象
+
+    4) 辅助构造器(auxiliary constructor)
+
+        Scala类能有任意多的辅助构造器 
+
+        辅助构造器的名称为this，在类中定义 
+
+        辅助构造器必须以一个主构造器或其他已定义的辅助构造器调用开始 
+
+        class HELLOWORLD&#123; 
+
+            private var value1=&quot; &quot; 
+
+            private var value2=&quot; &quot; 
+
+            def this(m:String)&#123; 
+
+                this()    //调用主构造器 
+
+                this.value1=m
+
+            &#125; 
+
+            def this(m:String,n:String)&#123; 
+
+                this(m)  //调用已定义的辅助构造器 
+
+                this.value2=n
+
+            &#125;
+
+        &#125;
+
+     5) 嵌套类
+
+        Scala允许任何语法结构中镶嵌任何语法结构，因此能在类中定义类 
+
+        class HELLOWORLD&#123; 
+
+            class HI&#123;....&#125; 
+
+        &#125; 
+
+        对于同一个外部类，不同实例下的内部类是不同的 
+
+        形如val three = new HELLOWORLD与val four = new HELLOWORLD 
+
+            three.HI与four.HI是两个不同的类 
+
+        内部类中可以调用外部类的成员，利用外部类.this或指针实现 
+
+        class HELLOWORLD&#123; 
+
+            pointto =&gt; 
+
+            var value2= &quot; &quot; 
+
+            class HI&#123;  
+
+                val value3=HELLOWORLD.this.value2 
+
+                var value4=pointto.value2 
+
+            &#125;
+
+        &#125;
+
+        eg:
+
+        import scala.collection.mutable.ArrayBuffer;
+
+        class NetWork&#123;
+
+            class Member(val name:String)&#123;
+
+                val contacts=new ArrayBuffer[Member]
+
+            &#125;
+
+            private val members=new ArrayBuffer[Member];
+
+            def join(name:String)=&#123;
+
+                val m=new Member(name);
+
+                members += m;
+
+                m
+
+            &#125;
+
+        &#125;
+
+        考虑有如下两个网络：
+
+            val chatter=new NetWork;
+
+            val myFace=bew NetWork;
+
+            val fred=chatter.join(&quot;Fred&quot;);
+
+            val wilma=chatter.join(&quot;Wilma&quot;);
+
+            fred.contacts += wilma; // OK
+
+            val barney=myFace.join(&quot;Barney&quot;);
+
+            //不可以这样做——————不能将一个myFace.Member添加到chatter.Member元素缓冲中。
+
+            fred.contacts += barney; 
+
+ 1.2Scala对象
+
+    单例对象 
+
+    伴生对象  apply unapply case class 
+
+    扩展类和特质:构造一个扩展了指定类和特质的类的对象，同时拥有对象定义中给出的所有特性
+
+    apply方法 
+
+      1) 单例对象 object Test
+
+        scala没有静态方法或静态字段，要想实现类似于这种功能，可以借助于单例对象。
+
+        object语法定义了某个类的单个实例 
+
+        对象的构造器在该对象第一次被使用时调用 
+
+        object语法结构与class大致相同，除了object不能提供构造器参数 
+
+        通常使用单例对象的环境： 
+
+            作为存放工具函数或常量的地方 
+
+            共享单个不可变实例  
+
+            利用单个实例协调某个服务
+
+      2) 伴生对象
+
+        既有实例方法又有静态方法的类，借助于伴生对象。
+
+        在同一个源文件中，当一个类存在与之相同类名的一个单例对象的时候，此时称这个单例对象为伴生对象 
+
+            class HELLOWORLD&#123;...&#125; 
+
+            object HELLOWORLD&#123;...&#125; 
+
+        类和其伴生对象可以互相访问私有属性，但必须存在同一个源文件中 
+
+        类的伴生对象可以被访问，但并不在作用域中，如; 
+
+            class HELLOWORLD&#123;...&#125; 
+
+            object HELLOWORLD&#123; def NOW&#123;...&#125; &#125; 
+
+        HELLOWORLD 类必须通过HELLOWORLD.NOW调用伴生对象中的NOW方法，而不能直接用NOW来调用
+
+      3) 样例类 case class
+
+      	对需要伴生对象的类使用case关键字进行了简单封装。
+
+      	样例类的格式:case class 类名(args1:T1,args2:T2)&#123;&#125;
+
+      	注意:
+
+      		1.主构造器的()无参时不可以省略
+
+      		2.参数列表中参数默认是被val关键字修饰
+
+      		3.被case定义的类，自动提供了22个方法。经常用到的toString hashcode equals copy apply unapply
+
+      		4.
+
+      			apply 构建对象该方法可以通过统一对象构建原则构建对象
+
+      			unapply 模式匹配时，将对象匹配绑定成属性。
+
+      		5.样例类中所具有的功能，我们都能在类+伴生对象中自己实现。
+
+      4) 扩展类或者特质的对象
+
+        一个object可以扩展类以及一个或多个特质，其结果是一个扩展了指定类以及特质的类的对象，同时拥有在对象定义中给出的所有特性。
+
+        eg:	思考一个有用的场景：给出可被共享的缺省对象。
+
+        举例来说，考虑在程序中引入一个可撤销动作的类；
+
+        abstract class UndoableAction(val description:String)&#123;
+
+            def undo():Unit;
+
+            def redo():Unit;
+
+        &#125;
+
+        默认情况下，可以是&quot;什么都不做&quot;，当然，对于这个行为我们只需要一个实例即可。
+
+        object DoNothingAction extends UndoableAction(&quot;Do nothing&quot;)&#123;
+
+            override def undo()&#123;&#125;
+
+            override def redo()&#123;&#125;
+
+        &#125;
+
+        DoNothingAction对象可以被所有需要这个缺省行为的地方共用。
+
+        val actions=Map(&quot;open&quot;-&gt;DoNothingAction,&quot;save&quot;-&gt;DoNothingAction)//打开和保存功能尚未实现。
+
+      5) apply方法
+
+        我们通常会定义和使用对象的apply方法。当遇到如下表达式时，apply方法就会被调用：
+
+            Object(参数1,参数2,...,参数N)
+
+            通常，这样一个apply方法，返回的是伴生类的对象。
+
+        对于嵌套表达式，省去new关键字会方便好多。
+
+        eg:
+
+            val arrs=Array(Array(1,7),Array(2.9));
+
+            需要构造有参数需求的伴生对象时，可定义并使用apply方法 
+
+            class HELLOWORLD(var m:String,n:Char)&#123;...&#125; 
+
+            object HELLOWORLD&#123; 
+
+                def apply(n:Char)=new HELLOWORLD(&quot; &quot;,n) 
+
+            &#125;
+
+            val hi=HELLOWORLD(&#39;j&#39;)
+
+1.3Scala继承:extends 
+
+    1.1抽象类 
+
+        1.不能被实例的类叫做抽象类.
+
+        2.抽象类的某个或某几个成员没有被完整定义，这些没有被完整定义的成员称为抽象方法或抽象字段.
+
+        3.用abstract保留字标记抽象类. 
+
+        4.只要类中有任意一个抽象成员，必须使用abstract标记. 
+
+        5.重写抽象方法、抽象字段不需要使用override保留字.
+
+        eg:
+
+            abstract class Year&#123; 
+
+                val name：Array[String] //抽象的val，带有一个抽象的getter方法 
+
+                var num：Int //抽象的var，带有抽象的getter/setter方法 
+
+                def sign():Unit //没有方法体/函数体，是一个抽象方法 
+
+            &#125; 
+
+            abstract class  Father() &#123;
+
+                //抽象属性
+
+                val name:String
+
+                //具体属性
+
+                var age=0
+
+                //抽象方法
+
+                [abstract] def methodName():ReturnType
+
+                //具体方法
+
+                def test(args:T1):Int=&#123;&#125;
+
+            &#125;
+
+        实现类:
+
+            class Son extends Father&#123;
+
+                //子类重写 父类中的抽象方法
+
+                [override] def methodName():ReturnType=&#123;
+
+                    //......
+
+                &#125;
+
+                //子类重写 父类中的抽象属性
+
+                [override] val name:String=&quot;tom&quot;
+
+                //子类重写 父类中的具体方法
+
+                override def test(args:T1):Int=&#123;
+
+                &#125;
+
+                override var age=10
+
+            &#125;
+
+    1.2重写
+
+        1.在Scala中重写一个非抽象方法必须使用override修饰符。 
+
+            class week extends month&#123; override def firstday = &#123;...&#125; &#125; 
+
+          override保留字实际使用类似与private，声明这个保留字后的定义、声明是对超类的重写，因此，其也可以写在类定义的参数中 
+
+            class week(override val lastday：String) extends month&#123;...&#125; 
+
+        2.子类的重写或修改Scala会检查其超类，但是，超类的修改并不会检查其子类 
+
+        3.重写包括字段和方法，但参数不同的方法可以不重写 
+
+            class month&#123; 
+
+                def secondday（m:String）=&#123;...&#125;
+
+            &#125; 
+
+            class week extends month&#123; 
+
+                def secondday =&#123;...&#125;
+
+            &#125;
+
+        4.在Scala中调用超类的方法和Java一样，使用super关键字
+
+        5.只有主构造器可以调用超类的构造器;
+
+            eg:
+
+                class Employee(name:String,age:Int,val salary:Double) extends Person(name:String,age:Int)
+
+     	6.重写规则： 
+
+            重写 def 
+
+                用val ：利用val能重写超类用没有参数的方法(getter) 
+
+                用def：子类的方法与超类方法重名 
+
+            重写val 
+
+                用val：子类的一个私有字段与超类的字段重名，getter方法重写超类的getter方法 
+
+            重写var 
+
+                用var：且当超类的var是抽象的才能被重写，否则超类的var都会被继承
+
+            eg:
+
+                abstract class month&#123; 
+
+                    val one = 25  //可在子类中用val重写 
+
+                    var two = 15  //不可在子类中用var重写，因为不是抽象的 
+
+                    var three：Int 
+
+                    def firstday =   //可在子类中用val/def重写          
+
+                    def lastday(m:Char)=&#123;&#125;   //可在子类中用def重写 
+
+                &#125;
+
+    1.3构造顺序
+
+        1.子类构造器的运行在超类构造器运行之后 
+
+        2.在超类的构造器中调用的成员被子类重写后，返回值可能不正确： 
+
+            class month&#123; 
+
+                val num = 31 
+
+                val days = new Array[Int](num)
+
+            &#125; 
+
+            class week extends month&#123; 
+
+                override val num = 7 
+
+            &#125; 
+
+            val a=new week 
+
+            构造week对象前先执行month的构造器，num被初始化为31，month为初始化days 数组，调用num，但num被子类week重写了，但因为week构造器还没被调用，此时 num的值未被初始化，因而返回0，days被设置为长度为0的数组，month构造器运行 完毕，执行week构造器，num被初始化为7
+
+     	3.解决方法： 
+
+            3.1将超类的val声明为final 
+
+            3.2将超类的val声明为lazy  
+
+                    lazy val days = new Array[Int](num)
+
+                或者
+
+                    lazy val num = 31 
+
+                    override lazy val num = 7 
+
+            3.3在子类中使用提前定义语法
+
+                提前定义：
+
+                    在超类的构造器运行之前初始化子类的字段  
+
+                    把需要提前定义的语句块放在extends与超类之间，并后接with保留字 
+
+                    class week extends &#123;override val num =7&#125; with month&#123;...&#125; 
+
+                    提前定义中=右侧若需调用类中B成员时，除非B成员已在调用前提前定义 
+
+                    class week extends&#123; 
+
+                        override val num=7 
+
+                        override val num2=num+1      //允许，num已被提前定义 
+
+                        override val num4=num2+num3   //不允许，num3没有在之前提前定义 
+
+                    &#125;with month&#123;...&#125;
+
+1.4Scala特质trait
+
+    包含:
+
+        抽象方法/属性 
+
+        具体方法/属性 
+
+    1.1多重继承 
+
+        1.案例：
+
+            class Meonth
+
+            class Year
+
+            class Week extends Month,Year是不合法的,为什么？ 
+
+            若一个子类继承自不同的超类，不同的超类中同名成员子类不知如何处理多重继承产生菱形继承问题. 
+
+            解决多重继承可能导致的问题消耗的资源远比多重继承产生的价值高。
+
+        2.Scala不支持类多重继承，但是允许扩展多个特质。Scala使用特质达到类似多重继承的效果。 
+
+            class Father
+
+            trait T1
+
+            trait T2
+
+            class A extends Father with T1 with T2
+
+        3.一个子类只能拥有一个超类，一个超类能拥有多个子类。 
+
+        4.一个类可以扩展自一个或多个特质，一个特质可以被多个类扩展。
+
+        5.特质能限制被什么样的类所扩展。(如何限制)	
+
+    1.2特质构造顺序  
+
+        1.案例:
+
+            class Account
+
+            trait Logger
+
+            trait FileLogger extends Logger
+
+            trait ShortLogger extends Logger
+
+            class SavingsAccount extends Account with FileLogger with ShortLogger&#123;&#125;
+
+            构造器按照如下的顺序执行： 
+
+                1.Account
+
+                2.Logger
+
+                3.FileLogger
+
+                4.ShortLogger
+
+                5.SavingsAccount
+
+        结论:
+
+            1.特质的构造是有顺序的，从左到右被构造
+
+            2.构造器按如下顺序构造： 
+
+                超类 
+
+                父特质 
+
+                第一个特质 
+
+                第二个特质(父特质不重复构造) 
+
+                类
+
+            3.线性化描述
+
+                说明:构造器的顺序是类的线性化的反向。
+
+                描述:线性化描述某个类型的所有超类型的一种技术规格
+
+                规则定义:如果 C extends C1 with C2 with ... with Cn,则lin(C) = C &gt;&gt; lin(cn)&gt;&gt; .. &gt;&gt; lin(c2)&gt;&gt;lin(c1)
+
+                &quot;&gt;&gt;&quot;是指&quot;串接并去掉重复项，右侧胜出&quot;
+
+                    lin(SavingsAccount)
+
+                    =SavingsAccount &gt;&gt; lin(ShortLogger)&gt;&gt; lin(FileLogger)&gt;&gt;lin(Account)
+
+                    =SavingsAccount &gt;&gt; (ShortLogger &gt;&gt; Logger） &gt;&gt; (FileLogger &gt;&gt; Logger) &gt;&gt; lin(Account)
+
+                    =SavingsAccount &gt;&gt; ShortLogger &gt;&gt; FileLogger &gt;&gt; Logger &gt;&gt; Account
+
+                省去了位于任何线性化末端的类型：ScalaObject,AnyRef,Any
+
+                线性化给出了在特质中super被解析的顺序。举例来说，ShortLogger中调用super会执行FileLogger的方法，而FileLogger中调用super执行Logger的方法。
+
+    1.3特质使用 
+
+        1.特质是Scala里代码复用的基础单元，封装了方法和字段的定义。
+
+        2.特质的定义借助trait实现，具体语法与类定义相似，只是不能通过构造器传参。
+
+            trait Reset&#123; 
+
+                def reset(m:Int,n:Int)=if(m&gt;=n) 1 
+
+            &#125;  
+
+            思考:特质不可通过构造器传递参数，那么假设要构建一个文件日志生成特质，但文件名称根据混入的实例不同而不同，该特质如何实现。
+
+                trait FileLogger &#123;
+
+                    val fileName:String;
+
+                    val out=new PrintStream(fileName);
+
+                    def log(info:String)=&#123;
+
+                        out.println(info);
+
+                        out.flush();
+
+                    &#125;
+
+                &#125;
+
+                接下来构建一个包含文件日志记录的实例
+
+                    val sa=new SavingAccount with FileLogger&#123;
+
+                        override val fileName=&quot;SavingAccountLog.txt&quot;
+
+                    &#125;
+
+                但此时运行报错空指针异常(原因是构造器的执行顺序)
+
+                解决办法：
+
+                    1.懒值  lazy val out=new PrintStream(fileName);
+
+                    2.提前定义 
+
+                        val sa=new &#123;override val fileName=&quot;SavingAccountLog.txt&quot;&#125; with SavingAccount with FileLogger
+
+        3.特质被定义之后，可以混入到类/对象/特质/实例(对象)
+
+            class Week extends Reset &#123;...&#125;  
+
+            trait Reseting extends Reset&#123;...&#125; 
+
+            object A extends Reset&#123;...&#125; 
+
+            在实例(对象)中混入特质 
+
+                val five = new Week with Reseting
+
+        4.当要混入多个特质时，利用with保留字  
+
+            class Week extends Reset with B with C &#123;...&#125;
+
+        总结:
+
+            1.在特质中重写特质中的抽象方法时，可以不用加override关键字
+
+            2.多个特质重写同一个特质的同一个抽象方法时，后期再使用过程中必须加上override关键字
+
+            3.在特质中重写父特质中的抽象方法时，如果使用super调用父类的方法时，那么必须添加abstract和override关键字
+
+                trait Logger&#123;
+
+                    def log(msg:String)
+
+                &#125;
+
+                trait TimestampLogger extends Logger&#123;
+
+                    abstract override def log(msg:String)&#123;
+
+                        super.log(new java.util.Date()+&quot; &quot;+msg )
+
+                    &#125;
+
+                &#125;
+
+    1.4特质应用
+
+        1.特质的一个主要应用方面在于:富接口(根据类已有的方法自动为类添加方法,利用特质实现富接口)
+
+            构造一个具有少量抽象方法和大量基于抽象方法的具体方法的特质.那么只要把特质混入类中，通过类重写抽象方法后，类便自动获得大量具体方法 
+
+                trait Logger&#123; 
+
+                    def log(msg:String) 
+
+                    def warn(msg:String) &#123; 
+
+                        log(“server”+msg) 
+
+                    &#125; 
+
+                    def server(msg:String) &#123; 
+
+                        log(&quot;server&quot;+msg) 
+
+                    &#125;
+
+                &#125; 
+
+                class Week extends Logger&#123; 
+
+                    def log(msg:String)&#123;
+
+                        println(msg)
+
+                    &#125; 
+
+                    server(&quot;HI&quot;)
+
+                &#125;
+
+        2.特质的另一个应用方面在于：为类提供可堆叠的改变（super保留字） 
+
+            2.1当为类添加多个互相调用的特质时，从最后一个开始进行处理 
+
+            2.2在类中super.foo()这样的方法调用是静态绑定的，明确是调用它的父类的foo()方法
+
+            2.3在特质中写下了super.foo()时，它的调用是动态绑定的。调用的实现将在每一次特质被混入到具体类的时候才被决定 
+
+            因此，特质混入的次序的不同其执行效果也就不同
+
+            eg:
+
+                abstract class IntQueue &#123;  
+
+                    def get(): Int;
+
+                    def put(x: Int);  
+
+                &#125; 
+
+                class BasicIntQueue extends IntQueue &#123; 
+
+                    private val buf = new ArrayBuffer[Int] 
+
+                    def get() = buf.remove(0) 
+
+                    def put(x: Int) &#123; 
+
+                        buf += x 
+
+                    &#125; 
+
+                &#125; 
+
+                trait Incrementing extends IntQueue &#123; 
+
+                    abstract override def put(x: Int) &#123; 
+
+                        super.put(x + 1) 
+
+                    &#125; 
+
+                &#125;
+
+                trait Doubling extends IntQueue &#123; 
+
+                    abstract override def put(x: Int) &#123; 
+
+                        super.put(2 * x) 
+
+                    &#125; 
+
+                &#125;
+
+                object TestClient extends App &#123;    
+
+                    val queue1 = (new BasicIntQueue with Incrementing with Doubling) 
+
+                    queue1.put(2)            //Doubling.put(2*2)-&gt;Incrementing.put(4+1) 
+
+                    println(queue1.get()) //result is 5
+
+                    val queue2 = (new BasicIntQueue with Doubling with Incrementing) 
+
+                    queue2.put(2)            //Incrementing.put(2+1)-&gt;Doubling.put(2*3) 
+
+                    println(queue2.get()) //result is 6
+
+                &#125;
+
+    1.5扩展类的特质(特质能限制被什么样的类所扩展)	
+
+        1.特质可以扩展自类，那么该类自动变成所有混入该特质的超类。
+
+            trait LoggedException extends Exception
+
+            class HappyException extends LoggedException&#123;&#125; //编译正确，运行正确
+
+            class UnHappyException extends JFrame with LoggedException //编译正确，运行报错
+
+        原因:类中显示父类必须与超类存在子父类之间的关系。
+
+            即特质LoggedException限制了只能被Exception以及Exception的子类所扩展。
+
+        缺点:编译期间没有任何提示，运行期间报错显示。
+
+        改进:如何在编译阶段给出提示。
+
+            1.自身类型 
+
+                作用:
+
+                    使用自身类型代替显示继承某一父类
+
+                格式:
+
+                    this:类型 =&gt;
+
+                eg:
+
+                    trait LoggedException &#123;
+
+                        this:Exception =&gt;
+
+                            def log()
+
+                            def warn():String
+
+                    &#125;
+
+                解释:后期只有Exception以及Exception的子类才可以混入该特质。
+
+            2.结构类型
+
+                作用:
+
+                    使用结构类型代替显示继承某一父类，用具有的方法来代替具体的某一类。
+
+                格式:
+
+                    this:&#123; 方法定义列表 &#125; =&gt;
+
+                eg:
+
+                    trait LoggedException &#123;
+
+                        this:&#123;
+
+                            def getMessage():String
+
+                            def log(info:String)&#123;
+
+                                println(&quot;log:&quot;+info)
+
+                            &#125;
+
+                        &#125; =&gt;
+
+                    &#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>工业界</category>
+        <category>大数据高级开发Spark</category>
+      </categories>
+      <tags>
+        <tag>Scala之面向对象编程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Scala的定义、优点、如何使用</title>
     <url>/2023/09/09/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>1.scala是什么</p>
@@ -5204,6 +5191,19 @@ val value1=f1(3);//b=3
       </categories>
       <tags>
         <tag>Scala的定义、优点、如何使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeteCode Solution Overview</title>
+    <url>/2023/09/02/LeteCode-Solution-Overview/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/weixin_44232942/article/details/106457056">LeteCode 解题总览</a></p>
+]]></content>
+      <categories>
+        <category>找工作</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>LeteCode</tag>
       </tags>
   </entry>
   <entry>
@@ -6551,12 +6551,6 @@ unapply 方法的返回值应当符合下面的某一条：
       </tags>
   </entry>
   <entry>
-    <title>The Different Me: Qzhang</title>
-    <url>/2023/09/15/The-Different-Me-Qzhang/</url>
-    <content><![CDATA[<h2 id="Qing-Zhang"><a href="#Qing-Zhang" class="headerlink" title="Qing Zhang"></a>Qing Zhang</h2><h2 id="张青"><a href="#张青" class="headerlink" title="张青"></a>张青</h2><h2 id="Biography"><a href="#Biography" class="headerlink" title="Biography"></a>Biography</h2><p>Qing is looking for job oppotunity!!!</p>
-<h2 id="News"><a href="#News" class="headerlink" title="News"></a>News</h2><h2 id="Selected-Publication-Google-Scholar"><a href="#Selected-Publication-Google-Scholar" class="headerlink" title="Selected Publication [Google Scholar]"></a>Selected Publication [<a href="https://scholar.google.com/citations?hl=en&view_op=list_worksgmla=AP6z3OaD-tXcIdA7232yuM864uP7HSb4Eljmcn-TQNwtirTGDNWcxqwzx5u9hQ4UtaBmkc6W2WudOn-Zls1TYg&user=aQQy_WAAAAAJ">Google Scholar</a>]</h2><h2 id="Industrial-circles"><a href="#Industrial-circles" class="headerlink" title="Industrial circles"></a>Industrial circles</h2><h3 id="Project-experience"><a href="#Project-experience" class="headerlink" title="Project experience"></a>Project experience</h3><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><h2 id="Job-search"><a href="#Job-search" class="headerlink" title="Job search"></a>Job search</h2><h2 id="Experience"><a href="#Experience" class="headerlink" title="Experience"></a>Experience</h2><h2 id="Honors-Awards"><a href="#Honors-Awards" class="headerlink" title="Honors &amp; Awards"></a>Honors &amp; Awards</h2>]]></content>
-  </entry>
-  <entry>
     <title>Scala语言绪论</title>
     <url>/2023/09/09/Scala%E8%AF%AD%E8%A8%80%E7%BB%AA%E8%AE%BA/</url>
     <content><![CDATA[<p>1、安装认识Scala<br>2、了解Scala中的类型<br>3、如何声明定义变量<br>4、如何定义类&#x2F;方法&#x2F;对象&#x2F;特质（接口&#x2F;抽象类） 任何一门语言需要学习的3项<br>5、for表达式   》进阶map  foreach<br>6、数组集合的使用<br>7、模式匹配的使用<br>8、函数式编程   （需要好好学）<br>        函数<br>        高阶函数<br>        柯里化函数<br>        偏函数<br>        部分应用函数</p>
@@ -7307,20 +7301,10 @@ Hadoop
       </tags>
   </entry>
   <entry>
-    <title>冒泡排序算法思想</title>
-    <url>/2023/09/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/</url>
-    <content><![CDATA[<p>冒泡排序算法是把较小的元素往前调或者把较大的元素往后调。这种方法主要是通过对相邻两个元素进行大小的比较，根据比较结果和算法规则对该二元素的位置进行交换，这样逐个依次进行比较和交换，就能达到排序目的。冒泡排序的基本思想是，首先将第1个和第2个记录的关键字比较大小，如果是逆序的，就将这两个记录进行交换，再对第2个和第3个记录的关键字进行比较，依次类推，重复进行上述计算，直至完成第(n一1)个和第n个记录的关键字之间的比较，此后，再按照上述过程进行第2次、第3次排序，直至整个序列有序为止。排序过程中要特别注意的是，当相邻两个元素大小一致时，这一步操作就不需要交换位置，因此也说明冒泡排序是一种严格的稳定排序算法，它不改变序列中相同元素之间的相对位置关系。 </p>
-<h2 id="冒泡排序的三种写法"><a href="#冒泡排序的三种写法" class="headerlink" title="冒泡排序的三种写法"></a>冒泡排序的三种写法</h2><p>双层循环进行比较，外层循环控制比较趟数，内层循环控制比较交换次数，每趟结束后最大值都在末尾。<br>改进的思路是减少外层循环次数和内层循环的次数。推荐使用改版二，它2个次数都能修改。</p>
-<h3 id="1）我最开始是这样写冒泡排序的，效率十分低"><a href="#1）我最开始是这样写冒泡排序的，效率十分低" class="headerlink" title="1）我最开始是这样写冒泡排序的，效率十分低"></a>1）我最开始是这样写冒泡排序的，效率十分低</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 缺点是某趟已经有序时，后面的次数还是会继续，外层循环次数总是max，内层循环次数还是 max - i */</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"> </span><br><span class="line">#define N 9</span><br><span class="line">#define MAXSIZE 10000  /* 用于要排序数组个数最大值，可根据需要修改 */</span><br><span class="line"> </span><br><span class="line">typedef struct &#123;</span><br><span class="line">	int r[MAXSIZE+1];	/* 用于存储要排序数组，r[0]用作哨兵或临时变量 */</span><br><span class="line">	int length;			/* 用于记录顺序表的长度 */</span><br><span class="line">&#125; SqList;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j);</span><br><span class="line">void BubbleSort0(SqList *L);</span><br><span class="line">void print(SqList L);</span><br><span class="line">int main(void) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	int d[N]= &#123;50,10,90,30,70,40,80,60,20&#125;;</span><br><span class="line">	SqList list;</span><br><span class="line"> </span><br><span class="line">	for(i=0; i&lt;N; i++)</span><br><span class="line">		list.r[i+1]=d[i];</span><br><span class="line">	list.length=N;</span><br><span class="line">	printf(&quot;排序前:\n&quot;);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	printf(&quot;冒泡排序后:\n&quot;);</span><br><span class="line">	BubbleSort0(&amp;list);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j) &#123;</span><br><span class="line">	int temp = L-&gt;r[i];</span><br><span class="line">	L-&gt;r[i] = L-&gt;r[j];</span><br><span class="line">	L-&gt;r[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void print(SqList L) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	for(i=1; i&lt;L.length; i++)</span><br><span class="line">		printf(&quot;%d,&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;%d&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* 对顺序表L作交换排序（冒泡排序初级版） */</span><br><span class="line">void BubbleSort0(SqList *L) &#123;</span><br><span class="line">	int i, j;</span><br><span class="line">	for(i = 1; i &lt; L-&gt;length; i++) &#123;</span><br><span class="line">		for(j = i + 1; j &lt;= L-&gt;length; j++) &#123;</span><br><span class="line">			if(L-&gt;r[i] &gt; L-&gt;r[j]) &#123;</span><br><span class="line">				swap(L, i, j);/* 交换L-&gt;r[i]与L-&gt;r[j]的值 */</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。"><a href="#2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。" class="headerlink" title="2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。"></a>2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"> </span><br><span class="line">#define N 9</span><br><span class="line">#define MAXSIZE 10000  /* 用于要排序数组个数最大值，可根据需要修改 */</span><br><span class="line"> </span><br><span class="line">typedef struct &#123;</span><br><span class="line">	int r[MAXSIZE+1];	/* 用于存储要排序数组，r[0]用作哨兵或临时变量 */</span><br><span class="line">	int length;			/* 用于记录顺序表的长度 */</span><br><span class="line">&#125; SqList;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j);</span><br><span class="line">void BubbleSort0(SqList *L);</span><br><span class="line">void print(SqList L);</span><br><span class="line">int main(void) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	int d[N]= &#123;50,10,90,30,70,40,80,60,20&#125;;</span><br><span class="line">	SqList list;</span><br><span class="line"> </span><br><span class="line">	for(i=0; i&lt;N; i++)</span><br><span class="line">		list.r[i+1]=d[i];</span><br><span class="line">	list.length=N;</span><br><span class="line">	printf(&quot;排序前:\n&quot;);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	printf(&quot;冒泡排序后:\n&quot;);</span><br><span class="line">	BubbleSort0(&amp;list);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j) &#123;</span><br><span class="line">	int temp = L-&gt;r[i];</span><br><span class="line">	L-&gt;r[i] = L-&gt;r[j];</span><br><span class="line">	L-&gt;r[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void print(SqList L) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	for(i=1; i&lt;L.length; i++)</span><br><span class="line">		printf(&quot;%d,&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;%d&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* 对顺序表L作交换排序（冒泡排序初级版） */</span><br><span class="line">void BubbleSort0(SqList *L) &#123;</span><br><span class="line">	int i, j;</span><br><span class="line">	for(i = 1; i &lt; L-&gt;length; i++) &#123;</span><br><span class="line">		for(j = L-&gt;length - 1; j &gt;= i; j--) &#123; /* 注意j是从后往前循环 */</span><br><span class="line">			if(L-&gt;r[j] &gt; L-&gt;r[j+1]) &#123; /* 若前者大于后者（注意这里与上一算法的差异）*/</span><br><span class="line">				swap(L, j, j+1);/* 交换L-&gt;r[j]与L-&gt;r[j+1]的值 */</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="改进2：双向冒泡，正向找最大-从最小元素交换位置处开始比较，找到最大元素并记录交换位置-，反向找最小-从最大元素交换位置处开始比较，找到最小元素并记录交换位置"><a href="#改进2：双向冒泡，正向找最大-从最小元素交换位置处开始比较，找到最大元素并记录交换位置-，反向找最小-从最大元素交换位置处开始比较，找到最小元素并记录交换位置" class="headerlink" title="改进2：双向冒泡，正向找最大(从最小元素交换位置处开始比较，找到最大元素并记录交换位置)，反向找最小(从最大元素交换位置处开始比较，找到最小元素并记录交换位置)."></a>改进2：双向冒泡，正向找最大(从最小元素交换位置处开始比较，找到最大元素并记录交换位置)，反向找最小(从最大元素交换位置处开始比较，找到最小元素并记录交换位置).</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"> </span><br><span class="line">#define N 9</span><br><span class="line">#define MAXSIZE 10000  /* 用于要排序数组个数最大值，可根据需要修改 */</span><br><span class="line">#define TRUE 1</span><br><span class="line">#define FALSE 0</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	int r[MAXSIZE+1];	/* 用于存储要排序数组，r[0]用作哨兵或临时变量 */</span><br><span class="line">	int length;			/* 用于记录顺序表的长度 */</span><br><span class="line">&#125; SqList;</span><br><span class="line"> </span><br><span class="line">typedef int Status;</span><br><span class="line">void swap(SqList *L, int i, int j);</span><br><span class="line">void BubbleSort0(SqList *L);</span><br><span class="line">void print(SqList L);</span><br><span class="line">int main(void) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	int d[N]= &#123;50,10,90,30,70,40,80,60,20&#125;;</span><br><span class="line">	SqList list;</span><br><span class="line"> </span><br><span class="line">	for(i=0; i&lt;N; i++)</span><br><span class="line">		list.r[i+1]=d[i];</span><br><span class="line">	list.length=N;</span><br><span class="line">	printf(&quot;排序前:\n&quot;);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	printf(&quot;冒泡排序后:\n&quot;);</span><br><span class="line">	BubbleSort0(&amp;list);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j) &#123;</span><br><span class="line">	int temp = L-&gt;r[i];</span><br><span class="line">	L-&gt;r[i] = L-&gt;r[j];</span><br><span class="line">	L-&gt;r[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void print(SqList L) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	for(i=1; i&lt;L.length; i++)</span><br><span class="line">		printf(&quot;%d,&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;%d&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* 对顺序表L作交换排序（冒泡排序初级版） */</span><br><span class="line">void BubbleSort0(SqList *L) &#123;</span><br><span class="line">	int i, j;</span><br><span class="line">	Status flag = TRUE;			/* flag用来作为标记 */</span><br><span class="line">	for(i = 1; i &lt; L-&gt;length &amp;&amp; flag; i++) &#123; /* 若flag为true说明有过数据交换，否则停止循环 */</span><br><span class="line">		flag = FALSE;				/* 初始为False */</span><br><span class="line">		for(j = L-&gt;length - 1; j &gt;= i; j--) &#123;</span><br><span class="line">			if(L-&gt;r[j] &gt; L-&gt;r[j+1]) &#123;</span><br><span class="line">				swap(L, j, j+1);	/* 交换L-&gt;r[j]与L-&gt;r[j+1]的值 */</span><br><span class="line">				flag = TRUE;		/* 如果有数据交换，则flag为true */</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>工业界</category>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>冒泡排序</tag>
-      </tags>
+    <title>The Different Qzhang</title>
+    <url>/2023/09/15/The-Different-Me-Qzhang/</url>
+    <content><![CDATA[<h2 id="Qing-Zhang"><a href="#Qing-Zhang" class="headerlink" title="Qing Zhang"></a>Qing Zhang</h2><h2 id="张青"><a href="#张青" class="headerlink" title="张青"></a>张青</h2><h2 id="Biography"><a href="#Biography" class="headerlink" title="Biography"></a>Biography</h2><p>Qing is looking for job oppotunity!!!</p>
+<h2 id="News"><a href="#News" class="headerlink" title="News"></a>News</h2><h2 id="Selected-Publication-Google-Scholar"><a href="#Selected-Publication-Google-Scholar" class="headerlink" title="Selected Publication [Google Scholar]"></a>Selected Publication [<a href="https://scholar.google.com/citations?hl=en&view_op=list_worksgmla=AP6z3OaD-tXcIdA7232yuM864uP7HSb4Eljmcn-TQNwtirTGDNWcxqwzx5u9hQ4UtaBmkc6W2WudOn-Zls1TYg&user=aQQy_WAAAAAJ">Google Scholar</a>]</h2><h2 id="Industrial-circles"><a href="#Industrial-circles" class="headerlink" title="Industrial circles"></a>Industrial circles</h2><h3 id="Project-experience"><a href="#Project-experience" class="headerlink" title="Project experience"></a>Project experience</h3><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><h2 id="Job-search"><a href="#Job-search" class="headerlink" title="Job search"></a>Job search</h2><h2 id="Experience"><a href="#Experience" class="headerlink" title="Experience"></a>Experience</h2><h2 id="Honors-Awards"><a href="#Honors-Awards" class="headerlink" title="Honors &amp; Awards"></a>Honors &amp; Awards</h2>]]></content>
   </entry>
   <entry>
     <title>Ubuntu常用命令</title>
@@ -7440,6 +7424,22 @@ Hadoop
       </categories>
       <tags>
         <tag>Ubuntu常用命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>冒泡排序算法思想</title>
+    <url>/2023/09/02/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/</url>
+    <content><![CDATA[<p>冒泡排序算法是把较小的元素往前调或者把较大的元素往后调。这种方法主要是通过对相邻两个元素进行大小的比较，根据比较结果和算法规则对该二元素的位置进行交换，这样逐个依次进行比较和交换，就能达到排序目的。冒泡排序的基本思想是，首先将第1个和第2个记录的关键字比较大小，如果是逆序的，就将这两个记录进行交换，再对第2个和第3个记录的关键字进行比较，依次类推，重复进行上述计算，直至完成第(n一1)个和第n个记录的关键字之间的比较，此后，再按照上述过程进行第2次、第3次排序，直至整个序列有序为止。排序过程中要特别注意的是，当相邻两个元素大小一致时，这一步操作就不需要交换位置，因此也说明冒泡排序是一种严格的稳定排序算法，它不改变序列中相同元素之间的相对位置关系。 </p>
+<h2 id="冒泡排序的三种写法"><a href="#冒泡排序的三种写法" class="headerlink" title="冒泡排序的三种写法"></a>冒泡排序的三种写法</h2><p>双层循环进行比较，外层循环控制比较趟数，内层循环控制比较交换次数，每趟结束后最大值都在末尾。<br>改进的思路是减少外层循环次数和内层循环的次数。推荐使用改版二，它2个次数都能修改。</p>
+<h3 id="1）我最开始是这样写冒泡排序的，效率十分低"><a href="#1）我最开始是这样写冒泡排序的，效率十分低" class="headerlink" title="1）我最开始是这样写冒泡排序的，效率十分低"></a>1）我最开始是这样写冒泡排序的，效率十分低</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 缺点是某趟已经有序时，后面的次数还是会继续，外层循环次数总是max，内层循环次数还是 max - i */</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"> </span><br><span class="line">#define N 9</span><br><span class="line">#define MAXSIZE 10000  /* 用于要排序数组个数最大值，可根据需要修改 */</span><br><span class="line"> </span><br><span class="line">typedef struct &#123;</span><br><span class="line">	int r[MAXSIZE+1];	/* 用于存储要排序数组，r[0]用作哨兵或临时变量 */</span><br><span class="line">	int length;			/* 用于记录顺序表的长度 */</span><br><span class="line">&#125; SqList;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j);</span><br><span class="line">void BubbleSort0(SqList *L);</span><br><span class="line">void print(SqList L);</span><br><span class="line">int main(void) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	int d[N]= &#123;50,10,90,30,70,40,80,60,20&#125;;</span><br><span class="line">	SqList list;</span><br><span class="line"> </span><br><span class="line">	for(i=0; i&lt;N; i++)</span><br><span class="line">		list.r[i+1]=d[i];</span><br><span class="line">	list.length=N;</span><br><span class="line">	printf(&quot;排序前:\n&quot;);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	printf(&quot;冒泡排序后:\n&quot;);</span><br><span class="line">	BubbleSort0(&amp;list);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j) &#123;</span><br><span class="line">	int temp = L-&gt;r[i];</span><br><span class="line">	L-&gt;r[i] = L-&gt;r[j];</span><br><span class="line">	L-&gt;r[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void print(SqList L) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	for(i=1; i&lt;L.length; i++)</span><br><span class="line">		printf(&quot;%d,&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;%d&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* 对顺序表L作交换排序（冒泡排序初级版） */</span><br><span class="line">void BubbleSort0(SqList *L) &#123;</span><br><span class="line">	int i, j;</span><br><span class="line">	for(i = 1; i &lt; L-&gt;length; i++) &#123;</span><br><span class="line">		for(j = i + 1; j &lt;= L-&gt;length; j++) &#123;</span><br><span class="line">			if(L-&gt;r[i] &gt; L-&gt;r[j]) &#123;</span><br><span class="line">				swap(L, i, j);/* 交换L-&gt;r[i]与L-&gt;r[j]的值 */</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。"><a href="#2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。" class="headerlink" title="2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。"></a>2）改进1：记录交换位置，可以省略下趟不必要的比较（如果后面几个元素已经是有序的，第二趟就直接不用比较这几个元素。</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"> </span><br><span class="line">#define N 9</span><br><span class="line">#define MAXSIZE 10000  /* 用于要排序数组个数最大值，可根据需要修改 */</span><br><span class="line"> </span><br><span class="line">typedef struct &#123;</span><br><span class="line">	int r[MAXSIZE+1];	/* 用于存储要排序数组，r[0]用作哨兵或临时变量 */</span><br><span class="line">	int length;			/* 用于记录顺序表的长度 */</span><br><span class="line">&#125; SqList;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j);</span><br><span class="line">void BubbleSort0(SqList *L);</span><br><span class="line">void print(SqList L);</span><br><span class="line">int main(void) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	int d[N]= &#123;50,10,90,30,70,40,80,60,20&#125;;</span><br><span class="line">	SqList list;</span><br><span class="line"> </span><br><span class="line">	for(i=0; i&lt;N; i++)</span><br><span class="line">		list.r[i+1]=d[i];</span><br><span class="line">	list.length=N;</span><br><span class="line">	printf(&quot;排序前:\n&quot;);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	printf(&quot;冒泡排序后:\n&quot;);</span><br><span class="line">	BubbleSort0(&amp;list);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j) &#123;</span><br><span class="line">	int temp = L-&gt;r[i];</span><br><span class="line">	L-&gt;r[i] = L-&gt;r[j];</span><br><span class="line">	L-&gt;r[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void print(SqList L) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	for(i=1; i&lt;L.length; i++)</span><br><span class="line">		printf(&quot;%d,&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;%d&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* 对顺序表L作交换排序（冒泡排序初级版） */</span><br><span class="line">void BubbleSort0(SqList *L) &#123;</span><br><span class="line">	int i, j;</span><br><span class="line">	for(i = 1; i &lt; L-&gt;length; i++) &#123;</span><br><span class="line">		for(j = L-&gt;length - 1; j &gt;= i; j--) &#123; /* 注意j是从后往前循环 */</span><br><span class="line">			if(L-&gt;r[j] &gt; L-&gt;r[j+1]) &#123; /* 若前者大于后者（注意这里与上一算法的差异）*/</span><br><span class="line">				swap(L, j, j+1);/* 交换L-&gt;r[j]与L-&gt;r[j+1]的值 */</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="改进2：双向冒泡，正向找最大-从最小元素交换位置处开始比较，找到最大元素并记录交换位置-，反向找最小-从最大元素交换位置处开始比较，找到最小元素并记录交换位置"><a href="#改进2：双向冒泡，正向找最大-从最小元素交换位置处开始比较，找到最大元素并记录交换位置-，反向找最小-从最大元素交换位置处开始比较，找到最小元素并记录交换位置" class="headerlink" title="改进2：双向冒泡，正向找最大(从最小元素交换位置处开始比较，找到最大元素并记录交换位置)，反向找最小(从最大元素交换位置处开始比较，找到最小元素并记录交换位置)."></a>改进2：双向冒泡，正向找最大(从最小元素交换位置处开始比较，找到最大元素并记录交换位置)，反向找最小(从最大元素交换位置处开始比较，找到最小元素并记录交换位置).</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"> </span><br><span class="line">#define N 9</span><br><span class="line">#define MAXSIZE 10000  /* 用于要排序数组个数最大值，可根据需要修改 */</span><br><span class="line">#define TRUE 1</span><br><span class="line">#define FALSE 0</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	int r[MAXSIZE+1];	/* 用于存储要排序数组，r[0]用作哨兵或临时变量 */</span><br><span class="line">	int length;			/* 用于记录顺序表的长度 */</span><br><span class="line">&#125; SqList;</span><br><span class="line"> </span><br><span class="line">typedef int Status;</span><br><span class="line">void swap(SqList *L, int i, int j);</span><br><span class="line">void BubbleSort0(SqList *L);</span><br><span class="line">void print(SqList L);</span><br><span class="line">int main(void) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	int d[N]= &#123;50,10,90,30,70,40,80,60,20&#125;;</span><br><span class="line">	SqList list;</span><br><span class="line"> </span><br><span class="line">	for(i=0; i&lt;N; i++)</span><br><span class="line">		list.r[i+1]=d[i];</span><br><span class="line">	list.length=N;</span><br><span class="line">	printf(&quot;排序前:\n&quot;);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	printf(&quot;冒泡排序后:\n&quot;);</span><br><span class="line">	BubbleSort0(&amp;list);</span><br><span class="line">	print(list);</span><br><span class="line"> </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void swap(SqList *L, int i, int j) &#123;</span><br><span class="line">	int temp = L-&gt;r[i];</span><br><span class="line">	L-&gt;r[i] = L-&gt;r[j];</span><br><span class="line">	L-&gt;r[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void print(SqList L) &#123;</span><br><span class="line">	int i;</span><br><span class="line">	for(i=1; i&lt;L.length; i++)</span><br><span class="line">		printf(&quot;%d,&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;%d&quot;,L.r[i]);</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/* 对顺序表L作交换排序（冒泡排序初级版） */</span><br><span class="line">void BubbleSort0(SqList *L) &#123;</span><br><span class="line">	int i, j;</span><br><span class="line">	Status flag = TRUE;			/* flag用来作为标记 */</span><br><span class="line">	for(i = 1; i &lt; L-&gt;length &amp;&amp; flag; i++) &#123; /* 若flag为true说明有过数据交换，否则停止循环 */</span><br><span class="line">		flag = FALSE;				/* 初始为False */</span><br><span class="line">		for(j = L-&gt;length - 1; j &gt;= i; j--) &#123;</span><br><span class="line">			if(L-&gt;r[j] &gt; L-&gt;r[j+1]) &#123;</span><br><span class="line">				swap(L, j, j+1);	/* 交换L-&gt;r[j]与L-&gt;r[j+1]的值 */</span><br><span class="line">				flag = TRUE;		/* 如果有数据交换，则flag为true */</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>工业界</category>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>冒泡排序</tag>
       </tags>
   </entry>
   <entry>
