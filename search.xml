@@ -7423,12 +7423,41 @@ unapply 方法的返回值应当符合下面的某一条：
   <entry>
     <title>The Different Qzhang</title>
     <url>/2023/09/15/The-Different-Me-Qzhang/</url>
-    <content><![CDATA[<h1 id="Qing-Zhang-张青"><a href="#Qing-Zhang-张青" class="headerlink" title="Qing Zhang(张青)"></a>Qing Zhang(张青)</h1><h2 id="Biography"><a href="#Biography" class="headerlink" title="Biography"></a>Biography</h2><p>Qing is looking for job oppotunity!!!</p>
-<h2 id="News"><a href="#News" class="headerlink" title="News"></a>News</h2><h2 id="Selected-Publication-Google-Scholar"><a href="#Selected-Publication-Google-Scholar" class="headerlink" title="Selected Publication [Google Scholar]"></a>Selected Publication [<a href="https://scholar.google.com/citations?hl=en&view_op=list_worksgmla=AP6z3OaD-tXcIdA7232yuM864uP7HSb4Eljmcn-TQNwtirTGDNWcxqwzx5u9hQ4UtaBmkc6W2WudOn-Zls1TYg&user=aQQy_WAAAAAJ">Google Scholar</a>]</h2><h2 id="Industrial-circles"><a href="#Industrial-circles" class="headerlink" title="Industrial circles"></a>Industrial circles</h2><ul>
-<li>Python</li>
-<li>Project experience</li>
+    <content><![CDATA[<p><span style="font-size: 40px; color: #7FDBFF;">Qing Zhang (张青)</span></p>
+<p><span style="font-size: 30px; color: #7FDBFF;">Biography</span></p>
+<p>  <span style="font-size: 20px">Qing is looking for job oppotunity!!!</span></p>
+<p><span style="font-size: 30px; color: #7FDBFF;">News</span></p>
+<ul>
+<li>a</li>
 </ul>
-<h2 id="Job-search"><a href="#Job-search" class="headerlink" title="Job search"></a>Job search</h2><h2 id="Experience"><a href="#Experience" class="headerlink" title="Experience"></a>Experience</h2><h2 id="Honors-Awards"><a href="#Honors-Awards" class="headerlink" title="Honors &amp; Awards"></a>Honors &amp; Awards</h2>]]></content>
+<p><span style="font-size: 30px; color: #7FDBFF;">Selected Publication [<a href="https://scholar.google.com/citationshl=enview_op=list_worksgmla=AP6z3OaD-tXcIdA7232yuM864uP7HSb4Eljmcn-TQNwtirTGDNWcxqwzx5u9hQ4UtaBmkc6W2WudOn-Zls1TYg&user=aQQy_WAAAAAJ">Google Scholar</a>]</span></p>
+<ul>
+<li>b</li>
+</ul>
+<p><span style="font-size: 30px; color: #7FDBFF;">Industrial circles</span></p>
+<ul>
+<li><span style="font-size: 20px">Python</span><ul>
+<li>基础语法</li>
+</ul>
+</li>
+<li><span style="font-size: 20px">Project experience</span><ul>
+<li>你好</li>
+</ul>
+</li>
+</ul>
+<p><span style="font-size: 30px; color: #7FDBFF;">Job search</span></p>
+<ul>
+<li>c</li>
+</ul>
+<p><span style="font-size: 30px; color: #7FDBFF;">Experience &amp; Skills</span></p>
+<ul>
+<li>d</li>
+</ul>
+<p><span style="font-size: 30px; color: #7FDBFF;">Honors &amp; Awards</span></p>
+<ul>
+<li>e</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>冒泡排序算法思想</title>
