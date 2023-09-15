@@ -465,6 +465,456 @@ Null是所有引用类型的子类型（即AnyRef的任意子类型）。它有�
       </tags>
   </entry>
   <entry>
+    <title>Scala之基础语法2</title>
+    <url>/2023/09/09/2-Scala%E4%B9%8B%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>1.标识符  </p>
+<p>  大体上与Java一致。</p>
+<p>  特殊点:</p>
+<pre><code>1.Scala标识符中不允许出现$ 
+
+2.反引号`` 可以将关键字等一些特殊字符使用反引号引起来，这样就变成了一个合法的标识符。
+
+  eg:`return` `class` val `there is`=&quot;jthbh&quot;
+</code></pre>
+<p>2.关键字</p>
+<p>  Scala中的关键字基本上与Java一致。但存在个别Java关键字在Scala中不是关键字的特例。</p>
+<pre><code>eg: break
+</code></pre>
+<p>  第一天学习过程中认识到的关键字:</p>
+<pre><code>class val var object def trait  type return this  super private protected
+
+Byte Short Int Long Char Float Double Boolean Unit Array  extends with abstract  
+</code></pre>
+<p>3.操作符 </p>
+<p>  算数运算符  逻辑运算符 位运算符 ….等 与Java使用一致。</p>
+<p>  需要注意的是:</p>
+<pre><code>1.scala中本质上没有操作符，都是方法的调用。   
+
+2. Scala中 == 与 equals 一致，都是比较值
+
+   eq与ne比较的是地址。
+
+  stu1.eq(stu2)
+
+  1 + 2
+
+  1.+(2)
+
+  1 to 10  
+
+  1.to(10)
+
+3.在Scala中，运算符即是方法。 任何具有单个参数的方法都可以用作 中缀运算符。
+
+  例如，可以使用点号调用+:
+
+    10.+(1)
+
+  而中缀运算符则更易读:
+
+    10 + 1
+</code></pre>
+<p>4.注释  </p>
+<pre><code>当行注释:// 
+
+多行注释:/* */ 
+
+文档注释:/** */
+</code></pre>
+<p>5.控制结构(重点讲解)</p>
+<p>  5.1 块语句&#x2F;表达式  </p>
+<pre><code>val info=&#123;
+
+  val b=0;
+
+  val a=9;
+
+  val sum=a+b;
+
+  println(sum);
+
+&#125;
+</code></pre>
+<p>  5.2 if表达式</p>
+<pre><code>val info=if(3&gt;5)&#123;
+
+  1.3
+
+&#125;else&#123;
+
+  0 
+
+&#125; 
+
+val info=if(3&lt;5)&#123;0.8&#125;
+</code></pre>
+<p>  5.3 输入输出</p>
+<pre><code>1.输出
+
+  1.输出通常使用print或println函数，后者在输出内容后追加一个换行符
+
+  2.另外，还有一个带C风格格式化字符串的printf函数：
+
+    printf(&quot;hello,%s! You are %d years old.\n&quot;,&quot;Fred&quot;,42)
+
+  3.自2.10.0版本开始，Scala提供了一种新的机制来根据数据生成字符串：字符串插值。字符串插值允许使用者将变量引用直接插入处理过的字面字符中。如下例：
+
+    val name=&quot;James&quot;
+
+    println(s&quot;Hello,$name&quot;)//Hello,James
+
+  在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：上例中是s）。字符串插值的实现细节在 SIP-11 中有全面介绍。
+
+    3.1 用法:
+
+      Scala 提供了三种创新的字符串插值方法：s,f 和 raw.
+
+      1. s 字符串插值器
+
+        在任何字符串前加上s，就可以直接在串中使用变量了。你已经见过这个例子：
+
+          val name=&quot;James&quot;
+
+          println(s&quot;Hello,$name&quot;)//Hello,James 此例中，$name嵌套在一个将被s字符串插值器处理的字符串中。插值器知道在这个字符串的这个地方应该插入这个name变量的值，以使输出字符串为Hello,James。使用s插值器，在这个字符串中可以使用任何在处理范围内的名字。
+
+        字符串插值器也可以处理任意的表达式。例如：
+
+          println(s&quot;1+1=$&#123;1+1&#125;&quot;) 将会输出字符串1+1=2。任何表达式都可以嵌入到$&#123;&#125;中。
+
+          val name=&quot;James&quot;
+
+          println(s&quot;Hello,$name&quot;)//Hello,James
+
+        在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：上例中是s）。字符串插值的实现细节在 SIP-11 中有全面介绍。
+
+      2. f 插值器
+
+        在任何字符串字面前加上 f，就可以生成简单的格式化串，功能相似于其他语言中的 printf 函数。当使用 f 插值器的时候，所有的变量引用都应当后跟一个printf-style格式的字符串，如%d。看下面这个例子：
+
+          val height=1.9d
+
+          val name=&quot;James&quot;
+
+          println(f&quot;$name%s is $height%2.2f meters tall&quot;)//James is 1.90 meters tall f
+
+        插值器是类型安全的。如果试图向只支持 int 的格式化串传入一个double 值，编译器则会报错。例如：
+
+          val height:Double=1.9d
+
+          scala&gt;f&quot;$height%4d&quot;
+
+          :9: error: type mismatch;
+
+           found : Double
+
+           required: Int
+
+                     f&quot;$height%4d&quot;
+
+                      ^ f 插值器利用了java中的字符串数据格式。这种以%开头的格式在 [Formatter javadoc] 中有相关概述。如果在具体变量后没有%，则格式化程序默认使用 %s（串型）格式。
+
+      3. raw 插值器
+
+        除了对字面值中的字符不做编码外，raw 插值器与 s 插值器在功能上是相同的。如下是个被处理过的字符串：
+
+          scala&gt;s&quot;a\nb&quot;
+
+          res0:String=
+
+          a
+
+          b 这里，s 插值器用回车代替了\n。而raw插值器却不会如此处理。
+
+          scala&gt;raw&quot;a\nb&quot;
+
+          res1:String=a\nb 当不想输入\n被转换为回车的时候，raw 插值器是非常实用的。
+
+        除了以上三种字符串插值器外，使用者可以自定义插值器。(使用较少，如果有需求自行查文档了解)    
+
+2.输入
+
+  输入通常使用read函数，如readLine是从控制台读取一行输入，指定类型时为readT ，T是所要指定的类型，如readInt等 
+
+  readLine带一个参数作为提示字符串 
+
+    例如：
+
+      val name=readLine(“Your name ：\n”) 
+
+      val age=readInt()
+
+  默认是scala.Predef._包下的，目前已经过时，
+
+  被scala.io.StdIn._包下的替代。
+
+  （注意：一个scala源码中默认导入3个包）
+</code></pre>
+<p>  5.4 循环</p>
+<pre><code>while  do  for
+
+for推导
+
+  1.格式： for(发生器)&#123;循环体&#125; 
+
+    eg:
+
+      for(elem &lt;- 1 to 10)&#123;...&#125;
+
+    发生器的格式: i &lt;- e
+
+            i 为变量
+
+            e 为需要遍历的元素(数组，列，表达式，数值范围等)
+
+    注意 for 表达式并不局限于使用列表。任何数据类型只要支持 withFilter，map，和 flatMap 操作（不同数据类型可能支持不同的操作）都可以用来做序列推导。
+
+  2.if守卫
+
+    格式:for(发生器 if守卫)&#123;循环体&#125;
+
+    eg:
+
+      for(i &lt;- 1 to 10 if i%2==0 if i%3==0)&#123;...&#125;
+
+      for(i &lt;- 1 to 10 if i%2==0&amp;&amp;i%3==0)&#123;...&#125;
+
+  3.for嵌套
+
+    格式:for(发生器1;发生器2;...)&#123;...&#125;
+
+    eg:
+
+      for(i &lt;- 1 to 9;j &lt;- 1 to 9)&#123;....&#125;
+
+  4.for嵌套+if守卫
+
+    格式:for(发生器1 if守卫;发生器2;... if守卫 if守卫 if守卫)&#123;...&#125;
+
+    eg:
+
+      for(i &lt;- 1 to 10;j&lt;- 1 to 9; if i%2==0 if j%3==0)&#123;...&#125;
+
+      for(i &lt;- 1 to 10 if i%2==0;j&lt;- 1 to 9 if j%3==0)&#123;...&#125;
+
+  5.for推导 for  yield 返回新的集合
+
+    格式:for(发生器) yield &#123;循环体&#125;
+
+    eg:
+
+      val newCollection=for(i &lt; 1 to 10) yield &#123;i+2&#125;
+
+注意: 除了for yield之外的其他for循环都是一个过程，即没有返回值。 
+</code></pre>
+<p>  5.5 函数: 现阶段不具体区分方法和函数，因此与day1方法讲解的一致。</p>
+<pre><code>(参数列表) =&gt; &#123;函数体&#125;
+
+def add(a:Int,b:Int):Int=a+b
+
+val fun1=(a:Int,b:Int)=&gt;&#123;a+b&#125;
+</code></pre>
+<p>  5.6 异常</p>
+<pre><code>  Scala中的异常有三种处理办法:
+
+   1. try  catch  finally    
+
+    格式:
+
+      try&#123;
+
+        //...
+
+      &#125;catch&#123;
+
+        case e:IOException=&gt;
+
+          //...
+
+          //...
+
+        case e:Exception=&gt; 
+
+          //...
+
+          //...
+
+          //...
+
+      &#125;
+
+      try&#123;
+
+      &#125;catch&#123;
+
+        case e:Exception=&gt;
+
+      &#125;finally&#123;
+
+      &#125;
+
+      try&#123;&#125;finally&#123;&#125;
+
+    注意：
+
+      1.支持上边这三种格式，注意最后一种在Java中是不支持的。
+
+      2.catch代码块中没有了所谓了参数列表。
+
+      3.catch代码块中使用case语句去匹配异常信息。
+
+    eg:
+
+      try&#123;
+
+        //可能会发生异常的代码
+
+      &#125;catch&#123;
+
+        // e,x 只是一个变量，被val修饰的变量。因此，可以自己设置成符合Scala标识符规范的变量名即可。
+
+        case e:IOException =&gt; 
+
+          println(e.getMessage)
+
+        case x:NullPointerException =&gt;
+
+          //...........
+
+          //...........
+
+      &#125;
+
+   2. Option None Some （后期文章中分享）
+
+   3. Try Success Failure （后期文章中分享）
+</code></pre>
+<p>  5.7 其他语句</p>
+<pre><code>  scala不推荐使用return语句。
+
+  break/continue在C++中非常常见的控制结构语句，但在Scala中是不必要的，可以使用布尔值类型的量通过IF语句进行控制
+
+  注意:scala中没有break和contine关键字，如果想要结束多层循环，可以使用如下代码:
+
+    import  scala.util.control.Breaks._
+
+    break例子:
+
+    breakable&#123;
+
+      for (i&lt;- 1 to 10)&#123;
+
+        if (i==5)
+
+          break
+
+      &#125;
+
+    &#125;  
+
+    continue例子:
+
+    for(i&lt;-0 until 10)&#123;
+
+      breakable&#123;
+
+        if(i==3||i==6) &#123;
+
+          break
+
+        &#125;
+
+        println(i)
+
+      &#125;
+
+    &#125;
+</code></pre>
+<p>6.包与引用:import语句用于导入其他包中的成员（类，特质，函数等）</p>
+<p>  6.1包对象</p>
+<pre><code>每个包都可以有一个包对象，需要在父包中定义它，且名称与子包一样。
+
+格式:
+
+  package com.briup.test
+
+  package object 包名&#123;
+
+    val defaultName=&quot;tom&quot;;
+
+  &#125;
+
+在其他地方，这个常量可以用com.briup.test.包名.defaultName访问到。
+
+包对象被编译成带有静态方法和字段的JVM类，名为包名.class,位于相应的包下。
+
+对源文件使用相同的命名规则是好习惯，可以把包对象放到文件com/briup/test/包名/包名.scala。这样一来，任何想要对包增加函数或变量的话，都可以很容易地找到对应的包对象。
+</code></pre>
+<p>  6.2默认导包</p>
+<pre><code>import java.lang._
+
+import scala._
+
+import scala.Predef._
+
+注意:区分先后顺序
+</code></pre>
+<p>  6.3包引入重命名</p>
+<pre><code>//全部导入
+
+import scala.collection.mutable._ 
+
+//重命名 type 
+
+import java.util.&#123; HashMap =&gt; JavaHashMap &#125; 
+
+//将HashMap之外全部导入
+
+import java.util.&#123; HashMap =&gt; _,_&#125;
+
+import java.util.&#123; HashMap,TreeSet&#125;
+</code></pre>
+<p>  6.4包的作用范围</p>
+<pre><code>与变量的作用范围一致，不可以在引用范围之外使用该包内的类，对象。
+</code></pre>
+<p>  6.5如果存在命名冲突并且你需要从项目的根目录导入，请在包名称前加上 <em>root</em></p>
+<pre><code>package accounts
+
+import _root_.users._
+
+import java.lang.String
+
+import _root_.java.lang.String
+</code></pre>
+<p>  6.6Scala 不同于 Java 的一点是 Scala 可以在任何地方使用导入</p>
+<pre><code>def sqrtplus1(x: Int) = &#123;
+
+  import scala.math.sqrt
+
+  sqrt(x) + 1.0
+
+&#125;
+</code></pre>
+<hr>
+<p>作业：</p>
+<p>1.计算 0 到 n-1 的所有两两求和为 v 的数字的组合。</p>
+<p>2.执行以下程序：</p>
+<p>  分别为:定义一个样例类User,构建一个存储User的List集合。</p>
+<p>case class User(name: String, age: Int)</p>
+<p>val userBase &#x3D; List(User(“Travis”, 28),</p>
+<p>  User(“Kelly”, 33),</p>
+<p>  User(“Jennifer”, 44),</p>
+<p>  User(“Dennis”, 23))</p>
+<p>计算获取那些年龄不是20多岁的人。</p>
+]]></content>
+      <categories>
+        <category>工业界</category>
+        <category>大数据高级开发Spark</category>
+      </categories>
+      <tags>
+        <tag>Scala之基础语法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Scala之容器基础语法3</title>
     <url>/2023/09/09/3-Scala%E4%B9%8B%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>1.数组:存放一系列元素的容器<br>    1.分类<br>        不可变数组 定长数组 Array</p>
@@ -1016,456 +1466,6 @@ Null是所有引用类型的子类型（即AnyRef的任意子类型）。它有�
       </categories>
       <tags>
         <tag>经典算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Scala之基础语法2</title>
-    <url>/2023/09/09/2-Scala%E4%B9%8B%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<p>1.标识符  </p>
-<p>  大体上与Java一致。</p>
-<p>  特殊点:</p>
-<pre><code>1.Scala标识符中不允许出现$ 
-
-2.反引号`` 可以将关键字等一些特殊字符使用反引号引起来，这样就变成了一个合法的标识符。
-
-  eg:`return` `class` val `there is`=&quot;jthbh&quot;
-</code></pre>
-<p>2.关键字</p>
-<p>  Scala中的关键字基本上与Java一致。但存在个别Java关键字在Scala中不是关键字的特例。</p>
-<pre><code>eg: break
-</code></pre>
-<p>  第一天学习过程中认识到的关键字:</p>
-<pre><code>class val var object def trait  type return this  super private protected
-
-Byte Short Int Long Char Float Double Boolean Unit Array  extends with abstract  
-</code></pre>
-<p>3.操作符 </p>
-<p>  算数运算符  逻辑运算符 位运算符 ….等 与Java使用一致。</p>
-<p>  需要注意的是:</p>
-<pre><code>1.scala中本质上没有操作符，都是方法的调用。   
-
-2. Scala中 == 与 equals 一致，都是比较值
-
-   eq与ne比较的是地址。
-
-  stu1.eq(stu2)
-
-  1 + 2
-
-  1.+(2)
-
-  1 to 10  
-
-  1.to(10)
-
-3.在Scala中，运算符即是方法。 任何具有单个参数的方法都可以用作 中缀运算符。
-
-  例如，可以使用点号调用+:
-
-    10.+(1)
-
-  而中缀运算符则更易读:
-
-    10 + 1
-</code></pre>
-<p>4.注释  </p>
-<pre><code>当行注释:// 
-
-多行注释:/* */ 
-
-文档注释:/** */
-</code></pre>
-<p>5.控制结构(重点讲解)</p>
-<p>  5.1 块语句&#x2F;表达式  </p>
-<pre><code>val info=&#123;
-
-  val b=0;
-
-  val a=9;
-
-  val sum=a+b;
-
-  println(sum);
-
-&#125;
-</code></pre>
-<p>  5.2 if表达式</p>
-<pre><code>val info=if(3&gt;5)&#123;
-
-  1.3
-
-&#125;else&#123;
-
-  0 
-
-&#125; 
-
-val info=if(3&lt;5)&#123;0.8&#125;
-</code></pre>
-<p>  5.3 输入输出</p>
-<pre><code>1.输出
-
-  1.输出通常使用print或println函数，后者在输出内容后追加一个换行符
-
-  2.另外，还有一个带C风格格式化字符串的printf函数：
-
-    printf(&quot;hello,%s! You are %d years old.\n&quot;,&quot;Fred&quot;,42)
-
-  3.自2.10.0版本开始，Scala提供了一种新的机制来根据数据生成字符串：字符串插值。字符串插值允许使用者将变量引用直接插入处理过的字面字符中。如下例：
-
-    val name=&quot;James&quot;
-
-    println(s&quot;Hello,$name&quot;)//Hello,James
-
-  在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：上例中是s）。字符串插值的实现细节在 SIP-11 中有全面介绍。
-
-    3.1 用法:
-
-      Scala 提供了三种创新的字符串插值方法：s,f 和 raw.
-
-      1. s 字符串插值器
-
-        在任何字符串前加上s，就可以直接在串中使用变量了。你已经见过这个例子：
-
-          val name=&quot;James&quot;
-
-          println(s&quot;Hello,$name&quot;)//Hello,James 此例中，$name嵌套在一个将被s字符串插值器处理的字符串中。插值器知道在这个字符串的这个地方应该插入这个name变量的值，以使输出字符串为Hello,James。使用s插值器，在这个字符串中可以使用任何在处理范围内的名字。
-
-        字符串插值器也可以处理任意的表达式。例如：
-
-          println(s&quot;1+1=$&#123;1+1&#125;&quot;) 将会输出字符串1+1=2。任何表达式都可以嵌入到$&#123;&#125;中。
-
-          val name=&quot;James&quot;
-
-          println(s&quot;Hello,$name&quot;)//Hello,James
-
-        在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：上例中是s）。字符串插值的实现细节在 SIP-11 中有全面介绍。
-
-      2. f 插值器
-
-        在任何字符串字面前加上 f，就可以生成简单的格式化串，功能相似于其他语言中的 printf 函数。当使用 f 插值器的时候，所有的变量引用都应当后跟一个printf-style格式的字符串，如%d。看下面这个例子：
-
-          val height=1.9d
-
-          val name=&quot;James&quot;
-
-          println(f&quot;$name%s is $height%2.2f meters tall&quot;)//James is 1.90 meters tall f
-
-        插值器是类型安全的。如果试图向只支持 int 的格式化串传入一个double 值，编译器则会报错。例如：
-
-          val height:Double=1.9d
-
-          scala&gt;f&quot;$height%4d&quot;
-
-          :9: error: type mismatch;
-
-           found : Double
-
-           required: Int
-
-                     f&quot;$height%4d&quot;
-
-                      ^ f 插值器利用了java中的字符串数据格式。这种以%开头的格式在 [Formatter javadoc] 中有相关概述。如果在具体变量后没有%，则格式化程序默认使用 %s（串型）格式。
-
-      3. raw 插值器
-
-        除了对字面值中的字符不做编码外，raw 插值器与 s 插值器在功能上是相同的。如下是个被处理过的字符串：
-
-          scala&gt;s&quot;a\nb&quot;
-
-          res0:String=
-
-          a
-
-          b 这里，s 插值器用回车代替了\n。而raw插值器却不会如此处理。
-
-          scala&gt;raw&quot;a\nb&quot;
-
-          res1:String=a\nb 当不想输入\n被转换为回车的时候，raw 插值器是非常实用的。
-
-        除了以上三种字符串插值器外，使用者可以自定义插值器。(使用较少，如果有需求自行查文档了解)    
-
-2.输入
-
-  输入通常使用read函数，如readLine是从控制台读取一行输入，指定类型时为readT ，T是所要指定的类型，如readInt等 
-
-  readLine带一个参数作为提示字符串 
-
-    例如：
-
-      val name=readLine(“Your name ：\n”) 
-
-      val age=readInt()
-
-  默认是scala.Predef._包下的，目前已经过时，
-
-  被scala.io.StdIn._包下的替代。
-
-  （注意：一个scala源码中默认导入3个包）
-</code></pre>
-<p>  5.4 循环</p>
-<pre><code>while  do  for
-
-for推导
-
-  1.格式： for(发生器)&#123;循环体&#125; 
-
-    eg:
-
-      for(elem &lt;- 1 to 10)&#123;...&#125;
-
-    发生器的格式: i &lt;- e
-
-            i 为变量
-
-            e 为需要遍历的元素(数组，列，表达式，数值范围等)
-
-    注意 for 表达式并不局限于使用列表。任何数据类型只要支持 withFilter，map，和 flatMap 操作（不同数据类型可能支持不同的操作）都可以用来做序列推导。
-
-  2.if守卫
-
-    格式:for(发生器 if守卫)&#123;循环体&#125;
-
-    eg:
-
-      for(i &lt;- 1 to 10 if i%2==0 if i%3==0)&#123;...&#125;
-
-      for(i &lt;- 1 to 10 if i%2==0&amp;&amp;i%3==0)&#123;...&#125;
-
-  3.for嵌套
-
-    格式:for(发生器1;发生器2;...)&#123;...&#125;
-
-    eg:
-
-      for(i &lt;- 1 to 9;j &lt;- 1 to 9)&#123;....&#125;
-
-  4.for嵌套+if守卫
-
-    格式:for(发生器1 if守卫;发生器2;... if守卫 if守卫 if守卫)&#123;...&#125;
-
-    eg:
-
-      for(i &lt;- 1 to 10;j&lt;- 1 to 9; if i%2==0 if j%3==0)&#123;...&#125;
-
-      for(i &lt;- 1 to 10 if i%2==0;j&lt;- 1 to 9 if j%3==0)&#123;...&#125;
-
-  5.for推导 for  yield 返回新的集合
-
-    格式:for(发生器) yield &#123;循环体&#125;
-
-    eg:
-
-      val newCollection=for(i &lt; 1 to 10) yield &#123;i+2&#125;
-
-注意: 除了for yield之外的其他for循环都是一个过程，即没有返回值。 
-</code></pre>
-<p>  5.5 函数: 现阶段不具体区分方法和函数，因此与day1方法讲解的一致。</p>
-<pre><code>(参数列表) =&gt; &#123;函数体&#125;
-
-def add(a:Int,b:Int):Int=a+b
-
-val fun1=(a:Int,b:Int)=&gt;&#123;a+b&#125;
-</code></pre>
-<p>  5.6 异常</p>
-<pre><code>  Scala中的异常有三种处理办法:
-
-   1. try  catch  finally    
-
-    格式:
-
-      try&#123;
-
-        //...
-
-      &#125;catch&#123;
-
-        case e:IOException=&gt;
-
-          //...
-
-          //...
-
-        case e:Exception=&gt; 
-
-          //...
-
-          //...
-
-          //...
-
-      &#125;
-
-      try&#123;
-
-      &#125;catch&#123;
-
-        case e:Exception=&gt;
-
-      &#125;finally&#123;
-
-      &#125;
-
-      try&#123;&#125;finally&#123;&#125;
-
-    注意：
-
-      1.支持上边这三种格式，注意最后一种在Java中是不支持的。
-
-      2.catch代码块中没有了所谓了参数列表。
-
-      3.catch代码块中使用case语句去匹配异常信息。
-
-    eg:
-
-      try&#123;
-
-        //可能会发生异常的代码
-
-      &#125;catch&#123;
-
-        // e,x 只是一个变量，被val修饰的变量。因此，可以自己设置成符合Scala标识符规范的变量名即可。
-
-        case e:IOException =&gt; 
-
-          println(e.getMessage)
-
-        case x:NullPointerException =&gt;
-
-          //...........
-
-          //...........
-
-      &#125;
-
-   2. Option None Some （后期文章中分享）
-
-   3. Try Success Failure （后期文章中分享）
-</code></pre>
-<p>  5.7 其他语句</p>
-<pre><code>  scala不推荐使用return语句。
-
-  break/continue在C++中非常常见的控制结构语句，但在Scala中是不必要的，可以使用布尔值类型的量通过IF语句进行控制
-
-  注意:scala中没有break和contine关键字，如果想要结束多层循环，可以使用如下代码:
-
-    import  scala.util.control.Breaks._
-
-    break例子:
-
-    breakable&#123;
-
-      for (i&lt;- 1 to 10)&#123;
-
-        if (i==5)
-
-          break
-
-      &#125;
-
-    &#125;  
-
-    continue例子:
-
-    for(i&lt;-0 until 10)&#123;
-
-      breakable&#123;
-
-        if(i==3||i==6) &#123;
-
-          break
-
-        &#125;
-
-        println(i)
-
-      &#125;
-
-    &#125;
-</code></pre>
-<p>6.包与引用:import语句用于导入其他包中的成员（类，特质，函数等）</p>
-<p>  6.1包对象</p>
-<pre><code>每个包都可以有一个包对象，需要在父包中定义它，且名称与子包一样。
-
-格式:
-
-  package com.briup.test
-
-  package object 包名&#123;
-
-    val defaultName=&quot;tom&quot;;
-
-  &#125;
-
-在其他地方，这个常量可以用com.briup.test.包名.defaultName访问到。
-
-包对象被编译成带有静态方法和字段的JVM类，名为包名.class,位于相应的包下。
-
-对源文件使用相同的命名规则是好习惯，可以把包对象放到文件com/briup/test/包名/包名.scala。这样一来，任何想要对包增加函数或变量的话，都可以很容易地找到对应的包对象。
-</code></pre>
-<p>  6.2默认导包</p>
-<pre><code>import java.lang._
-
-import scala._
-
-import scala.Predef._
-
-注意:区分先后顺序
-</code></pre>
-<p>  6.3包引入重命名</p>
-<pre><code>//全部导入
-
-import scala.collection.mutable._ 
-
-//重命名 type 
-
-import java.util.&#123; HashMap =&gt; JavaHashMap &#125; 
-
-//将HashMap之外全部导入
-
-import java.util.&#123; HashMap =&gt; _,_&#125;
-
-import java.util.&#123; HashMap,TreeSet&#125;
-</code></pre>
-<p>  6.4包的作用范围</p>
-<pre><code>与变量的作用范围一致，不可以在引用范围之外使用该包内的类，对象。
-</code></pre>
-<p>  6.5如果存在命名冲突并且你需要从项目的根目录导入，请在包名称前加上 <em>root</em></p>
-<pre><code>package accounts
-
-import _root_.users._
-
-import java.lang.String
-
-import _root_.java.lang.String
-</code></pre>
-<p>  6.6Scala 不同于 Java 的一点是 Scala 可以在任何地方使用导入</p>
-<pre><code>def sqrtplus1(x: Int) = &#123;
-
-  import scala.math.sqrt
-
-  sqrt(x) + 1.0
-
-&#125;
-</code></pre>
-<hr>
-<p>作业：</p>
-<p>1.计算 0 到 n-1 的所有两两求和为 v 的数字的组合。</p>
-<p>2.执行以下程序：</p>
-<p>  分别为:定义一个样例类User,构建一个存储User的List集合。</p>
-<p>case class User(name: String, age: Int)</p>
-<p>val userBase &#x3D; List(User(“Travis”, 28),</p>
-<p>  User(“Kelly”, 33),</p>
-<p>  User(“Jennifer”, 44),</p>
-<p>  User(“Dennis”, 23))</p>
-<p>计算获取那些年龄不是20多岁的人。</p>
-]]></content>
-      <categories>
-        <category>工业界</category>
-        <category>大数据高级开发Spark</category>
-      </categories>
-      <tags>
-        <tag>Scala之基础语法</tag>
       </tags>
   </entry>
   <entry>
@@ -4460,6 +4460,19 @@ Scala 编译器自动将上面代码解释成：
       </tags>
   </entry>
   <entry>
+    <title>LeteCode Solution Overview</title>
+    <url>/2023/09/02/LeteCode-Solution-Overview/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/weixin_44232942/article/details/106457056">LeteCode 解题总览</a></p>
+]]></content>
+      <categories>
+        <category>找工作</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>LeteCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Scala类型系统与隐式转换8</title>
     <url>/2023/09/09/8-Scala%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<p>1.泛型</p>
@@ -4987,19 +5000,6 @@ def firstLast[A,C](it:C)(implicit ev: C &lt;:
       </tags>
   </entry>
   <entry>
-    <title>LeteCode Solution Overview</title>
-    <url>/2023/09/02/LeteCode-Solution-Overview/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/weixin_44232942/article/details/106457056">LeteCode 解题总览</a></p>
-]]></content>
-      <categories>
-        <category>找工作</category>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>LeteCode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Scala的定义、优点、如何使用</title>
     <url>/2023/09/09/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>1.scala是什么</p>
@@ -5204,756 +5204,6 @@ val value1=f1(3);//b=3
       </categories>
       <tags>
         <tag>Scala的定义、优点、如何使用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Scala语言绪论</title>
-    <url>/2023/09/09/Scala%E8%AF%AD%E8%A8%80%E7%BB%AA%E8%AE%BA/</url>
-    <content><![CDATA[<p>1、安装认识Scala<br>2、了解Scala中的类型<br>3、如何声明定义变量<br>4、如何定义类&#x2F;方法&#x2F;对象&#x2F;特质（接口&#x2F;抽象类） 任何一门语言需要学习的3项<br>5、for表达式   》进阶map  foreach<br>6、数组集合的使用<br>7、模式匹配的使用<br>8、函数式编程   （需要好好学）<br>        函数<br>        高阶函数<br>        柯里化函数<br>        偏函数<br>        部分应用函数</p>
-<p>Scala（Scalable language：可伸缩的语言）语言是一门多范式的编程语言，类似java。是Spark的源码。是面对对象的语言（封装、继承、多态）。函数式编程语言。在分布式计算、数据挖掘、web开发。</p>
-<p>jre的运行环境：JVM（JDK）</p>
-<p>scala：<br>      1）spark  分布式计算框架   （已经代替了MapReduce   hive）</p>
-<p>      2）Kafka   消息队列       </p>
-<p>特点：1、兼容java<br>        一般在scala调用java。<br>      2、语法简洁<br>        代码行短<br>        类型推断<br>        抽象控制（特质）<br>      3、静态类型化（java scala）而Python是动态类型语言<br>         可检验（编译进行检查）</p>
-<p>         安全重构</p>
-<p>      4、支持并发控制（java是线程,而scala是akka actor）</p>
-<p>         强化计算能力</p>
-<p>         自定义其他控制结构</p>
-<p>      5、可拓展</p>
-<p>         面向对象</p>
-<p>         函数式编程</p>
-<p>1、安装scala和IDE编程工具。注意：把scala-2.12.8目录移动到不包含中文空格特殊字符的目录下D：&#x2F;Spark这个目录下。配置环境scala的变量。scala -version查看是否scala安装成功。</p>
-<p>  IDEA</p>
-<p>           new  Project</p>
-<p>                      new Model</p>
-<p>Eclipse</p>
-<p>           new Workspace</p>
-<p>                      new Project</p>
-<p>2、scala类型</p>
-<p>     超类（父类）      Any</p>
-<p>  1）AnyVal（值类型）</p>
-<p>一共9种</p>
-<p> 四类八种所谓的Java基本数据类型（整数 Byte Short Int Long、浮点数 Float Double、字符 Char、布尔 Boolean）+Unit （空的意思；作用：替代void关键字，无返回值类型，返回值的类型为Unit；值：( ) { }）   可以用（）和{  }进行给Unit赋值。</p>
-<p>  在java中：public  void  show(String info){     }</p>
-<p>   &#x3D;&#x3D;》在scala中：def show (info:String):Unit&#x3D;{  println(info);    }               注意：首字母大写</p>
-<p>  2）AnyRef（引用类型—–》Object）&#x2F;&#x2F;父类</p>
-<p>         包括  I 自定义Scala类型   </p>
-<p>                  II数组  Array</p>
-<p>                  III集合   Map   Set   Seq（List）</p>
-<p>                            HashSet  TreeSet  ArrayBuffer</p>
-<p>                  IV在scala中引用Java自定义类型,即调用已经写好了的java。</p>
-<p>                        java.lang.String是引用类型。相当于java的父类。</p>
-<p>3、如何声明定义变量</p>
-<p>         java格式：</p>
-<p>                         变量  变量名 &#x3D; 值；</p>
-<p>                          int  a &#x3D; 10；</p>
-<p> 1）scala格式：</p>
-<p>    val   var  是scala中定义变量的关键字。</p>
-<p>    val   &#x2F;    var     变量名：变量类型  &#x3D;  值 （分号可以不用写）</p>
-<p>            简化后（省略了变量类型，类型推断）： val  变量名 &#x3D;值            &#x2F;&#x2F;val a &#x3D; 10</p>
-<p>            val  var的区别：</p>
-<p>                    val 定义常量，不能修改（被final修饰的变量）</p>
-<p>                    var 定义变量，可以修改。</p>
-<p>            scala中的变量的声明与定义必须一起进行。</p>
-<p>                 2） 今后在scala中定义使用中val多，建议在大数据中尽量全部使用val定义。因为并行计算的操作共享数据的原因。</p>
-<p>                  3）  scala中的默认值【整数都是0，浮点数都是0.0，布尔类型是false，字符类型为‘   ’，字符串都是String是null，Unit为（ ）】  </p>
-<p>               var  变量名：变量类型&#x3D; _（_表示默认值；在判断默认值类型时，必须用var，且变量类型不能省）</p>
-<p>         eg：</p>
-<p>                val a：Int&#x3D;10</p>
-<p>                var str ：String&#x3D;”hello,scala”</p>
-<p>                 val f:Float&#x3D;3.14F (要加一个F，表明是float类型，而直接3.14则是double类型）</p>
-<hr>
-<p>                 val f:Any&#x3D;3.14</p>
-<hr>
-<p>                  “hello”表示是字符串类型 </p>
-<hr>
-<p>                   val a：AnyVal&#x3D;“hello”</p>
-<p>                   val  ref：AnyRef&#x3D;“hello”</p>
-<p>4、如何定义类&#x2F;方法&#x2F;对象&#x2F;特质（接口&#x2F;抽象类）   </p>
-<p>          1、class （类的关键字）主构造器与类的定义交织在一起。</p>
-<p>               Java格式:</p>
-<p>                            [修饰符] class 类名 [extends 父类 [implements 接口1,接口2]]{</p>
-<p>                                                  属性</p>
-<p>                                                   方法</p>
-<p>                               }</p>
-<p>                Scala格式: extends </p>
-<p>                        [修饰符] class 类名[([主构造器参数列表])] [extends 父类 [with 特质1 with 特质2]] {</p>
-<p>                                                &#x2F;&#x2F;1.属性</p>
-<p>                                               &#x2F;&#x2F;2.方法</p>
-<p>                                              &#x2F;&#x2F;3.除了1.2之外，其他的都属于主构造器内部的代码</p>
-<p>                                   }</p>
-<p>                         [修饰符] class 类名[(主构造器参数列表)] [extends 特质1] {</p>
-<p>                                                     属性</p>
-<p>                                                     方法</p>
-<p>                            }</p>
-<p>                         eg:</p>
-<p>                                class Person{}</p>
-<p>                              &#x2F;&#x2F;class Person(){}</p>
-<p>                                 class Student(stuId:Int,name:String) extends Person {}</p>
-<hr>
-<pre><code>    1.主构造器参数列表中的格式:
-</code></pre>
-<p>          1.1(参数名1:参数类型,参数名2:参数类型,…..)</p>
-<p>          1.2(val&#x2F;var 参数名1:参数类型,…..)</p>
-<p>          1.3(private val&#x2F;var 参数名1:参数类型,….)</p>
-<p>          1.4(@BeanProperty val&#x2F;var 参数名1:参数类型,…….)</p>
-<hr>
-<p>         *	val的作用:</p>
-<p>                         1.将该参数(name)提升为类的私有属性</p>
-<p>                         2.给私有属性提供公有的getXXX(name)方法</p>
-<p>         * var的作用:</p>
-<p>                         1.将该参数(age)提升为类的私有属性</p>
-<p>                         2.给私有属性提供公有的getXXX(age)方法和setXXX(age_&#x3D;)方法</p>
-<p>           * private的作用:</p>
-<p>                         私有化所有的属性和方法</p>
-<p>           * @BeanProperty的作用:</p>
-<p>                         提供Java形式的getXXX&#x2F;setXXX方法</p>
-<pre><code>    2.辅助构造器
-</code></pre>
-<p>         1）辅助构造器的方法名字必须为this;</p>
-<p>         2）辅助构造器中第一行代码必须调用主构造器或者是已经定义好的其他辅助构造器;</p>
-<hr>
-<p>          2、def   （方法的关键字）</p>
-<p>                 Java的格式:</p>
-<p>                                 [修饰符] 返回类型 方法名([参数列表]){方法体}</p>
-<p>                Scala的格式:</p>
-<p>                                 [修饰符] def 方法名([参数列表]):返回类型&#x3D;{方法体}</p>
-<p>                eg:</p>
-<p>                    def add(x:Int,y:Int):Int&#x3D;{</p>
-<p>                           x+y</p>
-<p>                       }</p>
-<p>               简化形式1:</p>
-<p>                             方法体中如果只有一行代码,没有省略&#x3D;的情况下,{}可以省略</p>
-<p>                               def add(x:Int,y:Int):Int &#x3D; x+y</p>
-<p>              简化形式2(类型推断,根据方法体(块语句)推断方法的返回类型):</p>
-<p>                            方法不是递归方法时，返回类型可以省略</p>
-<p>                               def add(x:Int,y:Int) &#x3D; x+y	</p>
-<p>              简化形式3:</p>
-<p>                             无参在定义时可以省略()</p>
-<p>                            def test1()&#x3D;{val a&#x3D;10;val b&#x3D;20;a+b}</p>
-<p>                            def test1&#x3D;{val a&#x3D;10;val b&#x3D;20;a+b}</p>
-<p>                            调用:</p>
-<p>                                  无参方法调用时两种方式:</p>
-<p>                                   1）方法名()</p>
-<p>                                   2）方法名</p>
-<p>                简化形式4:(不建议)</p>
-<p>                               方法的返回类型为Unit时,可以省略”:返回类型和&#x3D;”,称为”过程”</p>
-<p>                                 def work(info:String):Unit&#x3D;{</p>
-<p>                                   println(“Teacher的工作是:”+info)</p>
-<p>                                  }</p>
-<p>                                 def work(info:String){</p>
-<p>                                   println(“Teacher的工作是:”+info)</p>
-<p>                                  }</p>
-<p>                表达式 块语句 {}是一个值 取决于表达式中最后一行代码</p>
-<p>                 eg:</p>
-<p>                    val a&#x3D;{</p>
-<p>                               println(“start”);</p>
-<p>                               val a&#x3D;10;</p>
-<p>                               val b&#x3D;20; </p>
-<p>                               val sum&#x3D;a+b;</p>
-<p>                                sum</p>
-<p>                    }</p>
-<p>      &#x2F;&#x2F;类似于Java中的三目运算 (条件)?true的时候返回:false的时候返回</p>
-<p>            val result&#x3D;if(条件){</p>
-<p>                   代码块</p>
-<p>            }else{</p>
-<p>                   代码块</p>
-<p>             }</p>
-<p>           val pi&#x3D;3.14</p>
-<p>           val result&#x3D;if(pi&gt;10)</p>
-<p>               “大于”</p>
-<p>            else</p>
-<p>               “小于”</p>
-<p>          val result&#x3D;if(pi&gt;10){“大于”}</p>
-<pre><code>        等价于
-</code></pre>
-<p>           val result&#x3D;if(pi&gt;10){“大于”}else{}</p>
-<p>          3、object   （对象的关键字） </p>
-<p>             格式: [修饰符]  object  对象名 extends 类 with 特质1 with 特质2 {</p>
-<p>                            对象体</p>
-<p>                           &#x2F;&#x2F;(静态)属性</p>
-<p>                          &#x2F;&#x2F;(静态)方法</p>
-<p>                        }</p>
-<p>              object中main方法是JVM的程序入口</p>
-<p>                     def main(args:Array[String]):Unit&#x3D;{</p>
-<p>                                &#x2F;&#x2F;main方法</p>
-<p>                      }</p>
-<p>              两个作用:</p>
-<p>                          1.程序入口main所在地</p>
-<p>                          2.单例对象  静态属性&#x2F;方法</p>
-<p>                          3.伴生对象</p>
-<p>                             class Student{ … }</p>
-<p>                             object Student{ … …}</p>
-<p>          4、trait  （特质的关键字）</p>
-<p>                特质的格式:</p>
-<p>                               [修饰符] trait 特质名 extends 类 with 特质1 with 特质2{}</p>
-<p>                                      作用:与Java的接口一致</p>
-<p>                                      语法:与抽象类一致</p>
-<p>               eg:</p>
-<p>                    trait Test1{</p>
-<p>                                &#x2F;&#x2F;具体方法&#x2F;属性</p>
-<p>                               def add(a:Int,b:Int)&#x3D;a+b</p>
-<p>                                  val a:Int&#x3D;10</p>
-<p>                               &#x2F;&#x2F;抽象方法&#x2F;属性</p>
-<p>                               def sub(a:Int,b:Int):Int</p>
-<p>                                  val b:Int</p>
-<p>                     }		</p>
-<p>5.for表达式—》进阶map foreach</p>
-<p>        循环 for while do</p>
-<p>        int i&#x3D;0</p>
-<p>         while(i&lt;10){</p>
-<p>             &#x2F;&#x2F;循环代码</p>
-<p>             i++;</p>
-<p>            }</p>
-<p>           var i&#x3D;0</p>
-<p>           while(i&lt;10){</p>
-<p>            &#x2F;&#x2F;循环代码</p>
-<p>             i+&#x3D;1</p>
-<p>            }</p>
-<pre><code>//Java使用for循环遍历数组
-
-int[] a=&#123;1,2,4,6&#125;
-
-for(int i=0;i
-
-    System.out.println(a[i])
-
-&#125;
-
-Scala中的for推导(表达式)格式:
-
-    for(发生器)&#123;
-
-        循环体
-
-    &#125;
-
-    发生器: 变量 &lt;- 待遍历的数组/集合/对象/....
-
-eg:  a是Scala中待遍历的数组/集合/对象
-
-    val a = 1 to 10
-
-    val a=1.to(10)
-
-    for(elem &lt;- a)&#123;
-
-        println(elem)
-
-    &#125;
-
-1.for+if守卫
-
-    遍历输出集合中的偶数
-
-2.for嵌套
-
-3.for嵌套+if守卫
-
-4.for+yield---》for推导 返回一个结果(集合)
-
-for(发生器)yield&#123;
-
-    循环体
-
-&#125;
-</code></pre>
-<p>6.数组集合的使用</p>
-<pre><code>数组分为:
-
-    定长数组 Array[T] 相当于Java中数组
-
-    可变数组 数组缓冲 scala.collection.mutable.ArrayBuffer(可变集合)
-
-声明定义数组:
-
-    1.借助类的构造器构建
-
-        val arr:Array[Int]=new Array[Int](长度)
-
-        val buffer=new ArrayBuffer[String]
-
-    2.使用对象统一构建原则构建
-
-        empty[T]
-
-        apply(elem:T*)
-</code></pre>
-<hr>
-<pre><code>操作数组:
-
-    1.数组进行 赋值 取值
-
-        arr(index)=10
-
-        arr(index)
-
-        //等价于
-
-        arr.update(index,10)
-
-        arr.apply(index)
-
-    2.可变数组(集合) 添加元素 移除元素
-
-        append/All(elem:T*) 追加
-
-        insert/All(index:Int,elem:T*) 插入
-
-        remove(index:Int)
-
-        remove(index:Int,count:Int)
-
-        drop(count:Int)  从左开始删除count个元素，
-
-        dropRight(count:Int)从右开始删除count个元素
-
-            注意:这两个方法不会修改原集合,返回一个新的集合。
-
-        添加元素的方法:				++   ++:   ++=   ++=:   +:   +=   +=:
-
-            1.包含一个+号 ，含义是添加单个元素
-
-            2.包含两个+号 ，含义是添加集合
-
-            3.不包含=号 ，含义是不修改原集合,返回一个新集合
-
-            4.包含=号 ，含义是修改原集合
-
-            5.包含:号 ，含义是插入元素
-
-            6.不包含:号 ，含义是追加元素
-
-        移除元素的方法:				-   --   --=   -=
-
-        注意1:不推荐使用带:号的方法，效率低
-
-        注意2:只有可变集合(mutable)才有带=号的方法
-
-        注意3:对于两个集合(Set集合),求合集(union/++) 差集(diff/--) 交集(intersect/&amp;)
-</code></pre>
-<hr>
-<pre><code>集合分类:
-
-        Collection       	Map
-
-        List  	Set   	HashMap TreeMap
-
-    ArrayList 	HashSet
-
-    LinkedList	Treeset
-
-             Iterable(特质)
-
-    Map映射(特质)   Set集(特质) 	 	Seq序列(特质)
-
-    HashMap		  HashSet	  IndexedSeq(特质) LinearSeq(特质)
-
-    TreeMap		  TreeSet		索引序列         线性序列
-
-                                Vector	    	List(列表)
-
-                                ArrayBuffer
-
-    可变集合 scala.collection.mutable.*
-
-    不可变集合 scala.collection.immutable.*
-
-    Scala中默认构建的都是不可变的集合;(类似于val/var)
-</code></pre>
-<p>         1）如何构建集合对象(对象统一构建原则)</p>
-<p>             对象.empty[T]</p>
-<p>             对象.apply(elem1,elem2,…)</p>
-<p>             val map&#x3D;TreeMap.empty[String,Int]</p>
-<p>             val set1&#x3D;Set.empty[Double]</p>
-<p>             val set2&#x3D;HashSet.empty[Float]</p>
-<p>             val seq1&#x3D;Seq.empty[String]</p>
-<p>             val seq2&#x3D;IndexedSeq.empty[String]</p>
-<p>             val map1&#x3D;Set.apply(1.4,3.5,1.9,1.7)</p>
-<p>                 &#x2F;&#x2F;等价与</p>
-<p>             val map2&#x3D;Set(1.4,3.5,1.9,1.7)</p>
-<p>          2）Map 映射 集合 键值对 key不允许重复</p>
-<p>               特殊数据类型:元组Tuple,将一系列类型不同(不超过22个)的元素放在一个()里面，通过,分割,此时对象称为元组</p>
-<p>            eg:val a&#x3D;(1,3.14,true,’C’,”String”)</p>
-<pre><code>        二元元组:元组中的元素个数为2，其实就是一组键值对(Map集合中的元素) 
-
-        二元元组的表现形式:
-
-            (第一元,第二元)
-
-            等价
-
-            第一元-&gt;第二元
-
-        val elem1=(1,&quot;java&quot;)
-
-        val elem2=(2,&quot;scala&quot;)
-
-        val elem3=3-&gt;&quot;python&quot;
-
-        val map=Map.apply(elem1,elem2,elem3)
-
-        元组的类型:(第一个元素的类型,第二个,.....)
-
-        获取元组中的元素:
-
-            元组._下标 下标从1开始
-
-        val stu=(1,&quot;tom&quot;,23,&quot;110&quot;)
-
-        val id=stu._1
-
-        val name=stu._2
-
-        val age=stu._3
-
-        val phone=stu._4
-
-        val (id,name,age,phone)=(1,&quot;tom&quot;,23,&quot;110&quot;)
-
-        val (id,name,age,_)=(1,&quot;tom&quot;,23,&quot;110&quot;)
-
-        //案例:计算一个字符串中每个字符出现的次数
-
-        //计算&quot;hello,scala&quot;字符串中每个字符出现的次数
-
-          def test2(str:String)=&#123;
-
-            //1.构建一个可变的Map集合
-
-            val map=mutable.Map.empty[Char,Int];
-
-            //2.遍历字符串 获取每个字符
-
-            for(c &lt;- str)&#123;
-
-              //3.
-
-              val count=map.getOrElse(c,0)+1
-
-              //4.存储到Map集合
-
-              map.+=(c-&gt;count)
-
-            &#125;
-
-            //5.遍历输出每个字符出现的次数
-
-            for((c,num) &lt;- map)&#123;
-
-              println(s&quot;字符 $c 出现了 $num 次&quot;)
-
-            &#125;
-
-          &#125;
-</code></pre>
-<p>         3）Set集合 集合中的元素不允许重复，不会记录先后顺序。</p>
-<p>               HashSet </p>
-<p>               TreeSet 带有排序功能的Set集合</p>
-<p>               BitSet 存储非负连续整数时效率非常高</p>
-<p>               (合集)并集++ 差集– 交集&amp;</p>
-<p>         4）Seq集合 会记录元素进入集合的先后顺序,允许元素重复。</p>
-<p>              IndexedSeq 索引序列 </p>
-<p>             Vector 向量(不可变集合,ArrayBuffer的不可变版本)</p>
-<p>             Range 范围(不可变集合)</p>
-<p>             ArrayBuffer 数组缓冲(可变集合)</p>
-<p>              LinearSeq 线性序列</p>
-<p>             Stream 流</p>
-<p>             Stack 栈</p>
-<p>             Queue 队列</p>
-<p>             List 列表  不可变列表</p>
-<p>             ::  ::: Nil 空列表 head::tail</p>
-<p>7.模式匹配的使用</p>
-<pre><code>1.引入 if else switch case default
-
-    格式: 
-
-        val result=表达 match&#123;
-
-            case v1 =&gt; 执行的代码1
-
-            case v2 =&gt; 执行的代码2
-
-            case v3 =&gt; ....
-
-            case _ =&gt; ....
-
-        &#125;
-
-    1）表达式可以是什么？
-
-        布尔类型的表达
-
-        变量
-
-        Seq集合/对象/数组/元组
-
-    2）v1,v2...可以什么？
-
-        常量/值 变量 Seq集合/对象/数组/元组 类型
-
-    eg:
-
-        val a=10
-
-        val result:Unit=(a&gt;3) match&#123;
-
-            case true =&gt; 
-
-                println(a)
-
-                val str=&quot;scala&quot;
-
-                val strLen=str.length
-
-                println(&quot;a大于3&quot;)
-
-            case false =&gt; println(&quot;a小于3&quot;)
-
-        &#125;
-
-        a match&#123;
-
-            case 1 =&gt; ...
-
-            case 2 =&gt; ...
-
-            case 10 =&gt; ....
-
-        &#125;
-
-        a match&#123;
-
-            case x if x%2==0 =&gt; ...
-
-            case x if x%3==0 =&gt; ...
-
-            case _ =&gt; ....
-
-        &#125;
-
-        Seq(1,3,5) match&#123;
-
-            case Seq(x) =&gt; ...
-
-            case Seq(x,y) =&gt; ...
-
-            case Seq(x,y,z) =&gt; ...
-
-        &#125;
-
-        val str:Any=&quot;hello,Scala&quot;
-
-        str match&#123;
-
-            case x:Int =&gt;  ....
-
-            case x:Double if x%2==0.0 =&gt; ...
-
-            case x:String =&gt; ..
-
-            case x:Student =&gt;....
-
-        &#125;
-</code></pre>
-<p>大数据技术</p>
-<pre><code>服务于&quot;数据&quot; 
-
-从 海量数据 中 挖掘出(数据ETL)  有用数据 提取(机器学习) 商业价值 。
-
-Hadoop 
-
-    Hdfs集群 分布式文件系统 存储海量数据
-
-    Yarn集群 资源(计算资源)管理调度 
-
-    MapReduce 分布式计算框架
-
-    Spark 分布式计算框架 
-
-    1个美工(HTML+CSS)+Java开发人员 
-
-    【1个美工(HTML+CSS)+】前段开发人员+Java开发人员 
-
-前后端分离
-
-    后台 JAVAEE 
-
-            SSH(Spring+Struct2+Hibernate) 
-
-            SSM(Spring+Spring MVC+Mybatis)
-
-    前台 
-
-        HTML+CSS+JavaScripy(Jquery) 
-
-            .JSP 动态页面 特殊的Servlet 特殊的Java类
-
-        HTML5+CSS3+Vue
-</code></pre>
-<hr>
-<pre><code>JavaEE开发
-
-    三层架构
-
-    Web 
-
-    Service 业务逻辑层
-
-    Dao 与数据库进行交互
-
-大数据技术位于Dao层之下,不与其他JavaEE技术或者是前段技术进行交互,用户是无法直观看到结果的。
-</code></pre>
-<p>8.函数式编程</p>
-<pre><code>val result=data.filter(筛选条件).map(转化数据格式)
-
-函数
-
-    字面量格式:
-
-        (参数列表) =&gt; &#123;函数体&#125;
-
-    eg:
-
-        def add(a:Int,b:Int)=&#123;
-
-            a+b
-
-        &#125;
-
-    匿名函数(一般作为参数使用):	
-
-        (a:Int,b:Int) =&gt; &#123;a+b&#125;
-
-    把匿名函数赋值给一个变量，那么这个变量即函数本身
-
-        val fun1=(a:Int,b:Int) =&gt; &#123;a+b&#125;
-
-    函数的调用:
-
-        函数名(参数列表)
-
-        fun1(1,2)
-
-        如果是匿名函数的话，那么匿名函数的调用不能和定义分开，必须是定义+调用同时进行。语法为(匿名函数)(参数列表)。
-
-        ((a:Int,b:Int) =&gt; &#123;a+b&#125;)(1,2)
-</code></pre>
-<hr>
-<pre><code>    方法与函数有什么区别吗？
-
-        一般情况下：两者不作区分。
-
-        不同之处:
-
-            1.方法名只是方法名，没有特殊含义
-
-            2.函数名等于函数本身
-
-            3.无参方法调用的时候:	
-
-                方法名()
-
-                方法名
-
-            4.无参函数调用的时候:
-
-                函数名()
-
-            5.无参方法定义时可以省略(),函数不可以
-
-                def test1()=10
-
-                def test1=10
-
-                val test2=()=&gt;&#123;10&#125;
-
-                val test2= =&gt;&#123;10&#125; 不可以
-
-函数类型:
-
-    (参数列表的类型)=&gt;返回类型
-
-    eg:				
-
-        (a:Int,b:Int)=&gt;&#123;a+b&#125;
-
-        类型为:
-
-        (Int,Int)=&gt;Int
-
-高阶函数:一个方法(函数)的参数或者返回值为函数，则此方法(函数)称为高阶函数。
-
-    def method1(args1:(Int,Int)=&gt;Int):ReturnType=&#123;
-
-        方法体
-
-    (a:(Int)=&gt;Int,b:Int)=&gt;&#123;a(b)&#125;
-
-    参数为函数时，如果代码片段较少，建议使用匿名函数，否则使用字面量函数或者是对象中的(静态)方法。
-</code></pre>
-<hr>
-<pre><code>类型推断:
-
-    1.函数体中只有一行代码，&#123;&#125;可以省略
-
-    2.如果匿名函数直接当作参数进行传递时，匿名函数中的参数类型可以省略;如果匿名函数的参数只有一个，则参数列表()可以省略;如果匿名函数的参数在函数体中只使用了一次，可以用_来代替，并且省略&quot;参数列表=&gt;&quot;
-
-    func2((x:Int)=&gt;&#123;scala.math.sqrt(x).toInt&#125;)
-
-    func2((x:Int)=&gt;scala.math.sqrt(x).toInt)
-
-    func2((x)=&gt;scala.math.sqrt(x).toInt)
-
-    func2(x=&gt;scala.math.sqrt(x).toInt)
-
-    func2(scala.math.sqrt(_).toInt)
-
-    foreach高阶函数
-
-    val range=1 to 10
-
-    range.foreach((x:Int)=&gt;&#123;println(x)&#125;)
-
-    range.foreach((x:Int)=&gt;println(x))
-
-    range.foreach((x)=&gt;println(x))
-
-    range.foreach(x=&gt;println(x))
-
-    range.foreach(println _)
-
-    range.foreach(println)
-
-闭包:匿名函数以及匿名函数中所使用的非局部变量组成闭包函数。
-
-    eg:
-
-        def mul(a:Int)=&#123;
-
-            (b:Int)=&gt;&#123;a*b&#125;
-
-        &#125;
-
-    调用:
-
-        val result1=mul(2)
-
-        result1是一个函数
-
-柯里化函数
-
-偏函数
-
-部分应用函数
-</code></pre>
-]]></content>
-      <categories>
-        <category>工业界</category>
-        <category>大数据高级开发Spark</category>
-      </categories>
-      <tags>
-        <tag>Scala语言绪论</tag>
       </tags>
   </entry>
   <entry>
@@ -7430,7 +6680,7 @@ unapply 方法的返回值应当符合下面的某一条：
 <ul>
 <li>a</li>
 </ul>
-<p><span style="font-size: 30px; color: #7FDBFF;">Selected Publication [<a href="https://scholar.google.com/citationshl=enview_op=list_worksgmla=AP6z3OaD-tXcIdA7232yuM864uP7HSb4Eljmcn-TQNwtirTGDNWcxqwzx5u9hQ4UtaBmkc6W2WudOn-Zls1TYg&user=aQQy_WAAAAAJ">Google Scholar</a>]</span></p>
+<p><span style="font-size: 30px; color: #7FDBFF;">Selected Publication [<a href="https://scholar.google.com/citationshl=enview_op=list_worksgmla=AP6z3OaD-tXcIdA7232yuM864uP7HSb4Eljmcn-TQNwtirTGDNWcxqwzx5u9hQ4UtaBmkc6W2WudOn-Zls1TYg&user=aQQy_WAAAAAJ"><span style="font-size: 30px; color: #7FDBFF;">Google Scholar</span></a>]</span></p>
 <ul>
 <li>b</li>
 </ul>
@@ -7458,6 +6708,756 @@ unapply 方法的返回值应当符合下面的某一条：
 <li>e</li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Scala语言绪论</title>
+    <url>/2023/09/09/Scala%E8%AF%AD%E8%A8%80%E7%BB%AA%E8%AE%BA/</url>
+    <content><![CDATA[<p>1、安装认识Scala<br>2、了解Scala中的类型<br>3、如何声明定义变量<br>4、如何定义类&#x2F;方法&#x2F;对象&#x2F;特质（接口&#x2F;抽象类） 任何一门语言需要学习的3项<br>5、for表达式   》进阶map  foreach<br>6、数组集合的使用<br>7、模式匹配的使用<br>8、函数式编程   （需要好好学）<br>        函数<br>        高阶函数<br>        柯里化函数<br>        偏函数<br>        部分应用函数</p>
+<p>Scala（Scalable language：可伸缩的语言）语言是一门多范式的编程语言，类似java。是Spark的源码。是面对对象的语言（封装、继承、多态）。函数式编程语言。在分布式计算、数据挖掘、web开发。</p>
+<p>jre的运行环境：JVM（JDK）</p>
+<p>scala：<br>      1）spark  分布式计算框架   （已经代替了MapReduce   hive）</p>
+<p>      2）Kafka   消息队列       </p>
+<p>特点：1、兼容java<br>        一般在scala调用java。<br>      2、语法简洁<br>        代码行短<br>        类型推断<br>        抽象控制（特质）<br>      3、静态类型化（java scala）而Python是动态类型语言<br>         可检验（编译进行检查）</p>
+<p>         安全重构</p>
+<p>      4、支持并发控制（java是线程,而scala是akka actor）</p>
+<p>         强化计算能力</p>
+<p>         自定义其他控制结构</p>
+<p>      5、可拓展</p>
+<p>         面向对象</p>
+<p>         函数式编程</p>
+<p>1、安装scala和IDE编程工具。注意：把scala-2.12.8目录移动到不包含中文空格特殊字符的目录下D：&#x2F;Spark这个目录下。配置环境scala的变量。scala -version查看是否scala安装成功。</p>
+<p>  IDEA</p>
+<p>           new  Project</p>
+<p>                      new Model</p>
+<p>Eclipse</p>
+<p>           new Workspace</p>
+<p>                      new Project</p>
+<p>2、scala类型</p>
+<p>     超类（父类）      Any</p>
+<p>  1）AnyVal（值类型）</p>
+<p>一共9种</p>
+<p> 四类八种所谓的Java基本数据类型（整数 Byte Short Int Long、浮点数 Float Double、字符 Char、布尔 Boolean）+Unit （空的意思；作用：替代void关键字，无返回值类型，返回值的类型为Unit；值：( ) { }）   可以用（）和{  }进行给Unit赋值。</p>
+<p>  在java中：public  void  show(String info){     }</p>
+<p>   &#x3D;&#x3D;》在scala中：def show (info:String):Unit&#x3D;{  println(info);    }               注意：首字母大写</p>
+<p>  2）AnyRef（引用类型—–》Object）&#x2F;&#x2F;父类</p>
+<p>         包括  I 自定义Scala类型   </p>
+<p>                  II数组  Array</p>
+<p>                  III集合   Map   Set   Seq（List）</p>
+<p>                            HashSet  TreeSet  ArrayBuffer</p>
+<p>                  IV在scala中引用Java自定义类型,即调用已经写好了的java。</p>
+<p>                        java.lang.String是引用类型。相当于java的父类。</p>
+<p>3、如何声明定义变量</p>
+<p>         java格式：</p>
+<p>                         变量  变量名 &#x3D; 值；</p>
+<p>                          int  a &#x3D; 10；</p>
+<p> 1）scala格式：</p>
+<p>    val   var  是scala中定义变量的关键字。</p>
+<p>    val   &#x2F;    var     变量名：变量类型  &#x3D;  值 （分号可以不用写）</p>
+<p>            简化后（省略了变量类型，类型推断）： val  变量名 &#x3D;值            &#x2F;&#x2F;val a &#x3D; 10</p>
+<p>            val  var的区别：</p>
+<p>                    val 定义常量，不能修改（被final修饰的变量）</p>
+<p>                    var 定义变量，可以修改。</p>
+<p>            scala中的变量的声明与定义必须一起进行。</p>
+<p>                 2） 今后在scala中定义使用中val多，建议在大数据中尽量全部使用val定义。因为并行计算的操作共享数据的原因。</p>
+<p>                  3）  scala中的默认值【整数都是0，浮点数都是0.0，布尔类型是false，字符类型为‘   ’，字符串都是String是null，Unit为（ ）】  </p>
+<p>               var  变量名：变量类型&#x3D; _（_表示默认值；在判断默认值类型时，必须用var，且变量类型不能省）</p>
+<p>         eg：</p>
+<p>                val a：Int&#x3D;10</p>
+<p>                var str ：String&#x3D;”hello,scala”</p>
+<p>                 val f:Float&#x3D;3.14F (要加一个F，表明是float类型，而直接3.14则是double类型）</p>
+<hr>
+<p>                 val f:Any&#x3D;3.14</p>
+<hr>
+<p>                  “hello”表示是字符串类型 </p>
+<hr>
+<p>                   val a：AnyVal&#x3D;“hello”</p>
+<p>                   val  ref：AnyRef&#x3D;“hello”</p>
+<p>4、如何定义类&#x2F;方法&#x2F;对象&#x2F;特质（接口&#x2F;抽象类）   </p>
+<p>          1、class （类的关键字）主构造器与类的定义交织在一起。</p>
+<p>               Java格式:</p>
+<p>                            [修饰符] class 类名 [extends 父类 [implements 接口1,接口2]]{</p>
+<p>                                                  属性</p>
+<p>                                                   方法</p>
+<p>                               }</p>
+<p>                Scala格式: extends </p>
+<p>                        [修饰符] class 类名[([主构造器参数列表])] [extends 父类 [with 特质1 with 特质2]] {</p>
+<p>                                                &#x2F;&#x2F;1.属性</p>
+<p>                                               &#x2F;&#x2F;2.方法</p>
+<p>                                              &#x2F;&#x2F;3.除了1.2之外，其他的都属于主构造器内部的代码</p>
+<p>                                   }</p>
+<p>                         [修饰符] class 类名[(主构造器参数列表)] [extends 特质1] {</p>
+<p>                                                     属性</p>
+<p>                                                     方法</p>
+<p>                            }</p>
+<p>                         eg:</p>
+<p>                                class Person{}</p>
+<p>                              &#x2F;&#x2F;class Person(){}</p>
+<p>                                 class Student(stuId:Int,name:String) extends Person {}</p>
+<hr>
+<pre><code>    1.主构造器参数列表中的格式:
+</code></pre>
+<p>          1.1(参数名1:参数类型,参数名2:参数类型,…..)</p>
+<p>          1.2(val&#x2F;var 参数名1:参数类型,…..)</p>
+<p>          1.3(private val&#x2F;var 参数名1:参数类型,….)</p>
+<p>          1.4(@BeanProperty val&#x2F;var 参数名1:参数类型,…….)</p>
+<hr>
+<p>         *	val的作用:</p>
+<p>                         1.将该参数(name)提升为类的私有属性</p>
+<p>                         2.给私有属性提供公有的getXXX(name)方法</p>
+<p>         * var的作用:</p>
+<p>                         1.将该参数(age)提升为类的私有属性</p>
+<p>                         2.给私有属性提供公有的getXXX(age)方法和setXXX(age_&#x3D;)方法</p>
+<p>           * private的作用:</p>
+<p>                         私有化所有的属性和方法</p>
+<p>           * @BeanProperty的作用:</p>
+<p>                         提供Java形式的getXXX&#x2F;setXXX方法</p>
+<pre><code>    2.辅助构造器
+</code></pre>
+<p>         1）辅助构造器的方法名字必须为this;</p>
+<p>         2）辅助构造器中第一行代码必须调用主构造器或者是已经定义好的其他辅助构造器;</p>
+<hr>
+<p>          2、def   （方法的关键字）</p>
+<p>                 Java的格式:</p>
+<p>                                 [修饰符] 返回类型 方法名([参数列表]){方法体}</p>
+<p>                Scala的格式:</p>
+<p>                                 [修饰符] def 方法名([参数列表]):返回类型&#x3D;{方法体}</p>
+<p>                eg:</p>
+<p>                    def add(x:Int,y:Int):Int&#x3D;{</p>
+<p>                           x+y</p>
+<p>                       }</p>
+<p>               简化形式1:</p>
+<p>                             方法体中如果只有一行代码,没有省略&#x3D;的情况下,{}可以省略</p>
+<p>                               def add(x:Int,y:Int):Int &#x3D; x+y</p>
+<p>              简化形式2(类型推断,根据方法体(块语句)推断方法的返回类型):</p>
+<p>                            方法不是递归方法时，返回类型可以省略</p>
+<p>                               def add(x:Int,y:Int) &#x3D; x+y	</p>
+<p>              简化形式3:</p>
+<p>                             无参在定义时可以省略()</p>
+<p>                            def test1()&#x3D;{val a&#x3D;10;val b&#x3D;20;a+b}</p>
+<p>                            def test1&#x3D;{val a&#x3D;10;val b&#x3D;20;a+b}</p>
+<p>                            调用:</p>
+<p>                                  无参方法调用时两种方式:</p>
+<p>                                   1）方法名()</p>
+<p>                                   2）方法名</p>
+<p>                简化形式4:(不建议)</p>
+<p>                               方法的返回类型为Unit时,可以省略”:返回类型和&#x3D;”,称为”过程”</p>
+<p>                                 def work(info:String):Unit&#x3D;{</p>
+<p>                                   println(“Teacher的工作是:”+info)</p>
+<p>                                  }</p>
+<p>                                 def work(info:String){</p>
+<p>                                   println(“Teacher的工作是:”+info)</p>
+<p>                                  }</p>
+<p>                表达式 块语句 {}是一个值 取决于表达式中最后一行代码</p>
+<p>                 eg:</p>
+<p>                    val a&#x3D;{</p>
+<p>                               println(“start”);</p>
+<p>                               val a&#x3D;10;</p>
+<p>                               val b&#x3D;20; </p>
+<p>                               val sum&#x3D;a+b;</p>
+<p>                                sum</p>
+<p>                    }</p>
+<p>      &#x2F;&#x2F;类似于Java中的三目运算 (条件)?true的时候返回:false的时候返回</p>
+<p>            val result&#x3D;if(条件){</p>
+<p>                   代码块</p>
+<p>            }else{</p>
+<p>                   代码块</p>
+<p>             }</p>
+<p>           val pi&#x3D;3.14</p>
+<p>           val result&#x3D;if(pi&gt;10)</p>
+<p>               “大于”</p>
+<p>            else</p>
+<p>               “小于”</p>
+<p>          val result&#x3D;if(pi&gt;10){“大于”}</p>
+<pre><code>        等价于
+</code></pre>
+<p>           val result&#x3D;if(pi&gt;10){“大于”}else{}</p>
+<p>          3、object   （对象的关键字） </p>
+<p>             格式: [修饰符]  object  对象名 extends 类 with 特质1 with 特质2 {</p>
+<p>                            对象体</p>
+<p>                           &#x2F;&#x2F;(静态)属性</p>
+<p>                          &#x2F;&#x2F;(静态)方法</p>
+<p>                        }</p>
+<p>              object中main方法是JVM的程序入口</p>
+<p>                     def main(args:Array[String]):Unit&#x3D;{</p>
+<p>                                &#x2F;&#x2F;main方法</p>
+<p>                      }</p>
+<p>              两个作用:</p>
+<p>                          1.程序入口main所在地</p>
+<p>                          2.单例对象  静态属性&#x2F;方法</p>
+<p>                          3.伴生对象</p>
+<p>                             class Student{ … }</p>
+<p>                             object Student{ … …}</p>
+<p>          4、trait  （特质的关键字）</p>
+<p>                特质的格式:</p>
+<p>                               [修饰符] trait 特质名 extends 类 with 特质1 with 特质2{}</p>
+<p>                                      作用:与Java的接口一致</p>
+<p>                                      语法:与抽象类一致</p>
+<p>               eg:</p>
+<p>                    trait Test1{</p>
+<p>                                &#x2F;&#x2F;具体方法&#x2F;属性</p>
+<p>                               def add(a:Int,b:Int)&#x3D;a+b</p>
+<p>                                  val a:Int&#x3D;10</p>
+<p>                               &#x2F;&#x2F;抽象方法&#x2F;属性</p>
+<p>                               def sub(a:Int,b:Int):Int</p>
+<p>                                  val b:Int</p>
+<p>                     }		</p>
+<p>5.for表达式—》进阶map foreach</p>
+<p>        循环 for while do</p>
+<p>        int i&#x3D;0</p>
+<p>         while(i&lt;10){</p>
+<p>             &#x2F;&#x2F;循环代码</p>
+<p>             i++;</p>
+<p>            }</p>
+<p>           var i&#x3D;0</p>
+<p>           while(i&lt;10){</p>
+<p>            &#x2F;&#x2F;循环代码</p>
+<p>             i+&#x3D;1</p>
+<p>            }</p>
+<pre><code>//Java使用for循环遍历数组
+
+int[] a=&#123;1,2,4,6&#125;
+
+for(int i=0;i
+
+    System.out.println(a[i])
+
+&#125;
+
+Scala中的for推导(表达式)格式:
+
+    for(发生器)&#123;
+
+        循环体
+
+    &#125;
+
+    发生器: 变量 &lt;- 待遍历的数组/集合/对象/....
+
+eg:  a是Scala中待遍历的数组/集合/对象
+
+    val a = 1 to 10
+
+    val a=1.to(10)
+
+    for(elem &lt;- a)&#123;
+
+        println(elem)
+
+    &#125;
+
+1.for+if守卫
+
+    遍历输出集合中的偶数
+
+2.for嵌套
+
+3.for嵌套+if守卫
+
+4.for+yield---》for推导 返回一个结果(集合)
+
+for(发生器)yield&#123;
+
+    循环体
+
+&#125;
+</code></pre>
+<p>6.数组集合的使用</p>
+<pre><code>数组分为:
+
+    定长数组 Array[T] 相当于Java中数组
+
+    可变数组 数组缓冲 scala.collection.mutable.ArrayBuffer(可变集合)
+
+声明定义数组:
+
+    1.借助类的构造器构建
+
+        val arr:Array[Int]=new Array[Int](长度)
+
+        val buffer=new ArrayBuffer[String]
+
+    2.使用对象统一构建原则构建
+
+        empty[T]
+
+        apply(elem:T*)
+</code></pre>
+<hr>
+<pre><code>操作数组:
+
+    1.数组进行 赋值 取值
+
+        arr(index)=10
+
+        arr(index)
+
+        //等价于
+
+        arr.update(index,10)
+
+        arr.apply(index)
+
+    2.可变数组(集合) 添加元素 移除元素
+
+        append/All(elem:T*) 追加
+
+        insert/All(index:Int,elem:T*) 插入
+
+        remove(index:Int)
+
+        remove(index:Int,count:Int)
+
+        drop(count:Int)  从左开始删除count个元素，
+
+        dropRight(count:Int)从右开始删除count个元素
+
+            注意:这两个方法不会修改原集合,返回一个新的集合。
+
+        添加元素的方法:				++   ++:   ++=   ++=:   +:   +=   +=:
+
+            1.包含一个+号 ，含义是添加单个元素
+
+            2.包含两个+号 ，含义是添加集合
+
+            3.不包含=号 ，含义是不修改原集合,返回一个新集合
+
+            4.包含=号 ，含义是修改原集合
+
+            5.包含:号 ，含义是插入元素
+
+            6.不包含:号 ，含义是追加元素
+
+        移除元素的方法:				-   --   --=   -=
+
+        注意1:不推荐使用带:号的方法，效率低
+
+        注意2:只有可变集合(mutable)才有带=号的方法
+
+        注意3:对于两个集合(Set集合),求合集(union/++) 差集(diff/--) 交集(intersect/&amp;)
+</code></pre>
+<hr>
+<pre><code>集合分类:
+
+        Collection       	Map
+
+        List  	Set   	HashMap TreeMap
+
+    ArrayList 	HashSet
+
+    LinkedList	Treeset
+
+             Iterable(特质)
+
+    Map映射(特质)   Set集(特质) 	 	Seq序列(特质)
+
+    HashMap		  HashSet	  IndexedSeq(特质) LinearSeq(特质)
+
+    TreeMap		  TreeSet		索引序列         线性序列
+
+                                Vector	    	List(列表)
+
+                                ArrayBuffer
+
+    可变集合 scala.collection.mutable.*
+
+    不可变集合 scala.collection.immutable.*
+
+    Scala中默认构建的都是不可变的集合;(类似于val/var)
+</code></pre>
+<p>         1）如何构建集合对象(对象统一构建原则)</p>
+<p>             对象.empty[T]</p>
+<p>             对象.apply(elem1,elem2,…)</p>
+<p>             val map&#x3D;TreeMap.empty[String,Int]</p>
+<p>             val set1&#x3D;Set.empty[Double]</p>
+<p>             val set2&#x3D;HashSet.empty[Float]</p>
+<p>             val seq1&#x3D;Seq.empty[String]</p>
+<p>             val seq2&#x3D;IndexedSeq.empty[String]</p>
+<p>             val map1&#x3D;Set.apply(1.4,3.5,1.9,1.7)</p>
+<p>                 &#x2F;&#x2F;等价与</p>
+<p>             val map2&#x3D;Set(1.4,3.5,1.9,1.7)</p>
+<p>          2）Map 映射 集合 键值对 key不允许重复</p>
+<p>               特殊数据类型:元组Tuple,将一系列类型不同(不超过22个)的元素放在一个()里面，通过,分割,此时对象称为元组</p>
+<p>            eg:val a&#x3D;(1,3.14,true,’C’,”String”)</p>
+<pre><code>        二元元组:元组中的元素个数为2，其实就是一组键值对(Map集合中的元素) 
+
+        二元元组的表现形式:
+
+            (第一元,第二元)
+
+            等价
+
+            第一元-&gt;第二元
+
+        val elem1=(1,&quot;java&quot;)
+
+        val elem2=(2,&quot;scala&quot;)
+
+        val elem3=3-&gt;&quot;python&quot;
+
+        val map=Map.apply(elem1,elem2,elem3)
+
+        元组的类型:(第一个元素的类型,第二个,.....)
+
+        获取元组中的元素:
+
+            元组._下标 下标从1开始
+
+        val stu=(1,&quot;tom&quot;,23,&quot;110&quot;)
+
+        val id=stu._1
+
+        val name=stu._2
+
+        val age=stu._3
+
+        val phone=stu._4
+
+        val (id,name,age,phone)=(1,&quot;tom&quot;,23,&quot;110&quot;)
+
+        val (id,name,age,_)=(1,&quot;tom&quot;,23,&quot;110&quot;)
+
+        //案例:计算一个字符串中每个字符出现的次数
+
+        //计算&quot;hello,scala&quot;字符串中每个字符出现的次数
+
+          def test2(str:String)=&#123;
+
+            //1.构建一个可变的Map集合
+
+            val map=mutable.Map.empty[Char,Int];
+
+            //2.遍历字符串 获取每个字符
+
+            for(c &lt;- str)&#123;
+
+              //3.
+
+              val count=map.getOrElse(c,0)+1
+
+              //4.存储到Map集合
+
+              map.+=(c-&gt;count)
+
+            &#125;
+
+            //5.遍历输出每个字符出现的次数
+
+            for((c,num) &lt;- map)&#123;
+
+              println(s&quot;字符 $c 出现了 $num 次&quot;)
+
+            &#125;
+
+          &#125;
+</code></pre>
+<p>         3）Set集合 集合中的元素不允许重复，不会记录先后顺序。</p>
+<p>               HashSet </p>
+<p>               TreeSet 带有排序功能的Set集合</p>
+<p>               BitSet 存储非负连续整数时效率非常高</p>
+<p>               (合集)并集++ 差集– 交集&amp;</p>
+<p>         4）Seq集合 会记录元素进入集合的先后顺序,允许元素重复。</p>
+<p>              IndexedSeq 索引序列 </p>
+<p>             Vector 向量(不可变集合,ArrayBuffer的不可变版本)</p>
+<p>             Range 范围(不可变集合)</p>
+<p>             ArrayBuffer 数组缓冲(可变集合)</p>
+<p>              LinearSeq 线性序列</p>
+<p>             Stream 流</p>
+<p>             Stack 栈</p>
+<p>             Queue 队列</p>
+<p>             List 列表  不可变列表</p>
+<p>             ::  ::: Nil 空列表 head::tail</p>
+<p>7.模式匹配的使用</p>
+<pre><code>1.引入 if else switch case default
+
+    格式: 
+
+        val result=表达 match&#123;
+
+            case v1 =&gt; 执行的代码1
+
+            case v2 =&gt; 执行的代码2
+
+            case v3 =&gt; ....
+
+            case _ =&gt; ....
+
+        &#125;
+
+    1）表达式可以是什么？
+
+        布尔类型的表达
+
+        变量
+
+        Seq集合/对象/数组/元组
+
+    2）v1,v2...可以什么？
+
+        常量/值 变量 Seq集合/对象/数组/元组 类型
+
+    eg:
+
+        val a=10
+
+        val result:Unit=(a&gt;3) match&#123;
+
+            case true =&gt; 
+
+                println(a)
+
+                val str=&quot;scala&quot;
+
+                val strLen=str.length
+
+                println(&quot;a大于3&quot;)
+
+            case false =&gt; println(&quot;a小于3&quot;)
+
+        &#125;
+
+        a match&#123;
+
+            case 1 =&gt; ...
+
+            case 2 =&gt; ...
+
+            case 10 =&gt; ....
+
+        &#125;
+
+        a match&#123;
+
+            case x if x%2==0 =&gt; ...
+
+            case x if x%3==0 =&gt; ...
+
+            case _ =&gt; ....
+
+        &#125;
+
+        Seq(1,3,5) match&#123;
+
+            case Seq(x) =&gt; ...
+
+            case Seq(x,y) =&gt; ...
+
+            case Seq(x,y,z) =&gt; ...
+
+        &#125;
+
+        val str:Any=&quot;hello,Scala&quot;
+
+        str match&#123;
+
+            case x:Int =&gt;  ....
+
+            case x:Double if x%2==0.0 =&gt; ...
+
+            case x:String =&gt; ..
+
+            case x:Student =&gt;....
+
+        &#125;
+</code></pre>
+<p>大数据技术</p>
+<pre><code>服务于&quot;数据&quot; 
+
+从 海量数据 中 挖掘出(数据ETL)  有用数据 提取(机器学习) 商业价值 。
+
+Hadoop 
+
+    Hdfs集群 分布式文件系统 存储海量数据
+
+    Yarn集群 资源(计算资源)管理调度 
+
+    MapReduce 分布式计算框架
+
+    Spark 分布式计算框架 
+
+    1个美工(HTML+CSS)+Java开发人员 
+
+    【1个美工(HTML+CSS)+】前段开发人员+Java开发人员 
+
+前后端分离
+
+    后台 JAVAEE 
+
+            SSH(Spring+Struct2+Hibernate) 
+
+            SSM(Spring+Spring MVC+Mybatis)
+
+    前台 
+
+        HTML+CSS+JavaScripy(Jquery) 
+
+            .JSP 动态页面 特殊的Servlet 特殊的Java类
+
+        HTML5+CSS3+Vue
+</code></pre>
+<hr>
+<pre><code>JavaEE开发
+
+    三层架构
+
+    Web 
+
+    Service 业务逻辑层
+
+    Dao 与数据库进行交互
+
+大数据技术位于Dao层之下,不与其他JavaEE技术或者是前段技术进行交互,用户是无法直观看到结果的。
+</code></pre>
+<p>8.函数式编程</p>
+<pre><code>val result=data.filter(筛选条件).map(转化数据格式)
+
+函数
+
+    字面量格式:
+
+        (参数列表) =&gt; &#123;函数体&#125;
+
+    eg:
+
+        def add(a:Int,b:Int)=&#123;
+
+            a+b
+
+        &#125;
+
+    匿名函数(一般作为参数使用):	
+
+        (a:Int,b:Int) =&gt; &#123;a+b&#125;
+
+    把匿名函数赋值给一个变量，那么这个变量即函数本身
+
+        val fun1=(a:Int,b:Int) =&gt; &#123;a+b&#125;
+
+    函数的调用:
+
+        函数名(参数列表)
+
+        fun1(1,2)
+
+        如果是匿名函数的话，那么匿名函数的调用不能和定义分开，必须是定义+调用同时进行。语法为(匿名函数)(参数列表)。
+
+        ((a:Int,b:Int) =&gt; &#123;a+b&#125;)(1,2)
+</code></pre>
+<hr>
+<pre><code>    方法与函数有什么区别吗？
+
+        一般情况下：两者不作区分。
+
+        不同之处:
+
+            1.方法名只是方法名，没有特殊含义
+
+            2.函数名等于函数本身
+
+            3.无参方法调用的时候:	
+
+                方法名()
+
+                方法名
+
+            4.无参函数调用的时候:
+
+                函数名()
+
+            5.无参方法定义时可以省略(),函数不可以
+
+                def test1()=10
+
+                def test1=10
+
+                val test2=()=&gt;&#123;10&#125;
+
+                val test2= =&gt;&#123;10&#125; 不可以
+
+函数类型:
+
+    (参数列表的类型)=&gt;返回类型
+
+    eg:				
+
+        (a:Int,b:Int)=&gt;&#123;a+b&#125;
+
+        类型为:
+
+        (Int,Int)=&gt;Int
+
+高阶函数:一个方法(函数)的参数或者返回值为函数，则此方法(函数)称为高阶函数。
+
+    def method1(args1:(Int,Int)=&gt;Int):ReturnType=&#123;
+
+        方法体
+
+    (a:(Int)=&gt;Int,b:Int)=&gt;&#123;a(b)&#125;
+
+    参数为函数时，如果代码片段较少，建议使用匿名函数，否则使用字面量函数或者是对象中的(静态)方法。
+</code></pre>
+<hr>
+<pre><code>类型推断:
+
+    1.函数体中只有一行代码，&#123;&#125;可以省略
+
+    2.如果匿名函数直接当作参数进行传递时，匿名函数中的参数类型可以省略;如果匿名函数的参数只有一个，则参数列表()可以省略;如果匿名函数的参数在函数体中只使用了一次，可以用_来代替，并且省略&quot;参数列表=&gt;&quot;
+
+    func2((x:Int)=&gt;&#123;scala.math.sqrt(x).toInt&#125;)
+
+    func2((x:Int)=&gt;scala.math.sqrt(x).toInt)
+
+    func2((x)=&gt;scala.math.sqrt(x).toInt)
+
+    func2(x=&gt;scala.math.sqrt(x).toInt)
+
+    func2(scala.math.sqrt(_).toInt)
+
+    foreach高阶函数
+
+    val range=1 to 10
+
+    range.foreach((x:Int)=&gt;&#123;println(x)&#125;)
+
+    range.foreach((x:Int)=&gt;println(x))
+
+    range.foreach((x)=&gt;println(x))
+
+    range.foreach(x=&gt;println(x))
+
+    range.foreach(println _)
+
+    range.foreach(println)
+
+闭包:匿名函数以及匿名函数中所使用的非局部变量组成闭包函数。
+
+    eg:
+
+        def mul(a:Int)=&#123;
+
+            (b:Int)=&gt;&#123;a*b&#125;
+
+        &#125;
+
+    调用:
+
+        val result1=mul(2)
+
+        result1是一个函数
+
+柯里化函数
+
+偏函数
+
+部分应用函数
+</code></pre>
+]]></content>
+      <categories>
+        <category>工业界</category>
+        <category>大数据高级开发Spark</category>
+      </categories>
+      <tags>
+        <tag>Scala语言绪论</tag>
+      </tags>
   </entry>
   <entry>
     <title>冒泡排序算法思想</title>
