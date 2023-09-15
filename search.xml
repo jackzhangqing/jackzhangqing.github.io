@@ -6673,8 +6673,8 @@ unapply 方法的返回值应当符合下面的某一条：
   <entry>
     <title>The Different Qzhang</title>
     <url>/2023/09/15/The-Different-Me-Qzhang/</url>
-    <content><![CDATA[<p><span style="font-size: 40px; color: #7FDBFF;">Qing Zhang (张青)</span></p>
-<p><span style="font-size: 30px; color: #7FDBFF;">Biography</span></p>
+    <content><![CDATA[<p><span style="font-size: 30px; color: #7FDBFF;">Qing Zhang (张青)</span></p>
+<p><span style="font-size: 25px; color: #7FDBFF;">Biography</span></p>
 <p>  <span style="font-size: 20px">Qing is looking for job oppotunity!!!</span></p>
 <p><span style="font-size: 30px; color: #7FDBFF;">News</span></p>
 <ul>
@@ -6684,22 +6684,38 @@ unapply 方法的返回值应当符合下面的某一条：
 <ul>
 <li>b</li>
 </ul>
-<p><span style="font-size: 30px; color: #7FDBFF;">Industrial circles</span></p>
+<p><span style="font-size: 30px; color: #7FDBFF;">Skills</span></p>
 <ul>
-<li><span style="font-size: 20px">Python</span><ul>
+<li><span style="font-size: 20px">从python到人工智能</span><ul>
 <li>基础语法</li>
 </ul>
 </li>
-<li><span style="font-size: 20px">Project experience</span><ul>
-<li>你好</li>
+<li><span style="font-size: 20px"><a href="https://unbug.github.io/codeif">给变量命名</a></span></li>
+<li><span style="font-size: 20px"><a href="https://cli.im/">二维码生成器</a></span></li>
+<li><span style="font-size: 20px">数据结构与算法</span> <ul>
+<li><a href="">冒泡排序算法思想</a></li>
+<li><a href="">32个经典算法</a></li>
 </ul>
 </li>
+<li><span style="font-size: 20px">大数据高级开发Spark</span> </li>
+<li><span style="font-size: 20px">大数据平台与架构</span> </li>
+<li><span style="font-size: 20px">Java开源框架</span> </li>
+<li><span style="font-size: 20px">Oracle数据库</span> </li>
+<li><span style="font-size: 20px">软件开发</span> </li>
+<li><span style="font-size: 20px">大数据平台与架构</span> </li>
+<li><span style="font-size: 20px">黑客（信息安全）</span></li>
+<li><span style="font-size: 20px">编译原理学科</span></li>
+</ul>
+<p><span style="font-size: 30px; color: #7FDBFF;">Project &amp; Work<br> Experience</span></p>
+<ul>
+<li><span style="font-size: 20px">C&#x2F;C++语言以及关于C的课程设计</span> </li>
+<li><span style="font-size: 20px">工资管理系统</span></li>
 </ul>
 <p><span style="font-size: 30px; color: #7FDBFF;">Job search</span></p>
 <ul>
-<li>c</li>
+<li><a href="https://blog.csdn.net/weixin_44232942/article/details/106457056"><span style="font-size: 20px">LeteCode解题总览</span></a></li>
 </ul>
-<p><span style="font-size: 30px; color: #7FDBFF;">Experience &amp; Skills</span></p>
+<p><span style="font-size: 30px; color: #7FDBFF;">Experience</span></p>
 <ul>
 <li>d</li>
 </ul>
