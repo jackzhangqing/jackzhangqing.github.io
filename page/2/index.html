@@ -197,6 +197,543 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jackzhangqing.github.io/2023/09/09/1-Scala%E4%B9%8B%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qzhang">
+      <meta itemprop="description" content="痛点才是奋斗点~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qzhang">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/09/1-Scala%E4%B9%8B%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">Scala之基础语法1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-09 18:23:09 / 修改时间：18:25:55" itemprop="dateCreated datePublished" datetime="2023-09-09T18:23:09+08:00">2023-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/" itemprop="url" rel="index"><span itemprop="name">工业界</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%B8%9A%E7%95%8C/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91Spark/" itemprop="url" rel="index"><span itemprop="name">大数据高级开发Spark</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>认识：</p>
+<p>Scala 编程语言</p>
+<p>  头等公民：对象 函数</p>
+<p>  多范式的编程语言</p>
+<pre><code>面向对象
+
+函数式编程
+</code></pre>
+<p>  函数式编程 </p>
+<pre><code>1.高阶函数
+
+2.支持 闭包
+
+3.类型推断
+
+4.无副作用 无IO操作，不改变状态
+
+5.引用透明 同一函数，传递相同参数，必然返回同一个结果。
+</code></pre>
+<p>  特点：</p>
+<pre><code>1.多范式编程语言
+
+2.多平台语言 JVM  .NET JS浏览器
+
+3.与Java无缝兼容,类库互相调用
+
+4.强大的类型推断
+
+5.并发
+</code></pre>
+<p>  特性：feature</p>
+<pre><code>柯里化
+
+抽象控制
+
+部分应用函数
+
+偏函数
+</code></pre>
+<p>REPL 交互式解析器</p>
+<p>  1.在命令行输入命令：</p>
+<pre><code>scala 
+
+进入交互式解析器。
+</code></pre>
+<p>  2.可以在交互式解析器中定义变量，方法，类，对象，特质等。</p>
+<pre><code>定义完成之后直接编译
+</code></pre>
+<p>  3.常用命令</p>
+<pre><code>:help
+
+:quit :q
+
+:load fileName 
+
+:paste 
+</code></pre>
+<p>1.变量 val&#x2F;var</p>
+<pre><code> eg: val/var 变量名:类型=值
+
+ 1.1 val 不可变的
+
+     var 可变的
+
+ 1.2 声明与赋值同时定义
+
+     只能对var赋默认值,参数类型必须给定,值为 _
+
+     eg: var str:String=_
+</code></pre>
+<p>2.方法 def</p>
+<pre><code>2.1 格式: 
+
+  [修饰符] def methodName(name1:ArgsType1,name2:ArgsType2)[:retrunType]=&#123;
+
+     //方法体
+
+  &#125;
+
+2.2 过程 方法的返回类型为Unit时，称之为过程（不建议大家这样做）
+
+  eg:
+
+    def test1(a:Int):Unit=&#123;&#125; 
+
+      ----&gt; 可以变成如下写法：
+
+    def test1(a:Int)&#123;&#125;
+
+2.3 当方法为非递归方法时，可以将返回类型省略
+
+    def test(a:Int)=&#123;
+
+      a
+
+    &#125;
+
+  eg: 如下为递归方法，不可以将返回类型省略。
+
+    def fac(a:Int):Int=&#123;
+
+      a*fac(a-1)
+
+    &#125;
+
+2.4 方法调用 方法名(args)
+
+  1.对于无参数的方法，方法调用有两种： 方法名() 或者 方法名
+
+  2.方法调用时，可以通过形参进行无顺序传递。
+
+    eg: def info(a:Int,b:Int,c:Int)=&#123;
+
+          a+b+c
+
+        &#125;
+
+    方法调用：
+
+      info(1,2,3)
+
+      info(a=1,c=3,b=2)
+
+    注意：当使用形参传递参数时，如果有未指明形参名的必须与对应位置想匹配，不可以随意放置。
+
+      info(b=2,a=1,6) //正确
+
+      info(b=2,6,a=1) //错误 形参a,b有对应的值，那么为c赋值时，需要按照c在方法参数列表中的位置进行对应。 
+
+2.5 可变参列表
+
+    1.只能位于参数列表的最后一个
+
+    2.表示形式： 类型* 
+
+    3.可变参本质上是一个集合。 
+
+    def test(a:Int,b:String,c:Any*)=&#123;
+
+      println(c)
+
+    &#125;
+</code></pre>
+<p>3.统一类型-了解数据类型</p>
+<pre><code>在Scala中，所有的值都有类型，包括数值和函数。下图阐述了类型层次结构的一个子集。
+
+      Any （顶级父类，最顶级类）
+
+  AnyVal    AnyRef(java.lang.Object)
+
+    ^       List
+
+    |       Option
+
+  Double      YourClass
+
+  Dloat       ^
+
+  Long          |
+
+  Int         |
+
+  Short         |
+
+  Byte        |
+
+  Boolean       |
+
+  Char        Null
+
+  Unit        ^
+
+    ^               |
+
+    |         |
+
+        Nothing（底部类型，所有类的子类，最底层类）
+
+类层级结构：
+
+          Any(顶级父类，最顶级类) 
+
+  AnyVal        AnyRef(相当于Java中的Object)
+
+8基本+Unit      引用类型
+
+          Nothing(所有类的子类，最底层类)
+
+Any是所有类型的超类型，也称为顶级类型。它定义了一些通用的方法如equals、hashCode和toString。Any有两个直接子类：AnyVal和AnyRef。
+
+AnyVal代表值类型。有9个预定义的非空的值类型分别是：Double、Float、Long、Int、Short、Byte、Char、Unit和Boolean。Unit是不带任何意义的值类型，它仅有一个实例可以像这样声明：()。所有的函数必须有返回，所以说有时候Unit也是有用的返回类型。
+
+值类型的空间是平坦的；所有的值类都是scala.AnyVal的子类型，但是它们不是其他类的子类。但是不同的值类类型之间可以隐式地互相转换。例如，需要的时候，类scala.Int的实例可以通过隐式转换放宽到类scala.Long的实例；Int支持min、max、until、to、abs等操作，其实是从类Int隐式转换到scala.runtime.RichInt的。
+
+AnyRef代表引用类型。所有非值类型都被定义为引用类型。在Scala中，每个用户自定义的类型都是AnyRef的子类型。AnyRef其实是Java平台上java.lang.Object类的别名。因此Java里写的类和Scala里写的都继承自AnyRef。
+</code></pre>
+<p>如果Scala被应用在Java的运行环境中，AnyRef相当于java.lang.Object。</p>
+<pre><code>Scala类与Java类的不同在于它们还继承自一个名为ScalaObject的特别记号特质。是想要通过ScalaObject包含的Scala编译器定义和实现的方法让Scala程序的执行更高效。
+
+类型转化.
+
+下面是一个示例，说明了字符串、整型、布尔值和函数都是对象，这一点和其他对象一样：
+
+  val list: List[Any] = List(
+
+    &quot;a string&quot;,
+
+    732,  // an integer
+
+    &#39;c&#39;,  // a character
+
+    true, // a boolean value
+
+    () =&gt; &quot;an anonymous function returning a string&quot;
+
+  )
+
+  list.foreach(element =&gt; println(element))
+
+Nothing和Null
+
+scala.Null和scala.Nothing是用统一的方式处理Scala面向对象类型系统的某些&quot;边界情况&quot;的特殊类型。
+
+Nothing是所有类型的子类型，也称为底层类型。没有一个值是Nothing类型的。它的用途之一是给出非正常终止的信号，如抛出异常、程序退出或者一个无限循环（可以理解为它是一个不对值进行定义的表达式的类型，或者是一个不能正常返回的方法）。
+
+Null是所有引用类型的子类型（即AnyRef的任意子类型）。它有一个单例值由关键字null所定义。Null主要是使得Scala满足和其他JVM语言的互操作性，但是几乎不应该在Scala代码中使用。我们将在后面的章节中介绍null的替代方案。
+
+例1:
+
+  def error(message: String): Nothing = throw new RuntimeException(message)
+
+  def divide(x: Int, y: Int): Int = if(y != 0) x / y else error(&quot;Can&#39;t divide by zero&quot;)
+</code></pre>
+<p>4.类 class</p>
+<p>  4.1 格式：class 类名 private[package] (主构造器参数列表) extends 类&#x2F;特质 with 特质1 with 特质2{}</p>
+<pre><code>eg: class Student(name:String,age:Int) extends Father with T1 with T2&#123;
+
+  //属性
+
+  //方法
+
+  //主构造器中的代码
+
+  println(&quot;.....&quot;)
+
+  def this()=&#123;
+
+    //.......
+
+  &#125;
+
+&#125;
+</code></pre>
+<p>  4.2 构造器：</p>
+<pre><code>  主构造器 : 与类的定义交织在一起
+
+  辅助构造器 :  
+
+    1.通过方法名this重载构造器 
+
+    2.辅助构造器的第一行代码必须是调用主构造器或者调用其他已经定义好的辅助构造器
+</code></pre>
+<p>  4.3 主构造器参数列表</p>
+<pre><code>形式：
+
+  1.参数名:类型  
+
+  2.var 参数名:类型
+
+  3.val 参数名:类型
+
+  4.private val/var 参数名:类型
+
+  5.@BeanProperty val/var 参数名:类型
+
+总结：
+
+  1.当参数没有被修饰，且在类中没有使用该参数，该参数什么都不会生成。
+
+  2.当参数被val修饰时，会生成private修饰的字段/属性，以及提供一个名字为参数名的公有取值方法。
+
+  3.当参数被var修饰时，会生成private修饰的字段/属性，以及提供一个名字为参数名的公有取值方法和一个名字为参数名_=的公有赋值方法。
+
+  4.与2,3生成的字段以及方法个数一致，不同在于生成的方法时私有的。
+
+  5.@BeanProperty 会生成javaBean版本的set/get方法
+</code></pre>
+<p>5.对象 object 单例对象</p>
+<pre><code>格式: object 对象名 extends 类/特质 with 特质1 with 特质2&#123;&#125;
+
+总结: 
+
+    类中的方法与字段都是非静态的。
+
+    对象中的方法与字段都是静态的。
+
+程序入口
+
+  1.Main方法
+
+    object TestMain1&#123;
+
+      //程序入口
+
+      def main(args:Array[String]):Unit=&#123;&#125;
+
+    &#125;
+
+    将代码写到TestMain1.scala文件中。
+
+  2.扩展App
+
+    object TestMain2 extends App&#123;
+
+      //......程序入口
+
+    &#125;
+
+    将代码写到TestMain2.scala文件中。
+
+准备工作: mkdir scala/day1
+
+     vi TestMain1.scala
+
+编译命令:
+
+        scalac  TestMain1.scala
+
+查看当前目录: ls 
+
+        使用反编译工具打开 TestMain1.class
+
+        scalap TestMain1
+
+        javap -p TestMain1
+
+运行命令:  
+
+        scala TestMain1
+</code></pre>
+<p>6.特质 trait</p>
+<pre><code>格式: trait 特质名 extends 类/特质 with 特质1 &#123;&#125;
+
+总结: 
+
+    1.可以包含具体方法/属性
+
+    2.可以包含抽象方法/属性
+
+    3.特质 可以 混入 类/对象/特质/实例(对象)
+</code></pre>
+<p>7.类型 type</p>
+<pre><code>格式: type 变量名=类型
+
+总结: 
+
+    1.当类型名称比较复杂时，可以对当前类型起个别名，方便后期使用。
+
+    2.当同一个源文件中出现两个不同包的同一类名时，可以通过类型别名来进行区分。
+</code></pre>
+<hr>
+<p>编译操作:</p>
+<p>1.编译</p>
+<pre><code>1.1方式一scalac
+
+    使用Scala的基本编译器——scalac。开始编译源文件，但在编译完成之前会有几秒的停顿。因为每次编译器启动时，都要花一些时间扫描jar文件内容，并且在开始编译提交的源文件之前完成更多其他初始化工作（因此可能比Java程序编译慢）。命令如下：
+
+        scalac -d bin/ Hello.scala
+
+1.2方式二fsc
+
+    Scala的发布包里还包括了一个叫做fsc（快速Scala编译器，Fast Scala Compiler）的Scala编译器后台服务（daemon）。估计是针对Scala程序编译慢才刻意提供的服务。使用方法如下（其实用法和scalac差不多）：
+
+        fsc -d bin/ Hello.scala
+
+    第一次执行fsc时，会创建一个绑定在计算机端口上的本地服务器后台进程。然后它就会把文件列表通过端口发送给后台进程，由后台进程编译。下一次执行fsc时，检测到后台进程已经在运行了，于是fsc将只把文件列表发给后台进程，它会立刻开始编译文件。使用fsc，只须在首次运行的时候等待Java运行时环境的启动。如果想停止fsc后台进程，可以执行命令：
+
+        fsc -shutdownh
+</code></pre>
+<p>2.打包</p>
+<pre><code>打包过程和Java程序打包没什么两样，这里不做累述，仅给出命令行如下：
+
+    jar -cvf hello.jar -C bin/ .
+</code></pre>
+<p>3.运行</p>
+<pre><code>3.1方式一java
+
+    使用java方式运行打包好的Scala程序有一个地方特别需要注意。这里，先看按Java程序的方式，不做任何处理运行Scala，命令行如下：
+
+        java -cp hello.jar Hello 
+
+    报错提示Scala中的方法没有找到，为什么没有找到？这里先声明：该程序在Eclipse for Scala（IDE）上运行是没问题的，所以问题可能出在Scala的jar包没有引入，那么用-D参数引入jar包，命令行如下：
+
+        java -Djava.ext.dirs=$SCALA_CP -cp hello.jar Hello 
+
+        （注：SCALA_CP=$SCALA_HOME/lib）
+
+3.2方式二scala
+
+    其实可以直接使用scala命令来运行的，不要以为scala命令只能开启Scala命令行模式，闲言少叙，直接看命令行：
+
+        scala -cp hello.jar Hello 
+</code></pre>
+<p>4.总结</p>
+<p>  如果多次编译Scala程序建议使用fsc（每一种事物的存在都有它道理的），如果只须编译一次Scala程序，就用scalac吧，毕竟fsc用完记得关闭；</p>
+<p>  运行Scala程序建议使用scala命令，不建议用java命令。</p>
+<ol start="5">
+<li><p>应用程序对象</p>
+<p> 1.每个scala程序都必须从一个对象的main方法开始，这个方法的参数是Array[String]&#x3D;&gt;Unit</p>
+<pre><code> object Hello&#123;
+
+    def main(args: Array[String]): Unit = &#123;
+
+     println(&quot;hello , scala ！&quot;)
+
+    &#125;
+
+ &#125;
+</code></pre>
+<p> 2.除了提供自己的main方法之外，也可以扩展App特质，然后将程序代码放入构造方法体内：</p>
+<pre><code> object Hello extends App&#123;
+
+    println(&quot;Hello , hadoop ! &quot;)
+
+ &#125;
+
+如果需要命令行参数，则可以通过args属性得到：
+
+ object Hello extends App&#123;
+
+    if(args.length &gt; 0)
+
+     println(&quot;Hello , &quot;+args(0))
+
+    else 
+
+     println(&quot;hello , scala !&quot;)
+
+ &#125;
+
+如果在调用该应用程序时设置了scala.time选项的话，程序退出时会显示逝去的时间。
+
+ eg:
+
+     scalac Hello.scala
+
+     scala -Dscala.time Hello briup
+
+ App特质扩展自另一个特质DelayedInit,编译器对该特质有特殊处理。所有带有该特质的类，其初始化方法都会被挪到delayedInit方法中.App特质的main方法捕获到命令行从那时，调用delayedInit方法,并且还可以根据要求打印出逝去的时间。
+</code></pre>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jackzhangqing.github.io/2023/09/09/Scala%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BC%98%E7%82%B9%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3129,7 +3666,7 @@ unapply 方法的返回值应当符合下面的某一条：
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
