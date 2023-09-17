@@ -8,6 +8,9 @@
   <img src='1.jpg'>
 </div> -->
 <p><img src="/images/1.jpg"></p>
+<!-- <img src="/images/1.jpg" width="50%" height="50%"  style="margin: 0 auto;"/> -->
+
+
 <p><span style="font-size: 25px; color: #7FDBFF;"> 🎪   Biography</span></p>
 <ul>
 <li>Qing is looking for job oppotunity !!!</li>
