@@ -3,18 +3,23 @@
   <entry>
     <title>The Different Qzhang</title>
     <url>/2023/09/15/The-Different-Me-Qzhang/</url>
-    <content><![CDATA[<p><span style="font-size: 30px; color: #7FDBFF;"><strong>Qing Zhang (张青)</strong></span></p>
+    <content><![CDATA[<p><span style="font-size: 30px; color: #7FDBFF;"><strong>Qing Zhang (张青)</strong></span><br><span style="font-size: 25px; color: #7FDBFF;"> 🎪   Biography</span></p>
 <!-- <div align='center'>
   <img src='1.jpg'>
 </div> -->
-<p><img src="/images/1.jpg"></p>
-<!-- <img src="/images/1.jpg" width="50%" height="50%"  style="margin: 0 auto;"/> -->
+<!-- ![](/images/1.jpg) -->
+<!-- width="60%" height="60%" -->
+<img align="right" src="/images/1.jpg" width="50%" height="50%" />
 
-
-<p><span style="font-size: 25px; color: #7FDBFF;"> 🎪   Biography</span></p>
 <ul>
 <li>Qing is looking for job oppotunity !!!</li>
 </ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 <hr>
 <p><span style="font-size: 25px; color: #7FDBFF;">🚀 News</span></p>
 <ul>
@@ -36,8 +41,8 @@
 </ul>
 </li>
 <li><span style="font-size: 20px">数据结构与算法</span> <ul>
-<li><a href="">冒泡排序算法思想</a></li>
-<li><a href="">32个经典算法</a></li>
+<li><a href="https://blog.csdn.net/qq_43073798/article/details/133343393?spm=1001.2014.3001.5501">冒泡排序算法思想</a></li>
+<li><a href="https://blog.csdn.net/qq_43073798/article/details/133343903?spm=1001.2014.3001.5501">32个经典算法</a></li>
 </ul>
 </li>
 <li><span style="font-size: 20px">编译原理学科</span></li>
